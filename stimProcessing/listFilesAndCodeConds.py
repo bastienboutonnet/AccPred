@@ -1,7 +1,7 @@
 import os, re
 import pandas as pd
 
-def listNames(path):
+def listNames(path,addSpliceOptions=False):
     filenames=os.listdir(path)
     count = 0
     for filename in filenames:
@@ -17,9 +17,13 @@ def listNames(path):
                 fileList=fileList.append(curFileRow)
             count += 1
     fileList=fileList.reset_index(drop=True)
+    if addSpliceOptions==True:
+        fileList['keepCont']=""
+        fileList['splice']=""
     return fileList
 
 if __name__=='__main__':
-    path=''
-    filesDf=listNames(path)
-    filesDf.to_csv('filenames.csv')
+    import time
+    t=time.strftime("%m%d%H%M")
+    filesDf=listNames(path='../stimToProcess/',addSpliceOptions=True)
+    filesDf.to_csv('filenames'+t+'.csv', index=False)
