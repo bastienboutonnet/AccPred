@@ -1,0 +1,3 @@
+fileA	fileB	outputFilename
+10_R	10_UR	10_UR_spliced
+11_UR	11_R	11_R_spliced
