@@ -7,9 +7,13 @@ def listNames(path,addSpliceOptions=False):
     for filename in filenames:
         if filename.endswith(".wav"):
             curSentID=re.findall(r'\d+',filename)
-            curRel=re.findall(r'related',filename)
-            if curRel!=['related']:
-                curRel='unrelated'
+            curRel=re.findall(r'(\_related|\_unrelated|\_control)',filename)
+            curRel=re.sub(r"\_",'',curRel[0])
+            #isControl=re.findall(r'control',filename)
+            #if curRel!=['related'] and isControl!=['control']:
+                #curRel='unrelated'
+           # else:
+                #curRel='control'
             if count<1:
                 fileList=pd.DataFrame({'filename':filename,'sentID':curSentID,'rel':curRel})
             else:
