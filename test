@@ -1,0 +1,5 @@
+fileName,keepCont,sentID,splice
+10_R,1,10,0
+10_UR,0,10,1
+11_R,0,11,1
+11_UR,1,11,0
