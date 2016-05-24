@@ -1,5 +1,6 @@
 import pandas as pd
 import easygui
+import re
 
 def generateSplicePattern():
     filename=easygui.fileopenbox(filetypes=['*.csv'])
@@ -11,9 +12,9 @@ def generateSplicePattern():
     for k, gp in grouped:
         curSubTable=grouped.get_group(k)
         #keep Context Test
-        val1=curSubTable['fileName'][(curSubTable['keepCont']==1)]
+        val1=curSubTable['filename'][(curSubTable['keepCont']==1)]
         #splice test
-        val2=curSubTable['fileName'][(curSubTable['splice']==1)]
+        val2=curSubTable['filename'][(curSubTable['splice']==1)]
         if count<1:
             res=pd.DataFrame({'fileA':val1.values,'fileB':val2.values})
         else:
@@ -23,7 +24,7 @@ def generateSplicePattern():
 
     res=res.reset_index(drop=True)
     #res['outputFilename']=res.fileB.str.cat('_spliced',sep='')
-    res['outputFilename']=res['fileB'].apply(lambda x: x+'_spliced')
+    res['outputFilename']=res['fileB'].apply(lambda x: re.sub(r'\.wav','',x)+'_spliced')
     return res
 
 if __name__=='__main__':
