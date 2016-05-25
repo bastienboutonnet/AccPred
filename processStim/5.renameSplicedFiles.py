@@ -4,8 +4,8 @@
 import os, re
 
 def renameAfterSplice(path):
-    os.chdir(path)
     filenames=os.listdir(path)
+    os.chdir(path)
     #remove from experimental sentences
     for filename in filenames:
         # firstPattern, up to _part
@@ -16,4 +16,4 @@ def renameAfterSplice(path):
         os.rename(filename,newName)
 
 if __name__=='__main__':
-    renameAfterSplice(path='./grat/')
+    renameAfterSplice(path='./spliced/')
