@@ -23,10 +23,13 @@ def generateSplicePattern():
         count+=1
 
     res=res.reset_index(drop=True)
+    ##Remove '.wav'
+    res['fileA']=res['fileA'].apply(lambda x: re.sub(r'\.wav','',x))
+    res['fileB']=res['fileB'].apply(lambda x: re.sub(r'\.wav','',x))
     #res['outputFilename']=res.fileB.str.cat('_spliced',sep='')
-    res['outputFilename']=res['fileB'].apply(lambda x: re.sub(r'\.wav','',x)+'_spliced')
+    res['fileR']=res['fileB'].apply(lambda x: re.sub(r'\.wav','',x)+'_spliced')
     return res
 
 if __name__=='__main__':
     pattern=generateSplicePattern()
-    pattern.to_csv('splicePattern.txt', index=False, sep='\t')
+    pattern.to_csv('../stimToProcess/splicePattern.txt', index=False, sep='\t')

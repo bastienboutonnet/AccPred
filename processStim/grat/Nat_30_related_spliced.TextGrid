@@ -1,0 +1,30 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = -0 
+xmax = 3.07356364080873 
+tiers? <exists> 
+size = 1 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "Nat_30_b_Bobby_unrelated_part" 
+        xmin = -0 
+        xmax = 3.07356364080873 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = -0 
+            xmax = 1.6218687451930265 
+            text = "" 
+        intervals [2]:
+            xmin = 1.6218687451930265 
+            xmax = 1.6790140817084402 
+            text = "de" 
+        intervals [3]:
+            xmin = 1.6790140817084402 
+            xmax = 1.9914538864489053 
+            text = "sneeuw" 
+        intervals [4]:
+            xmin = 1.9914538864489053 
+            xmax = 3.07356364080873 
+            text = "" 

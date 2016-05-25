@@ -10,7 +10,7 @@ form Splice
   endform
 
 
-idStr = Read Table from tab-separated file: "New.txt"
+idStr = Read Table from tab-separated file: "splicePattern.txt"
 
 nrRows = Get number of rows
 nrCols = Get number of columns
@@ -53,14 +53,14 @@ for row to nrRows
 
   selectObject: idTGpA, idTGpB
   idTGResult = Concatenate
-  Save as text file: fNameR$ + ".TextGrid"
+  Save as text file: "./spliced/" + fNameR$ + ".TextGrid"
 
   selectObject: idPartA, idPartB
   idResult = Concatenate
   if not normalise
-    Save as WAV file: fNameR$ + ".0.wav"
+    Save as WAV file: "./spliced/" + fNameR$ + ".0.wav"
   else
-    Save as WAV file: fNameR$ + ".1.wav"
+    Save as WAV file: "./spliced/" + fNameR$ + ".1.wav"
     endif
   removeObject: idTGa, idTGpA, idSndA, idPartA, idTGb, idTGpB, idSndB, idPartB, idTGResult, idResult
   endfor
