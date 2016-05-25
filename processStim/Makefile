@@ -7,9 +7,9 @@
 	python 2.listFilesAndCodeConds.py
 
 3:
-	echo "Step 3: assign splicings"
+	echo "Step 3: assign splicings Pick *Filename* File"
 	python 3.assignSplicing.py
 
 4:
-	echo "Step 4: generate splice pattern file for Praat"
+	echo "Step 4: generate splice pattern. Pick *spliceAssigned* File"
 	python 4.genSplicePattern.py
