@@ -13,3 +13,13 @@
 4:
 	echo "Step 4: generate splice pattern. Pick *spliceAssigned* File"
 	python 4.genSplicePattern.py
+
+5:
+	echo "Copying Praat Splice Script to processing hub"
+	cp 3.Splice.praat ../stimToProcess/3.Splice.praat
+	mkdir ../stimToProcess/spliced/
+
+6:
+	echo "Renaming Spliced Files"
+	mv ../stimToProcess/spliced/ ./spliced/
+	python 5.renameSplicedFiles.py

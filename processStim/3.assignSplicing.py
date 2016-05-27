@@ -22,4 +22,4 @@ if __name__=='__main__':
     filename=easygui.fileopenbox(filetypes=['*.csv'])
     df=pd.read_csv(filename)
     spliceAssignments=assignSplicingRules(df)
-    spliceAssignments.to_csv('siplceAssigned'+t+'.csv',index=False)
+    spliceAssignments.to_csv('spliceAssigned'+t+'.csv',index=False)
