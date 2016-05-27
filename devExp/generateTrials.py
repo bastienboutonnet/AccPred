@@ -69,4 +69,28 @@ def genTr(frame,firstBlockSize, secondBlockSize, firstBlockName, secondBlockName
 ###IMPLEMENTATION
 ###-----------------------
 if __name__ == "__main__":
+    #Generate Basic Trials
+    dbase=pd.read_csv('./stimDatabase/120allAbove70.csv',encoding='utf-16')
+    df=pd.DataFrame({'sentID':dbase['sentID']})
+    rel=add_blocks(df,60,name='relatedness',condList=['related','unrelated'])
+    speak=add_blocks(df,30,name='speaker',condList=['Nat','nonNat','Nat','nonNat'])
+    speak=speak[['speaker','sentID','relatedness']]
+    speak['filename']=speak.apply(lambda x: '_'.join(x.dropna().astype(str).values),axis=1)
+    speak=speak.sort_values(by="relatedness")
+    final=simple_shuffle(speak).reset_index(drop=True)
+
+    #Merge Experiment needed info from Database
+    dBaseToMerge=dbase[['sentID','hasQuestion','Question','yesOrNo']]
+    #####ATTENTION CHANGE THIS TO THE ACTUAL DURATION FILES
+    durations=pd.DataFrame({'sentID':final.sentID,'duration':np.random.randint(0,5,120)})
+    ######
+    hasQmerge=pd.merge(final,toMerge,how='left',on='sentID')
+    allMerge=pd.merge(hasQmerge,durations,how='left',on='sentID')
+    allMerge['part']='experiment'
+    ###### DON'T FORGET TO ADD AS MANY COLUMNS TO PRACTSENTS AS THERE
+    ######ARE IN THE FINAL DURATION FILE
+    practSents=pd.read_csv('./stimDatabase/practSents.csv',encoding='utf-16',sep='\t')
+    ##########
+    finalTrials=pd.concat([allMerge,practSents])
+
     
