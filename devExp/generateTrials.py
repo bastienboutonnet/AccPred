@@ -70,7 +70,7 @@ def genTr(frame,firstBlockSize, secondBlockSize, firstBlockName, secondBlockName
 ###-----------------------
 if __name__ == "__main__":
     #Generate Basic Trials
-    dbase=pd.read_csv('./stimDatabase/120allAbove70.csv',encoding='utf-16')
+    dbase=pd.read_csv('./database/120allAbove70.csv',encoding='utf-16')
     df=pd.DataFrame({'sentID':dbase['sentID']})
     rel=add_blocks(df,60,name='relatedness',condList=['related','unrelated'])
     speak=add_blocks(df,30,name='speaker',condList=['Nat','nonNat','Nat','nonNat'])
@@ -90,6 +90,6 @@ if __name__ == "__main__":
     ###### DON'T FORGET TO ADD AS MANY COLUMNS TO PRACTSENTS AS THERE
     ######ARE IN THE FINAL DURATION FILE
     #### ALSO MATCHING WILL HAVE TO BE DONE ON **FILENAME** SINCE DURATIONS ARE DIFFERENT FOR EACH FILE!
-    practSents=pd.read_csv('./stimDatabase/practSents.csv',encoding='utf-16',sep='\t')
+    practSents=pd.read_csv('./database/practSents.csv',encoding='utf-16',sep='\t')
     ##########
     finalTrials=pd.concat([allMerge,practSents])
