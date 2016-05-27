@@ -89,8 +89,7 @@ if __name__ == "__main__":
     allMerge['part']='experiment'
     ###### DON'T FORGET TO ADD AS MANY COLUMNS TO PRACTSENTS AS THERE
     ######ARE IN THE FINAL DURATION FILE
+    #### ALSO MATCHING WILL HAVE TO BE DONE ON **FILENAME** SINCE DURATIONS ARE DIFFERENT FOR EACH FILE!
     practSents=pd.read_csv('./stimDatabase/practSents.csv',encoding='utf-16',sep='\t')
     ##########
     finalTrials=pd.concat([allMerge,practSents])
-
-    
