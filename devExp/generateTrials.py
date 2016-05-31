@@ -59,18 +59,7 @@ def add_blocks(frame, size, name='block', condList=None, id_col=None, start_at=0
         new_frame[name]=new_frame[name]
         return new_frame
 
-def genTr(frame,firstBlockSize, secondBlockSize, firstBlockName, secondBlockName,seedOfShuffle=None):
-    #df=simple_shuffle(df)
-    rel=add_blocks(frame,firstBlockSize,name=firstBlockName,condList=['related','unrelated'])
-    speak=add_blocks(rel,secondBlockSize,name=secondBlockName,condList=['native','nonNative','native','nonNative'])
-    speak.sort_values(by=firstBlockName)
-
-    return speak
-
-###IMPLEMENTATION
-###-----------------------
-if __name__ == "__main__":
-    #Generate Basic Trials
+def main(seed=None,):
     dbase=pd.read_csv('../database/120allAbove70.csv',encoding='utf-16')
     df=pd.DataFrame({'sentID':dbase['sentID']})
     rel=add_blocks(df,60,name='relatedness',condList=['related','unrelated'])
@@ -78,7 +67,7 @@ if __name__ == "__main__":
     speak=speak[['speaker','sentID','relatedness']]
     speak['filename']=speak.apply(lambda x: '_'.join(x.dropna().astype(str).values),axis=1)
     speak=speak.sort_values(by="relatedness")
-    final=simple_shuffle(speak).reset_index(drop=True)
+    final=simple_shuffle(speak,seed=seed).reset_index(drop=True)
 
     #Merge Experiment needed info from Database
     dBaseToMerge=dbase[['sentID','hasQuestion','Question','yesOrNo']]
@@ -94,4 +83,12 @@ if __name__ == "__main__":
     ##########
     finalTrials=pd.concat([hasTimings,practSents])
 
-    finalTrials.to_csv('tials.csv',index=False,encoding='utf-16')
+    finalTrials.to_csv('trials/trialList_' +subjCode +'.csv',encoding='utf-16',index=False)
+    return finalTrials
+
+###IMPLEMENTATION
+###-----------------------
+if __name__ == "__main__":
+    #Generate Basic Trials
+    trs=main(1) #obtain this seed from the participant information
+    trs.to_csv('trials/trialList_' +subjCode +'.csv',encoding='utf-16',index=False)
