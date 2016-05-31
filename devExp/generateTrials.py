@@ -59,7 +59,7 @@ def add_blocks(frame, size, name='block', condList=None, id_col=None, start_at=0
         new_frame[name]=new_frame[name]
         return new_frame
 
-def main(seed=None,):
+def main(subjCode,seed=None):
     dbase=pd.read_csv('../database/120allAbove70.csv',encoding='utf-16')
     df=pd.DataFrame({'sentID':dbase['sentID']})
     rel=add_blocks(df,60,name='relatedness',condList=['related','unrelated'])
@@ -78,17 +78,20 @@ def main(seed=None,):
     timings=pd.read_table('../database/timings.txt',sep='\t')
     hasTimings=pd.merge(hasQmerge,timings,how='left',on='filename')
 
+    #Add Trial index
+    hasTimings['trialIndex']=xrange(1,len(hasTimings)+1)
+
     #Add practice trials
     practSents=pd.read_csv('../database/practiceSentences.csv',encoding='utf-16',sep='\t')
+    practSents['trialIndex']=0
     ##########
-    finalTrials=pd.concat([hasTimings,practSents])
+    finalTrials=pd.concat([practSents,hasTimings])
 
     finalTrials.to_csv('trials/trialList_' +subjCode +'.csv',encoding='utf-16',index=False)
     return finalTrials
 
-###IMPLEMENTATION
-###-----------------------
+
 if __name__ == "__main__":
-    #Generate Basic Trials
-    trs=main(1) #obtain this seed from the participant information
-    trs.to_csv('trials/trialList_' +subjCode +'.csv',encoding='utf-16',index=False)
+    import time
+    t=time.strftime("%m%d%H%M")
+    trialList=main('dummySubject'+t,seed=1)
