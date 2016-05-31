@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from numpy.random import RandomState
 from itertools import product
 
@@ -70,7 +71,7 @@ def genTr(frame,firstBlockSize, secondBlockSize, firstBlockName, secondBlockName
 ###-----------------------
 if __name__ == "__main__":
     #Generate Basic Trials
-    dbase=pd.read_csv('./database/120allAbove70.csv',encoding='utf-16')
+    dbase=pd.read_csv('../database/120allAbove70.csv',encoding='utf-16')
     df=pd.DataFrame({'sentID':dbase['sentID']})
     rel=add_blocks(df,60,name='relatedness',condList=['related','unrelated'])
     speak=add_blocks(df,30,name='speaker',condList=['Nat','nonNat','Nat','nonNat'])
@@ -81,15 +82,16 @@ if __name__ == "__main__":
 
     #Merge Experiment needed info from Database
     dBaseToMerge=dbase[['sentID','hasQuestion','Question','yesOrNo']]
-    #####ATTENTION CHANGE THIS TO THE ACTUAL DURATION FILES
-    durations=pd.DataFrame({'sentID':final.sentID,'duration':np.random.randint(0,5,120)})
-    ######
-    hasQmerge=pd.merge(final,toMerge,how='left',on='sentID')
-    allMerge=pd.merge(hasQmerge,durations,how='left',on='sentID')
-    allMerge['part']='experiment'
-    ###### DON'T FORGET TO ADD AS MANY COLUMNS TO PRACTSENTS AS THERE
-    ######ARE IN THE FINAL DURATION FILE
-    #### ALSO MATCHING WILL HAVE TO BE DONE ON **FILENAME** SINCE DURATIONS ARE DIFFERENT FOR EACH FILE!
-    practSents=pd.read_csv('./database/practSents.csv',encoding='utf-16',sep='\t')
+    hasQmerge=pd.merge(final,dBaseToMerge,how='left',on='sentID')
+    hasQmerge['part']='experiment'
+
+    #Merge Timings
+    timings=pd.read_table('../database/timings.txt',sep='\t')
+    hasTimings=pd.merge(hasQmerge,timings,how='left',on='filename')
+
+    #Add practice trials
+    practSents=pd.read_csv('../database/practiceSentences.csv',encoding='utf-16',sep='\t')
     ##########
-    finalTrials=pd.concat([allMerge,practSents])
+    finalTrials=pd.concat([hasTimings,practSents])
+
+    finalTrials.to_csv('tials.csv',index=False,encoding='utf-16')

@@ -31,7 +31,7 @@ for file to nrFiles
   t3 = Get starting point: 1, 3
   t4 = Get starting point: 1, 4
 
-  appendFileLine: resultFile$, oname$ + ".wav", tab$, fixed$(totDur, 3), tab$, fixed$(t2, 3), tab$, fixed$(t3, 3), tab$, fixed$(t4, 3)
+  appendFileLine: resultFile$, oname$, tab$, fixed$(totDur, 3), tab$, fixed$(t2, 3), tab$, fixed$(t3, 3), tab$, fixed$(t4, 3)
   removeObject: idTG
   endfor
 

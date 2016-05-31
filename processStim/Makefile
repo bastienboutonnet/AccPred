@@ -21,5 +21,6 @@
 
 6:
 	echo "Renaming Spliced Files"
-	mv ../stimToProcess/spliced/ ./spliced/
+	mv ../stimToProcess/spliced/*.wav ./spliced/
+	mv ../stimToProcess/spliced/*.TextGrid ./spliced/
 	python 5.renameSplicedFiles.py
