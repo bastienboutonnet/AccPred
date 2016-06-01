@@ -114,6 +114,37 @@ def playSentenceAndTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,
 	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"endSentence"])
 	return
 
+def playSentenceNoTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,totalLen,trigDet, trigOffsetNoun):
+    int1=onsetDet
+    int2=onsetNoun-onsetDet
+    int3=offsetNoun-int2
+    int4=totalLen-int3
+
+    #triggerWord=visual.TextStim(win, text='+') #Better to implement this via a fixation cross/dot that changes colour.
+	#triggerWord.draw()
+	sDuration=soundFile.getDuration()
+	soundFile.play()
+	core.wait(int1) #wait till trigger time
+	#parallel.setData(trigDet)
+	print 'onsetDet'
+	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"onsetDet",trigDet])
+
+	core.wait(int2)
+	#parallel.setData(0)
+	print 'onsetNoun'
+	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"onsetNoun"])
+
+	core.wait(int3)
+	#parallel.setData(trigOffsetNoun)
+	print 'offsetNoun'
+	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"offsetNoun",trigOffsetNoun])
+
+	core.wait(int4)
+	#parallel.setData(0)
+	print 'endSentence'
+	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"endSentence"])
+	return
+
 def playSentenceAndTrigger(self,win,soundFile,trigger1Time, trigger2Time,curTrial,trigDuration=.1):
 	#triggerWord=visual.TextStim(win, text='#########')
 	#triggerWord.draw()
