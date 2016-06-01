@@ -78,3 +78,44 @@ def enterSubjInfo(expName,optionList):
 			return [False,error]
 	else:
 		core.quit()
+##Get Keyboard response
+##________________________
+def getKeyboardResponse(validResponses,duration=0):
+	event.clearEvents()
+	responded = False
+	done = False
+	rt = '*'
+	responseTimer = core.Clock()
+	while True:
+		if not responded:
+			responded = event.getKeys(validResponses, responseTimer)
+		if duration>0:
+			if responseTimer.getTime() > duration:
+				break
+		else: #end on response
+			if responded:
+				break
+	if not responded:
+		return ['*','*']
+	else:
+		return responded[0] #only get the first resp
+
+
+def createRespNew(allSubjVariables,subjVariables,fieldVarNames,fieldVars,**respVars):
+	"""Creates  a key and value list of all the variables passed in from various sources (runtime, trial params, dep. vars."""
+
+	def stripUnderscores(keyList):
+		return [curKey.split('_')[1] for curKey in keyList]
+
+	trial = [] #initalize array
+	header=[]
+	for curSubjVar, varInfo in sorted(allSubjVariables.items()):
+		header.append(allSubjVariables[curSubjVar]['name'])
+		trial.append(subjVariables[varInfo['name']])
+	for curFieldVar in fieldVars:
+		trial.append(curFieldVar)
+	for curRespVar in sortDictValues(respVars):
+		trial.append(str(curRespVar))
+	header.extend(fieldVarNames)
+	header.extend(stripUnderscores(sortDictValues(respVars,'keys')))
+	return [header,trial]

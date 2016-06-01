@@ -87,26 +87,90 @@ def playSentenceAndTriggerVisual(win,soundFile,trigger1Time, trigger2Time,trigDu
 	core.wait((sDuration-trigger2Time)-trigDuration) #wait till end of sentence
 	return
 
-def playSentenceAndTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,totalLen):
+def playSentenceAndTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,totalLen,trigDet, trigOffsetNoun):
     int1=onsetDet
     int2=onsetNoun-onsetDet
     int3=offsetNoun-int2
     int4=totalLen-int3
-    
-    triggerWord=visual.TextStim(win, text='+') #Better to implement this via a fixation cross/dot that changes colour.
-	triggerWord.draw()
+
+    #triggerWord=visual.TextStim(win, text='+') #Better to implement this via a fixation cross/dot that changes colour.
+	#triggerWord.draw()
 	sDuration=soundFile.getDuration()
 	soundFile.play()
 	core.wait(onsetDet) #wait till trigger time
-	win.flip() #send Trigger 1
+	parallel.setData(trigDet)
+	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"onsetDet",trigDet])
+
 	core.wait(onsetNoun)
-	win.flip() #0
+	parallel.setData(0)
+	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"onsetNoun",trigNoun])
+
 	core.wait(offsetNoun)
-	triggerWord.draw()
-	win.flip() ########################################################THIS WILL GO AWAY WHEN NO NEED OF VISUAL PRES
+	parallel.setData(trigOffsetNoun)
+	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"offsetNoun",trigOffsetNoun])
+
 	core.wait(totalLen)
-	win.flip()
+	parallel.setData(0)
+	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"endSentence"])
 	return
+
+def playSentenceAndTrigger(self,win,soundFile,trigger1Time, trigger2Time,curTrial,trigDuration=.1):
+	#triggerWord=visual.TextStim(win, text='#########')
+	#triggerWord.draw()
+	sDuration=soundFile.getDuration()
+	soundFile.play()
+	core.wait(trigger1Time) #wait till trigger time
+	#win.flip() #send Trigger
+	parallel.setData(122)
+	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"standard",122])
+	core.wait(trigDuration)
+	#win.flip() #wait for minimum duration needed for tigger recording
+	parallel.setData(0)
+	core.wait((trigger2Time-trigger1Time)-trigDuration)
+	#triggerWord.draw()
+	#win.flip() ########################################################THIS WILL GO AWAY WHEN NO NEED OF VISUAL PRES
+	parallel.setData(150)
+	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"deviant",122])
+	core.wait(trigDuration)
+	#win.flip()
+	parallel.setData(0)
+	core.wait((sDuration-trigger2Time)-trigDuration) #wait till end of sentence
+	return
+
+def playAndWait(sound,soundPath='',winSound=False,waitFor=-1):
+	"""Sound (other than winSound) runs on a separate thread. Waitfor controls how long to pause before resuming. -1 for length of sound"""
+	if not winSoundLoaded:
+		winSound=False
+	if prefs.general['audioLib'] == ['pygame']:
+                #default to using winsound
+                winSound=True
+	if winSound:
+                print 'using winsound to play sound'
+		if waitFor != 0:
+			winsound.PlaySound(sound,winsound.SND_MEMORY)
+		else: #playing asynchronously - need to load the path.
+			if soundPath:
+				winsound.PlaySound(soundPath, winsound.SND_FILENAME|winsound.SND_ASYNC)
+			else:
+				sys.exit("sound path not provided to playAndWait")
+		return
+	else:
+		if waitFor<0:
+			waitDurationInSecs = sound.getDuration()
+		elif waitFor>0:
+			waitDurationInSecs = waitFor
+		else:
+			waitDurationInSecs=0
+
+		if waitDurationInSecs>0:
+			sound.play()
+			core.wait(waitDurationInSecs)
+			sound.stop()
+			return
+		else:
+			sound.play()
+			print 'returning right away'
+			return
 
 def waitingAnimation(win,size=20,distanceBetweenElements=3,numElements=8,delay=.5,color="#333333"):
 	totalWidth = numElements*(size+distanceBetweenElements)

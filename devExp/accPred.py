@@ -59,6 +59,7 @@ class Exp:
 			#except:
 				#pass
         self.inputDevice = "keyboard"
+		self.responseInfoReminder = "0 = No    1 = Yes"
 
         if self.subjVariables['screenMode']=='fs':
             self.win = visual.Window(fullscr=True, color='gray', allowGUI=False, monitor='testMonitor',units='pix')
@@ -71,6 +72,8 @@ class Exp:
 		self.finalText = "This is the end of experiment :) Thank you for your participation!"
 		self.takeBreakEveryXTrials=self.subjVariables['breakEvery']
 		self.takeBreak = "Please take a short break.  Press one of the response keys to continue"
+		self.afterSentenceDelay=.5
+		self.afterQuestionDelay=.5
 
 		generateTrials.main(self.subjVariables['subjCode'],self.subjVariables['seed'])
 
@@ -104,8 +107,42 @@ class ExpPresentation(trial):
 	def showTestTrial(self,curTrial, trialIndex):
 		#s=sound.Sound(self.soundMatrix[curTrial['label']])
 		print curTrial['soundFile']
-		playSentenceAndTrigger(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'],,curTrial['onsetNoun'],curTrial['offsetNoun'],curTrial['totalLen'])
+		responseInfoReminder = visual.TextStim(self.experiment.win,text=self.experiment.responseInfoReminder,pos=(0,-200), height = 30,color="blue")
+		questionText=visual.TextStim(self.experiment.win,text=curTrial['Question'],pos=(0,0),height=30,colour="black")
 
+		playSentenceAndTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'],,curTrial['onsetNoun'],curTrial['offsetNoun'],curTrial['totalLen'])
+		core.wait(self.experiment.afterSentenceDelay)
+
+		if curTrial['hasQuestion']==1:
+			setAndPresentStimulus(self.experiment.win,[responseInfoReminder,questionText])
+			(response,rt) = getKeyboardResponse(self.experiment.validResponses.keys())
+
+			if self.experiment.validResponses[response]==curTrial['yesOrNo']:
+				isRight=1
+				playAndWait(self.soundMatrix['bleep'])
+			else:
+				isRight=0
+				playAndWait(self.soundMatrix['buzz'])
+
+		fieldVars=[]
+		for curField in self.fieldNamesTest:
+			fieldVars.append(curTrial[curField])
+		[header, curLine] = createRespNew(self.experiment.optionList, self.experiment.subjVariables, self.fieldNamesTest, fieldVars,
+		a_expTimer = self.expTimer.getTime(),
+		b_whichPart = part,
+		c_trialIndex = trialIndex,
+		f_response = response,
+		g_response = self.experiment.validResponses[response],
+		h_isRight = isRight,
+		i_rt = rt*1000)
+		writeToFile(self.experiment.testFile,curLine)
+
+		#write the header with col names to the file
+		if trialIndex==0 and part!='practice':
+			print "Writing header to file..."
+			dirtyHack = {}
+			dirtyHack['trialNum']=1
+			writeHeader(dirtyHack, header,'header_test'+self.experiment.expName)
 
 	def cycleThroughExperimentTrials(self): #CHECK OUT PRACTICE STUFF
 		curTrialIndex=0
@@ -117,6 +154,10 @@ class ExpPresentation(trial):
 				showText(self.experiment.win,self.experiment.takeBreak,color=(-1,-1,-1),inputDevice=self.experiment.inputDevice) #take a break
 				waitingAnimation(currentExp.win,color="PowderBlue")
 			setAndPresentStimulus(self.experiment.win,[self.fixSpot])
+			core.wait(.2)
+			setAndPresentStimulus(self.experiment.win,[self.fixSpotReady])
+			core.wait(.2)
+			setAndPresentStimulus(self.experiment.win,[self.fixSpotPlay])
 			self.showTestTrial(curTrial,curTrialIndex)
 			curTrialIndex+=1
 			self.experiment.win.flip()
