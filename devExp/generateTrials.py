@@ -59,6 +59,16 @@ def add_blocks(frame, size, name='block', condList=None, id_col=None, start_at=0
         new_frame[name]=new_frame[name]
         return new_frame
 
+def addTrig(df):
+    if df['speaker']=='Nat' and df['relatedness']=='related':
+        return '11'
+    if df['speaker']=='Nat' and df['relatedness']=='unrelated':
+        return '12'
+    if df['speaker']=='nonNat' and df['relatedness']=='related':
+        return '21'
+    if df['speaker']=='nonNat' and df['relatedness']=='unrelated':
+        return '22'
+
 def main(subjCode,seed=None):
     dbase=pd.read_csv('../database/120allAbove70.csv',encoding='utf-16')
     df=pd.DataFrame({'sentID':dbase['sentID']})
@@ -86,6 +96,9 @@ def main(subjCode,seed=None):
     practSents['trialIndex']=0
     ##########
     finalTrials=pd.concat([practSents,hasTimings])
+
+    finalTrials['trigDet']=finalTrials.apply(lambda row: addTrig(row),axis=1)
+    finalTrials['trigOffsetNoun']=finalTrials.trigDet+"9"
 
     finalTrials.to_csv('trials/trialList_' +subjCode +'.csv',encoding='utf-16',index=False)
     return finalTrials
