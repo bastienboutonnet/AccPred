@@ -3,6 +3,46 @@
 # 2. Import Trials
 # 3. Load Subject info
 #---------------------------
+import numpy
+
+from psychopy import prefs
+from psychopy import gui
+
+try:
+	import winsound
+except ImportError:
+	print "Warning: winsound not found; will try using pyo/pyaudio"
+        try:
+                import pyo
+                print "Attempting to use pyo for sounds"
+                prefs.general['audioLib'] = ['pyo']
+                prefs.general['audioDriver'] = ['coreaudio']
+        except:
+                print 'could not load pyo'
+from psychopy import sound,core, visual
+
+
+if prefs.general['audioLib'][0] == 'pyo':
+    print 'initializing pyo'
+    sound.init(48000,buffer=128)
+print 'Using %s(with %s) for sounds' %(sound.audioLib, sound.audioDriver)
+
+from psychopy import core,logging,event,visual,data,misc
+import glob,os,random,sys,gc,time,hashlib,subprocess
+from math import *
+
+# try:
+# 	import pygame
+# 	from pygame.locals import *
+# except ImportError:
+# 	print "Warning: pygame not found; will be using pyglet for stim presentation"
+#pygame.mixer.pre_init(44100,-16,1, 4096) # pre-initialize to reduce the delay
+try:
+	from scipy import ndimage
+except ImportError:
+	pass
+
+
 ##Load Files
 def loadFiles(directory,extension,fileType,win='',whichFiles='*',stimList=[]):
 	""" Load all the pics and sounds"""

@@ -1,15 +1,17 @@
 	# -*- coding: utf-8 -*-
 import time, socket
 import numpy
-import glob,os,random,sys,gc,time
+import glob, os, random, sys, gc, time
 import psychopy
+from psychopy import gui
 from psychopy import prefs
 psychopy.prefs.general['audioLib'] = [u'pygame']
-from psychopy import core, visual,sound,event,data,gui,misc, logging
+from psychopy import core, visual,sound,event,data,misc, logging
+from psychopy import visual
 import generateTrials
 from stimPresFoo import *
 from baseFoo import *
-parallel.setPortAddress(address=0xD010)
+#parallel.setPortAddress(address=0xD010)
 
 
 #SetUp Experiment class
@@ -49,8 +51,8 @@ class Exp:
 		optionsReceived=False
 		fileOpened=False
 
-        ##Wait & Listen for User info and set up datafiles
-        while not optionsReceived or not fileOpened:
+		##Wait & Listen for User info and set up datafiles
+		while not optionsReceived or not fileOpened:
 			[optionsReceived,self.subjVariables] = enterSubjInfo(self.expName,self.optionList)
 			if not optionsReceived:
 				popupError(self.subjVariables)
@@ -65,25 +67,25 @@ class Exp:
 				fileOpened=True
 			#except:
 				#pass
-        self.inputDevice = "keyboard"
-		self.responseInfoReminder = "0 = No    1 = Yes"
+		self.inputDevice = "keyboard"
 
-        if self.subjVariables['screenMode']=='fs':
-            self.win = visual.Window(fullscr=True, color='gray', allowGUI=False, monitor='testMonitor',units='pix')
-        else:
-            self.win = visual.Window([800,800], color='gray', allowGUI=False, monitor='testMonitor',units='pix')
+		if self.subjVariables['screenMode']=='fs':
+			self.win = visual.Window(fullscr=True, color='gray', allowGUI=False, monitor='testMonitor',units='pix',screen=1)
+		else:
+			self.win = visual.Window([800,800], color='gray', allowGUI=False, monitor='testMonitor',units='pix',screen=1)
 
-        self.presRate = .096 ########### Might be un-necessary for this particular procedure.
+		self.presRate = .096 ########### Might be un-necessary for this particular procedure.
 
-        self.instructions = "In this task, you will hear a series of 'beeps'.\nYour task is to try and catch the 'high' pitched beeps as fast as you can by pressing the SPACE bar.\n\nIt's that simple!\n\nWhen you are ready press any key to Start."
+		self.instructions = "In this task, you will hear a series of 'beeps'.\nYour task is to try and catch the 'high' pitched beeps as fast as you can by pressing the SPACE bar.\n\nIt's that simple!\n\nWhen you are ready press any key to Start."
 		self.finalText = "This is the end of experiment :) Thank you for your participation!"
 		self.takeBreakEveryXTrials=self.subjVariables['breakEvery']
 		self.takeBreak = "Please take a short break.  Press one of the response keys to continue"
 		self.afterSentenceDelay=.5
 		self.afterQuestionDelay=.5
+		self.responseInfoReminder = "0 = No    1 = Yes"
 
 		generateTrials.main(self.subjVariables['subjCode'],self.subjVariables['seed'])
-		if self.subjVariables['parallel']=='yes':
+		if self.subjVariables['useParallel']=='yes':
 			parallel.setPortAddress(address=0xD010)
 
 ### COME BACK TO THIS ONE NOT SURE WHAT IT DOES
@@ -116,14 +118,14 @@ class ExpPresentation(trial):
 
 	def showTestTrial(self,curTrial, trialIndex):
 		#s=sound.Sound(self.soundMatrix[curTrial['label']])
-		print curTrial['soundFile']
+		print curTrial['filename']
 		responseInfoReminder = visual.TextStim(self.experiment.win,text=self.experiment.responseInfoReminder,pos=(0,-200), height = 30,color="blue")
 		questionText=visual.TextStim(self.experiment.win,text=curTrial['Question'],pos=(0,0),height=30,colour="black")
 
 		if self.subjVariables['parallel']=='yes':
-			playSentenceAndTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'],,curTrial['onsetNoun'],curTrial['offsetNoun'],curTrial['totalLen'], curTrial['trigDet'],curTrial['trigOffsetNoun'])
+			playSentenceAndTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'],curTrial['onsetNoun'],curTrial['offsetNoun'],curTrial['totalLen'], curTrial['trigDet'],curTrial['trigOffsetNoun'])
 		else:
-			playSentenceNoTriggerNonVisual((self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'],,curTrial['onsetNoun'],curTrial['offsetNoun'],curTrial['totalLen'], curTrial['trigDet'],curTrial['trigOffsetNoun']))
+			playSentenceNoTriggerNonVisual((self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'],curTrial['onsetNoun'],curTrial['offsetNoun'],curTrial['totalLen'], curTrial['trigDet'],curTrial['trigOffsetNoun']))
 
 		core.wait(self.experiment.afterSentenceDelay)
 

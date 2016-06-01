@@ -5,6 +5,7 @@
 # 4. Waiting Animation
 # 5. Error popup
 #---------------------------
+from psychopy import visual,core,event,data,info,prefs
 ##Present Text Stimuli
 def showText(win,textToShow,color=[-1,-1,-1],waitForKey=True,acceptOnly=0,inputDevice="keyboard",mouse=False,pos=[0,0],scale=1):
 	global event
@@ -88,12 +89,12 @@ def playSentenceAndTriggerVisual(win,soundFile,trigger1Time, trigger2Time,trigDu
 	return
 
 def playSentenceAndTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,totalLen,trigDet, trigOffsetNoun):
-    int1=onsetDet
-    int2=onsetNoun-onsetDet
-    int3=offsetNoun-int2
-    int4=totalLen-int3
+	int1=onsetDet
+	int2=onsetNoun-onsetDet
+	int3=offsetNoun-int2
+	int4=totalLen-int3
 
-    #triggerWord=visual.TextStim(win, text='+') #Better to implement this via a fixation cross/dot that changes colour.
+	#triggerWord=visual.TextStim(win, text='+') #Better to implement this via a fixation cross/dot that changes colour.
 	#triggerWord.draw()
 	sDuration=soundFile.getDuration()
 	soundFile.play()
@@ -115,12 +116,12 @@ def playSentenceAndTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,
 	return
 
 def playSentenceNoTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,totalLen,trigDet, trigOffsetNoun):
-    int1=onsetDet
-    int2=onsetNoun-onsetDet
-    int3=offsetNoun-int2
-    int4=totalLen-int3
+	int1=onsetDet
+	int2=onsetNoun-onsetDet
+	int3=offsetNoun-int2
+	int4=totalLen-int3
 
-    #triggerWord=visual.TextStim(win, text='+') #Better to implement this via a fixation cross/dot that changes colour.
+	#triggerWord=visual.TextStim(win, text='+') #Better to implement this via a fixation cross/dot that changes colour.
 	#triggerWord.draw()
 	sDuration=soundFile.getDuration()
 	soundFile.play()
@@ -173,10 +174,10 @@ def playAndWait(sound,soundPath='',winSound=False,waitFor=-1):
 	if not winSoundLoaded:
 		winSound=False
 	if prefs.general['audioLib'] == ['pygame']:
-                #default to using winsound
-                winSound=True
+				#default to using winsound
+				winSound=True
 	if winSound:
-                print 'using winsound to play sound'
+		print 'using winsound to play sound'
 		if waitFor != 0:
 			winsound.PlaySound(sound,winsound.SND_MEMORY)
 		else: #playing asynchronously - need to load the path.

@@ -100,7 +100,7 @@ def main(subjCode,seed=None):
     finalTrials['trigDet']=finalTrials.apply(lambda row: addTrig(row),axis=1)
     finalTrials['trigOffsetNoun']=finalTrials.trigDet+"9"
 
-    finalTrials.to_csv('trials/trialList_' +subjCode +'.csv',encoding='utf-16',index=False)
+    finalTrials.to_csv('trials/trialList_' +subjCode +'.csv',encoding='utf-8',index=False)
     return finalTrials
 
 
