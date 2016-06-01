@@ -97,19 +97,19 @@ def playSentenceAndTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,
 	#triggerWord.draw()
 	sDuration=soundFile.getDuration()
 	soundFile.play()
-	core.wait(onsetDet) #wait till trigger time
+	core.wait(int1) #wait till trigger time
 	parallel.setData(trigDet)
 	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"onsetDet",trigDet])
 
-	core.wait(onsetNoun)
+	core.wait(int2)
 	parallel.setData(0)
-	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"onsetNoun",trigNoun])
+	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"onsetNoun"])
 
-	core.wait(offsetNoun)
+	core.wait(int3)
 	parallel.setData(trigOffsetNoun)
 	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"offsetNoun",trigOffsetNoun])
 
-	core.wait(totalLen)
+	core.wait(int4)
 	parallel.setData(0)
 	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"endSentence"])
 	return

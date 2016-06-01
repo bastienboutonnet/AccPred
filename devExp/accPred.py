@@ -54,6 +54,7 @@ class Exp:
 				fileOpened=False
 			else:
 				self.eventTracker = open('data/'+self.subjVariables['subjCode']+'_eventTracker.txt','w')
+				self.testFile = open('data/'+self.subjVariables['subjCode']+'.txt','w')
 
 				fileOpened=True
 			#except:
@@ -110,7 +111,8 @@ class ExpPresentation(trial):
 		responseInfoReminder = visual.TextStim(self.experiment.win,text=self.experiment.responseInfoReminder,pos=(0,-200), height = 30,color="blue")
 		questionText=visual.TextStim(self.experiment.win,text=curTrial['Question'],pos=(0,0),height=30,colour="black")
 
-		playSentenceAndTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'],,curTrial['onsetNoun'],curTrial['offsetNoun'],curTrial['totalLen'])
+		playSentenceAndTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'],,curTrial['onsetNoun'],curTrial['offsetNoun'],curTrial['totalLen'], curTrial['trigDet'],curTrial['trigOffsetNoun'])
+
 		core.wait(self.experiment.afterSentenceDelay)
 
 		if curTrial['hasQuestion']==1:
@@ -135,7 +137,8 @@ class ExpPresentation(trial):
 		g_response = self.experiment.validResponses[response],
 		h_isRight = isRight,
 		i_rt = rt*1000)
-		writeToFile(self.experiment.testFile,curLine)
+		if part != 'practice':
+			writeToFile(self.experiment.testFile,curLine)
 
 		#write the header with col names to the file
 		if trialIndex==0 and part!='practice':
@@ -163,6 +166,7 @@ class ExpPresentation(trial):
 			self.experiment.win.flip()
 			core.wait(.2)
 		self.experiment.eventTracker.close()
+		self.experiment.testFile.close()
 
 ###Experiment Step Launching
 #---------------------------
