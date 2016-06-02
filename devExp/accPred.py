@@ -120,7 +120,7 @@ class ExpPresentation(trial):
 		#s=sound.Sound(self.soundMatrix[curTrial['label']])
 		print curTrial['filename']
 		responseInfoReminder = visual.TextStim(self.experiment.win,text=self.experiment.responseInfoReminder,pos=(0,-200), height = 30,color="blue")
-		questionText=visual.TextStim(self.experiment.win,text=curTrial['Question'],pos=(0,0),height=30,colour="black")
+		questionText=visual.TextStim(self.experiment.win,text=curTrial['Question'],pos=(0,0),height=30,color="black")
 
 		if self.subjVariables['parallel']=='yes':
 			playSentenceAndTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'],curTrial['onsetNoun'],curTrial['offsetNoun'],curTrial['totalLen'], curTrial['trigDet'],curTrial['trigOffsetNoun'])
