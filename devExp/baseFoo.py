@@ -159,3 +159,25 @@ def createRespNew(allSubjVariables,subjVariables,fieldVarNames,fieldVars,**respV
 	header.extend(fieldVarNames)
 	header.extend(stripUnderscores(sortDictValues(respVars,'keys')))
 	return [header,trial]
+
+def writeHeader(curTrial,headerText,fileName='header'):
+	try:
+		if curTrial['trialNum']==1:
+			if os.path.isfile(fileName+'.txt'): # file already exists
+				print 'header file exists'
+				return False
+			else:
+				headerFile = open(fileName+'.txt','w')
+				writeToFile(headerFile,headerText)
+				return True
+	except:
+		return False
+
+def writeToFile(fileHandle,trial,sync=True):
+	"""Writes a trial (array of lists) to a fileHandle"""
+	line = '\t'.join([str(i) for i in trial]) #TABify
+	line += '\n' #add a newline
+	fileHandle.write(line)
+	if sync:
+		fileHandle.flush()
+		os.fsync(fileHandle)

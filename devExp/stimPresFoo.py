@@ -6,6 +6,7 @@
 # 5. Error popup
 #---------------------------
 from psychopy import visual,core,event,data,info,prefs
+import os
 ##Present Text Stimuli
 def showText(win,textToShow,color=[-1,-1,-1],waitForKey=True,acceptOnly=0,inputDevice="keyboard",mouse=False,pos=[0,0],scale=1):
 	global event
@@ -88,7 +89,7 @@ def playSentenceAndTriggerVisual(win,soundFile,trigger1Time, trigger2Time,trigDu
 	core.wait((sDuration-trigger2Time)-trigDuration) #wait till end of sentence
 	return
 
-def playSentenceAndTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,totalLen,trigDet, trigOffsetNoun):
+def playSentenceAndTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,totalLen,trigDet, trigOffsetNoun,eventFile, curTrial,timer):
 	int1=onsetDet
 	int2=onsetNoun-onsetDet
 	int3=offsetNoun-int2
@@ -100,22 +101,22 @@ def playSentenceAndTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,
 	soundFile.play()
 	core.wait(int1) #wait till trigger time
 	parallel.setData(trigDet)
-	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"onsetDet",trigDet])
+	writeToFile(eventFile,[curTrial,timer.getTime(),"onsetDet",trigDet])
 
 	core.wait(int2)
 	parallel.setData(0)
-	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"onsetNoun"])
+	writeToFile(eventFile,[curTrial,timer.getTime(),"onsetNoun"])
 
 	core.wait(int3)
 	parallel.setData(trigOffsetNoun)
-	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"offsetNoun",trigOffsetNoun])
+	writeToFile(eventFile,[curTrial,timer.getTime(),"offsetNoun",trigOffsetNoun])
 
 	core.wait(int4)
 	parallel.setData(0)
-	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"endSentence"])
+	writeToFile(eventFile,[curTrial,timer.getTime(),"endSentence"])
 	return
 
-def playSentenceNoTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,totalLen,trigDet, trigOffsetNoun):
+def playSentenceNoTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,totalLen,trigDet, trigOffsetNoun, eventFile,curTrial,timer):
 	int1=onsetDet
 	int2=onsetNoun-onsetDet
 	int3=offsetNoun-int2
@@ -128,22 +129,22 @@ def playSentenceNoTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,t
 	core.wait(int1) #wait till trigger time
 	#parallel.setData(trigDet)
 	print 'onsetDet'
-	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"onsetDet",trigDet])
+	writeToFile(eventFile,[curTrial,timer.getTime(),"onsetDet",trigDet])
 
 	core.wait(int2)
 	#parallel.setData(0)
 	print 'onsetNoun'
-	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"onsetNoun"])
+	writeToFile(eventFile,[curTrial,timer.getTime(),"onsetNoun"])
 
 	core.wait(int3)
 	#parallel.setData(trigOffsetNoun)
 	print 'offsetNoun'
-	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"offsetNoun",trigOffsetNoun])
+	writeToFile(eventFile,[curTrial,timer.getTime(),"offsetNoun",trigOffsetNoun])
 
 	core.wait(int4)
 	#parallel.setData(0)
 	print 'endSentence'
-	writeToFile(self.experiment.eventTracker,[curTrial,self.expTimer.getTime(),"endSentence"])
+	writeToFile(eventFile,[curTrial,timer.getTime(),"endSentence"])
 	return
 
 def playSentenceAndTrigger(self,win,soundFile,trigger1Time, trigger2Time,curTrial,trigDuration=.1):
@@ -220,3 +221,12 @@ def popupError(text):
 	errorDlg = gui.Dlg(title="Error", pos=(200,400))
 	errorDlg.addText('Error: '+text, color='Red')
 	errorDlg.show()
+
+def writeToFile(fileHandle,trial,sync=True):
+	"""Writes a trial (array of lists) to a fileHandle"""
+	line = '\t'.join([str(i) for i in trial]) #TABify
+	line += '\n' #add a newline
+	fileHandle.write(line)
+	if sync:
+		fileHandle.flush()
+		os.fsync(fileHandle)

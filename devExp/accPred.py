@@ -9,8 +9,9 @@ psychopy.prefs.general['audioLib'] = [u'pygame']
 from psychopy import core, visual,sound,event,data,misc, logging
 from psychopy import visual
 import generateTrials
-from stimPresFoo import *
 from baseFoo import *
+from stimPresFoo import *
+
 #parallel.setPortAddress(address=0xD010)
 
 
@@ -122,10 +123,10 @@ class ExpPresentation(trial):
 		responseInfoReminder = visual.TextStim(self.experiment.win,text=self.experiment.responseInfoReminder,pos=(0,-200), height = 30,color="blue")
 		questionText=visual.TextStim(self.experiment.win,text=curTrial['Question'],pos=(0,0),height=30,color="black")
 
-		if self.subjVariables['parallel']=='yes':
-			playSentenceAndTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'],curTrial['onsetNoun'],curTrial['offsetNoun'],curTrial['totalLen'], curTrial['trigDet'],curTrial['trigOffsetNoun'])
+		if self.experiment.subjVariables['useParallel']=='yes':
+			playSentenceAndTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'],curTrial['onsetNoun'],curTrial['offsetNoun'],curTrial['totalLen'], curTrial['trigDet'],curTrial['trigOffsetNoun'],self.experiment.eventTracker,curTrial,self.expTimer)
 		else:
-			playSentenceNoTriggerNonVisual((self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'],curTrial['onsetNoun'],curTrial['offsetNoun'],curTrial['totalLen'], curTrial['trigDet'],curTrial['trigOffsetNoun']))
+			playSentenceNoTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'],curTrial['onsetNoun'],curTrial['offsetNoun'],curTrial['totalLen'], curTrial['trigDet'],curTrial['trigOffsetNoun'],self.experiment.eventTracker,curTrial,self.expTimer)
 
 		core.wait(self.experiment.afterSentenceDelay)
 
@@ -141,11 +142,11 @@ class ExpPresentation(trial):
 				playAndWait(self.soundMatrix['buzz'])
 
 		fieldVars=[]
-		for curField in self.fieldNamesTest:
+		for curField in self.fieldNames:
 			fieldVars.append(curTrial[curField])
-		[header, curLine] = createRespNew(self.experiment.optionList, self.experiment.subjVariables, self.fieldNamesTest, fieldVars,
+		[header, curLine] = createRespNew(self.experiment.optionList, self.experiment.subjVariables, self.fieldNames, fieldVars,
 		a_expTimer = self.expTimer.getTime(),
-		b_whichPart = part,
+		b_whichPart = curTrial['part'],
 		c_trialIndex = trialIndex,
 		f_response = response,
 		g_response = self.experiment.validResponses[response],
