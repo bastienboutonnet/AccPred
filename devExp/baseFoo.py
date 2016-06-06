@@ -181,3 +181,11 @@ def writeToFile(fileHandle,trial,sync=True):
 	if sync:
 		fileHandle.flush()
 		os.fsync(fileHandle)
+
+def sortDictValues(someDict,returnWhat='values'):
+	keys = someDict.keys()
+	keys.sort()
+	if returnWhat=='values':
+		return map(someDict.get, keys)
+	else:
+		return keys

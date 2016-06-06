@@ -69,6 +69,7 @@ class Exp:
 			#except:
 				#pass
 		self.inputDevice = "keyboard"
+		self.validResponses = {'z':1,'slash':0}
 
 		if self.subjVariables['screenMode']=='fs':
 			self.win = visual.Window(fullscr=True, color='gray', allowGUI=False, monitor='testMonitor',units='pix',screen=1)
@@ -129,10 +130,15 @@ class ExpPresentation(trial):
 			playSentenceNoTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'],curTrial['onsetNoun'],curTrial['offsetNoun'],curTrial['totalLen'], curTrial['trigDet'],curTrial['trigOffsetNoun'],self.experiment.eventTracker,curTrial,self.expTimer)
 
 		core.wait(self.experiment.afterSentenceDelay)
-
+		response=99
+		isRight=99
+		rt=99
 		if curTrial['hasQuestion']==1:
-			setAndPresentStimulus(self.experiment.win,[responseInfoReminder,questionText])
+			setAndPresentStimulus(self.experiment.win,[responseInfoReminder,questionText],duration=1)
 			(response,rt) = getKeyboardResponse(self.experiment.validResponses.keys())
+
+			### Try getting 'response' locally? since it is assigned in that current loop.
+			### Try assigning a 'dummy'  value to response before the if Question as this may not have been created on the first trial.
 
 			if self.experiment.validResponses[response]==curTrial['yesOrNo']:
 				isRight=1
@@ -149,14 +155,13 @@ class ExpPresentation(trial):
 		b_whichPart = curTrial['part'],
 		c_trialIndex = trialIndex,
 		f_response = response,
-		g_response = self.experiment.validResponses[response],
-		h_isRight = isRight,
-		i_rt = rt*1000)
-		if part != 'practice':
+		g_isRight = isRight,
+		h_rt = rt*1000)
+		if curTrial['part'] != 'practice':
 			writeToFile(self.experiment.testFile,curLine)
 
 		#write the header with col names to the file
-		if trialIndex==0 and part!='practice':
+		if trialIndex==0 and curTrial['part'] !='practice':
 			print "Writing header to file..."
 			dirtyHack = {}
 			dirtyHack['trialNum']=1

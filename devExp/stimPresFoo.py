@@ -7,6 +7,12 @@
 #---------------------------
 from psychopy import visual,core,event,data,info,prefs
 import os
+try:
+	import winsound
+	winSoundLoaded=True
+except ImportError:
+	print "Warning: winsound can't be imported. Will try to use pyadio"
+	winSoundLoaded=False
 ##Present Text Stimuli
 def showText(win,textToShow,color=[-1,-1,-1],waitForKey=True,acceptOnly=0,inputDevice="keyboard",mouse=False,pos=[0,0],scale=1):
 	global event
@@ -99,6 +105,7 @@ def playSentenceAndTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,
 	#triggerWord.draw()
 	sDuration=soundFile.getDuration()
 	soundFile.play()
+	writeToFile(eventFile,[curTrial,timer.getTime(),"sentStart"])
 	core.wait(int1) #wait till trigger time
 	parallel.setData(trigDet)
 	writeToFile(eventFile,[curTrial,timer.getTime(),"onsetDet",trigDet])
@@ -126,6 +133,7 @@ def playSentenceNoTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,t
 	#triggerWord.draw()
 	sDuration=soundFile.getDuration()
 	soundFile.play()
+	writeToFile(eventFile,[curTrial,timer.getTime(),"sentStart"])
 	core.wait(int1) #wait till trigger time
 	#parallel.setData(trigDet)
 	print 'onsetDet'
