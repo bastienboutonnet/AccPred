@@ -1,5 +1,0 @@
-debug	10	25	15	no	Nat	80	related	Nat_80_related	0	nan	nan	experiment	4.048	2.953	3.05	3.29	1	11	119	76.7316820621	experiment	6	99	99	99000
-debug	10	25	15	no	nonNat	141	unrelated	nonNat_141_unrelated	0	nan	nan	experiment	4.234	2.646	2.821	3.129	2	22	229	85.0124261379	experiment	7	99	99	99000
-debug	10	25	15	no	nonNat	38	related	nonNat_38_related	1	Maakte het publiek na afloop van de voorstelling een buiging?	1.0	experiment	5.577	4.536	4.717	5.052	3	21	219	102.074722052	experiment	8	z	1	4395.62797546
-debug	10	25	15	no	Nat	155	unrelated	Nat_155_unrelated	1	Gaat Zwarte Piet door de schoorsteen naar binnen?	0.0	experiment	6.385	3.932	4.055	4.52	4	12	129	115.311650038	experiment	9	slash	1	414.762973785
-debug	10	25	15	no	nonNat	74	unrelated	nonNat_74_unrelated	0	nan	nan	experiment	5.445	4.115	4.342	4.668	5	22	229	126.322251081	experiment	10	99	99	99000

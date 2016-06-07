@@ -69,7 +69,7 @@ class Exp:
 			#except:
 				#pass
 		self.inputDevice = "keyboard"
-		self.validResponses = {'z':1,'slash':0}
+		self.validResponses = {'z':0,'slash':1}
 
 		if self.subjVariables['screenMode']=='fs':
 			self.win = visual.Window(fullscr=True, color='gray', allowGUI=False, monitor='testMonitor',units='pix',screen=1)
@@ -82,9 +82,9 @@ class Exp:
 		self.finalText = "This is the end of experiment :) Thank you for your participation!"
 		self.takeBreakEveryXTrials=self.subjVariables['breakEvery']
 		self.takeBreak = "Please take a short break.  Press one of the response keys to continue"
-		self.afterSentenceDelay=.5
-		self.afterQuestionDelay=.5
-		self.responseInfoReminder = "0 = No    1 = Yes"
+		self.afterSentenceDelay=5
+		self.afterQuestionDelay=5
+		self.responseInfoReminder = "z = No    / = Yes"
 
 		generateTrials.main(self.subjVariables['subjCode'],self.subjVariables['seed'])
 		if self.subjVariables['useParallel']=='yes':
@@ -125,9 +125,9 @@ class ExpPresentation(trial):
 		questionText=visual.TextStim(self.experiment.win,text=curTrial['Question'],pos=(0,0),height=30,color="black")
 
 		if self.experiment.subjVariables['useParallel']=='yes':
-			playSentenceAndTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'],curTrial['onsetNoun'],curTrial['offsetNoun'],curTrial['totalLen'], curTrial['trigDet'],curTrial['trigOffsetNoun'],self.experiment.eventTracker,curTrial,self.expTimer)
+			playSentenceNoTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'], curTrial['waitForDetOffset'], curTrial['waitForNounOffset'],curTrial['waitForEnd'], curTrial['trigDet'],curTrial['trigOffsetNoun'],self.experiment.eventTracker,curTrial,self.expTimer)
 		else:
-			playSentenceNoTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'],curTrial['onsetNoun'],curTrial['offsetNoun'],curTrial['totalLen'], curTrial['trigDet'],curTrial['trigOffsetNoun'],self.experiment.eventTracker,curTrial,self.expTimer)
+			playSentenceNoTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'], curTrial['waitForDetOffset'], curTrial['waitForNounOffset'],curTrial['waitForEnd'], curTrial['trigDet'],curTrial['trigOffsetNoun'],self.experiment.eventTracker,curTrial,self.expTimer)
 
 		core.wait(self.experiment.afterSentenceDelay)
 		response=99
@@ -177,9 +177,9 @@ class ExpPresentation(trial):
 				showText(self.experiment.win,self.experiment.takeBreak,color=(-1,-1,-1),inputDevice=self.experiment.inputDevice) #take a break
 				waitingAnimation(currentExp.win,color="PowderBlue")
 			setAndPresentStimulus(self.experiment.win,[self.fixSpot])
-			core.wait(.2)
+			core.wait(1)
 			setAndPresentStimulus(self.experiment.win,[self.fixSpotReady])
-			core.wait(.2)
+			core.wait(.5)
 			setAndPresentStimulus(self.experiment.win,[self.fixSpotPlay])
 			self.showTestTrial(curTrial,curTrialIndex)
 			curTrialIndex+=1

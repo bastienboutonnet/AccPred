@@ -96,63 +96,84 @@ def playSentenceAndTriggerVisual(win,soundFile,trigger1Time, trigger2Time,trigDu
 	return
 
 def playSentenceAndTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,totalLen,trigDet, trigOffsetNoun,eventFile, curTrial,timer):
-	int1=onsetDet
-	int2=onsetNoun-onsetDet
-	int3=offsetNoun-int2
-	int4=totalLen-int3
+	# int1=onsetDet
+	# int2=onsetNoun-onsetDet
+	# int3=offsetNoun-int2
+	# int4=totalLen-int3
 
 	#triggerWord=visual.TextStim(win, text='+') #Better to implement this via a fixation cross/dot that changes colour.
 	#triggerWord.draw()
 	sDuration=soundFile.getDuration()
 	soundFile.play()
 	writeToFile(eventFile,[curTrial,timer.getTime(),"sentStart"])
-	core.wait(int1) #wait till trigger time
+	core.wait(onsetDet) #wait till trigger time
 	parallel.setData(trigDet)
-	writeToFile(eventFile,[curTrial,timer.getTime(),"onsetDet",trigDet])
-
-	core.wait(int2)
-	parallel.setData(0)
-	writeToFile(eventFile,[curTrial,timer.getTime(),"onsetNoun"])
-
-	core.wait(int3)
-	parallel.setData(trigOffsetNoun)
-	writeToFile(eventFile,[curTrial,timer.getTime(),"offsetNoun",trigOffsetNoun])
-
-	core.wait(int4)
-	parallel.setData(0)
-	writeToFile(eventFile,[curTrial,timer.getTime(),"endSentence"])
-	return
-
-def playSentenceNoTriggerNonVisual(win,soundFile,onsetDet,onsetNoun,offsetNoun,totalLen,trigDet, trigOffsetNoun, eventFile,curTrial,timer):
-	int1=onsetDet
-	int2=onsetNoun-onsetDet
-	int3=offsetNoun-int2
-	int4=totalLen-int3
-
-	#triggerWord=visual.TextStim(win, text='+') #Better to implement this via a fixation cross/dot that changes colour.
-	#triggerWord.draw()
-	sDuration=soundFile.getDuration()
-	soundFile.play()
-	writeToFile(eventFile,[curTrial,timer.getTime(),"sentStart"])
-	core.wait(int1) #wait till trigger time
-	#parallel.setData(trigDet)
 	print 'onsetDet'
 	writeToFile(eventFile,[curTrial,timer.getTime(),"onsetDet",trigDet])
 
-	core.wait(int2)
-	#parallel.setData(0)
+	core.wait(waitForDetOffset)
+	parallel.setData(0)
 	print 'onsetNoun'
 	writeToFile(eventFile,[curTrial,timer.getTime(),"onsetNoun"])
 
-	core.wait(int3)
-	#parallel.setData(trigOffsetNoun)
+	core.wait(waitForNounOffset)
+	parallel.setData(trigOffsetNoun)
 	print 'offsetNoun'
 	writeToFile(eventFile,[curTrial,timer.getTime(),"offsetNoun",trigOffsetNoun])
 
-	core.wait(int4)
-	#parallel.setData(0)
+	core.wait(waitForEnd)
+	parallel.setData(0)
 	print 'endSentence'
 	writeToFile(eventFile,[curTrial,timer.getTime(),"endSentence"])
+	return
+
+def playSentenceNoTriggerNonVisual(win,soundFile,onsetDet,waitForDetOffset,waitForNounOffset,waitForEnd,trigDet, trigOffsetNoun, eventFile,curTrial,timer):
+	# int1=onsetDet
+	# int2=onsetNoun-onsetDet
+	# int3=offsetNoun-onsetNoun
+	# int4=totalLen-int3
+
+	#triggerWord=visual.TextStim(win, text='+') #Better to implement this via a fixation cross/dot that changes colour.
+	#triggerWord.draw()
+	sDuration=soundFile.getDuration()
+	soundFile.play()
+	print 'startSent'
+	sentStart=timer.getTime()
+	#writeToFile(eventFile,[curTrial,timer.getTime(),"sentStart"])
+
+	core.wait(onsetDet) #wait till trigger time
+	#parallel.setData(trigDet)
+	t1=timer.getTime()
+	print 'onsetDet'
+
+	#writeToFile(eventFile,[curTrial,timer.getTime(),"onsetDet",trigDet])
+
+	core.wait(waitForDetOffset)
+	#parallel.setData(0)
+	t2=timer.getTime()
+	print 'onsetNoun'
+
+	#writeToFile(eventFile,[curTrial,timer.getTime(),"onsetNoun"])
+
+	core.wait(waitForNounOffset)
+	#parallel.setData(trigOffsetNoun)
+	t3=timer.getTime()
+	print 'offsetNoun'
+
+	#writeToFile(eventFile,[curTrial,timer.getTime(),"offsetNoun",trigOffsetNoun])
+
+	core.wait(waitForEnd)
+	#parallel.setData(0)
+	t4=timer.getTime()
+	print 'endSentence'
+
+	#writeToFile(eventFile,[curTrial,timer.getTime(),"endSentence"])
+
+	writeToFile(eventFile,[curTrial,sentStart,"sentStart"])
+	writeToFile(eventFile,[curTrial,t1,"onsetDet",trigDet])
+	writeToFile(eventFile,[curTrial,t2,"onsetNoun"])
+	writeToFile(eventFile,[curTrial,t3,"offsetNoun",trigOffsetNoun])
+	writeToFile(eventFile,[curTrial,t4,"endSentence"])
 	return
 
 def playSentenceAndTrigger(self,win,soundFile,trigger1Time, trigger2Time,curTrial,trigDuration=.1):
