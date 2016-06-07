@@ -94,12 +94,15 @@ def main(subjCode,seed=None):
     #Add practice trials
     practSents=pd.read_csv('../database/practiceSentences.csv',encoding='utf-16',sep='\t')
     practSents['trialIndex']=0
+    practSents['trigDet']=0
+    practSents['trigOffsetNoun']=0
     ##########
-    finalTrials=pd.concat([practSents,hasTimings])
+    finalTrials=hasTimings ##I Think this step will drop since I wanna separate files.
 
     finalTrials['trigDet']=finalTrials.apply(lambda row: addTrig(row),axis=1)
     finalTrials['trigOffsetNoun']=finalTrials.trigDet+"9"
 
+    practSents.to_csv('trials/trialListPract_' +subjCode +'.csv',encoding='utf-8',index=False)
     finalTrials.to_csv('trials/trialList_' +subjCode +'.csv',encoding='utf-8',index=False)
     return finalTrials
 

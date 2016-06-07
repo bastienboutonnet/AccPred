@@ -63,6 +63,7 @@ class Exp:
 				fileOpened=False
 			else:
 				self.eventTracker = open('data/'+self.subjVariables['subjCode']+'_eventTracker.txt','w')
+				self.practFile = open('data/practTrials'+self.subjVariables['subjCode']+'.txt','w')
 				self.testFile = open('data/'+self.subjVariables['subjCode']+'.txt','w')
 
 				fileOpened=True
@@ -79,6 +80,8 @@ class Exp:
 		self.presRate = .096 ########### Might be un-necessary for this particular procedure.
 
 		self.instructions = "In this task, you will hear a series of 'beeps'.\nYour task is to try and catch the 'high' pitched beeps as fast as you can by pressing the SPACE bar.\n\nIt's that simple!\n\nWhen you are ready press any key to Start."
+		self.practiceTrials = "The next part is practice.\n\nPress the space-bar to start."
+		self.realTrials = "Now for the real trials.\n\nReady?\n\nPress the space-bar to continue."
 		self.finalText = "This is the end of experiment :) Thank you for your participation!"
 		self.takeBreakEveryXTrials=self.subjVariables['breakEvery']
 		self.takeBreak = "Please take a short break.  Press one of the response keys to continue"
@@ -115,10 +118,12 @@ class ExpPresentation(trial):
 		self.pictureMatrix = loadFiles('stimuli','png','image',self.experiment.win)
 		self.soundMatrix = loadFiles('stimuli','wav',fileType="sound")
 		(self.trialList,self.fieldNames) = importTrials('trials/trialList_'+self.experiment.subjVariables["subjCode"]+'.csv',method="sequential")
+		(self.practTrialList,self.fieldNamesPract) = importTrials('trials/trialListPract_'+self.experiment.subjVariables["subjCode"]+'.csv',method="sequential")
 		self.locations = {'top':[0,275], 'bottom':[0,-275], 'left':[-275,0], 'right':[275,0], 'center':[0,0]}
 
 
-	def showTestTrial(self,curTrial, trialIndex):
+
+	def showTestTrial(self,curTrial, trialIndex,whichPart):
 		#s=sound.Sound(self.soundMatrix[curTrial['label']])
 		print curTrial['filename']
 		responseInfoReminder = visual.TextStim(self.experiment.win,text=self.experiment.responseInfoReminder,pos=(0,-200), height = 30,color="blue")
@@ -148,16 +153,16 @@ class ExpPresentation(trial):
 				playAndWait(self.soundMatrix['buzz'])
 
 		fieldVars=[]
-		for curField in self.fieldNames:
-			fieldVars.append(curTrial[curField])
-		[header, curLine] = createRespNew(self.experiment.optionList, self.experiment.subjVariables, self.fieldNames, fieldVars,
-		a_expTimer = self.expTimer.getTime(),
-		b_whichPart = curTrial['part'],
-		c_trialIndex = trialIndex,
-		f_response = response,
-		g_isRight = isRight,
-		h_rt = rt*1000)
-		if curTrial['part'] != 'practice':
+		if whichPart != 'practice':
+			for curField in self.fieldNames:
+				fieldVars.append(curTrial[curField])
+			[header, curLine] = createRespNew(self.experiment.optionList, self.experiment.subjVariables, self.fieldNames, fieldVars,
+			a_expTimer = self.expTimer.getTime(),
+			b_whichPart = curTrial['part'],
+			c_trialIndex = trialIndex,
+			f_response = response,
+			g_isRight = isRight,
+			h_rt = rt*1000)
 			writeToFile(self.experiment.testFile,curLine)
 
 		#write the header with col names to the file
@@ -167,26 +172,47 @@ class ExpPresentation(trial):
 			dirtyHack['trialNum']=1
 			writeHeader(dirtyHack, header,'header_test'+self.experiment.expName)
 
-	def cycleThroughExperimentTrials(self): #CHECK OUT PRACTICE STUFF
+	def cycleThroughExperimentTrials(self,whichPart): #CHECK OUT PRACTICE STUFF
 		curTrialIndex=0
 
-		for curTrial in self.trialList:
-			if curTrialIndex==0:
-				waitingAnimation(currentExp.win,color="PowderBlue")
-			if curTrialIndex>0 and curTrialIndex % self.experiment.takeBreakEveryXTrials == 0:
-				showText(self.experiment.win,self.experiment.takeBreak,color=(-1,-1,-1),inputDevice=self.experiment.inputDevice) #take a break
-				waitingAnimation(currentExp.win,color="PowderBlue")
-			setAndPresentStimulus(self.experiment.win,[self.fixSpot])
-			core.wait(1)
-			setAndPresentStimulus(self.experiment.win,[self.fixSpotReady])
-			core.wait(.5)
-			setAndPresentStimulus(self.experiment.win,[self.fixSpotPlay])
-			self.showTestTrial(curTrial,curTrialIndex)
-			curTrialIndex+=1
-			self.experiment.win.flip()
-			core.wait(.2)
-		self.experiment.eventTracker.close()
-		self.experiment.testFile.close()
+		if whichPart=='practice':
+
+			for curTrial in self.practTrialList:
+				if curTrialIndex==0:
+					waitingAnimation(currentExp.win,color="PowderBlue")
+				if curTrialIndex>0 and curTrialIndex % self.experiment.takeBreakEveryXTrials == 0:
+					showText(self.experiment.win,self.experiment.takeBreak,color=(-1,-1,-1),inputDevice=self.experiment.inputDevice) #take a break
+					waitingAnimation(currentExp.win,color="PowderBlue")
+				setAndPresentStimulus(self.experiment.win,[self.fixSpot])
+				core.wait(1)
+				setAndPresentStimulus(self.experiment.win,[self.fixSpotReady])
+				core.wait(.5)
+				setAndPresentStimulus(self.experiment.win,[self.fixSpotPlay])
+				self.showTestTrial(curTrial,curTrialIndex,whichPart)
+				curTrialIndex+=1
+				self.experiment.win.flip()
+				core.wait(.2)
+			#self.experiment.eventTracker.close()
+			#self.experiment.testFile.close()
+
+		elif whichPart=='experiment':
+			for curTrial in self.trialList:
+				if curTrialIndex==0:
+					waitingAnimation(currentExp.win,color="PowderBlue")
+				if curTrialIndex>0 and curTrialIndex % self.experiment.takeBreakEveryXTrials == 0:
+					showText(self.experiment.win,self.experiment.takeBreak,color=(-1,-1,-1),inputDevice=self.experiment.inputDevice) #take a break
+					waitingAnimation(currentExp.win,color="PowderBlue")
+				setAndPresentStimulus(self.experiment.win,[self.fixSpot])
+				core.wait(1)
+				setAndPresentStimulus(self.experiment.win,[self.fixSpotReady])
+				core.wait(.5)
+				setAndPresentStimulus(self.experiment.win,[self.fixSpotPlay])
+				self.showTestTrial(curTrial,curTrialIndex,whichPart)
+				curTrialIndex+=1
+				self.experiment.win.flip()
+				core.wait(.2)
+			self.experiment.eventTracker.close()
+			self.experiment.testFile.close()
 
 ###Experiment Step Launching
 #---------------------------
@@ -197,11 +223,15 @@ currentPresentation.initializeExperiment()
 
 #Start Instructions
 showText(currentExp.win,currentExp.instructions,color="black",inputDevice=currentExp.inputDevice)
-
-#Start Trial Presentation
-currentPresentation.cycleThroughExperimentTrials()
+showText(currentExp.win,currentExp.practiceTrials,color='black',inputDevice=currentExp.inputDevice,waitForKey=True)
+#Start Practice Presentation
+currentPresentation.cycleThroughExperimentTrials("practice")
+#Start realTrials Presentation
+showText(currentExp.win,currentExp.realTrials,color='black',inputDevice=currentExp.inputDevice,waitForKey=True)
+currentPresentation.cycleThroughExperimentTrials("experiment")
 #Goodbye Text
 showText(currentExp.win,currentExp.finalText,color='black',waitForKey=False)
+
 core.wait(2)
 #currentExp.win.close()
 #Exit Window

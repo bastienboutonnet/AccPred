@@ -169,11 +169,11 @@ def playSentenceNoTriggerNonVisual(win,soundFile,onsetDet,waitForDetOffset,waitF
 
 	#writeToFile(eventFile,[curTrial,timer.getTime(),"endSentence"])
 
-	writeToFile(eventFile,[curTrial,sentStart,"sentStart"])
-	writeToFile(eventFile,[curTrial,t1,"onsetDet",trigDet])
-	writeToFile(eventFile,[curTrial,t2,"onsetNoun"])
-	writeToFile(eventFile,[curTrial,t3,"offsetNoun",trigOffsetNoun])
-	writeToFile(eventFile,[curTrial,t4,"endSentence"])
+	writeToFile(eventFile,[curTrial['trialIndex'],curTrial['filename'],curTrial['relatedness'],curTrial['speaker'],curTrial['part'],curTrial['sentID'],sentStart,"sentStart"])
+	writeToFile(eventFile,[curTrial['trialIndex'],curTrial['filename'],curTrial['relatedness'],curTrial['speaker'],curTrial['part'],curTrial['sentID'],t1,"onsetDet",trigDet])
+	writeToFile(eventFile,[curTrial['trialIndex'],curTrial['filename'],curTrial['relatedness'],curTrial['speaker'],curTrial['part'],curTrial['sentID'],t2,"onsetNoun"])
+	writeToFile(eventFile,[curTrial['trialIndex'],curTrial['filename'],curTrial['relatedness'],curTrial['speaker'],curTrial['part'],curTrial['sentID'],t3,"offsetNoun",trigOffsetNoun])
+	writeToFile(eventFile,[curTrial['trialIndex'],curTrial['filename'],curTrial['relatedness'],curTrial['speaker'],curTrial['part'],curTrial['sentID'],t4,"endSentence"])
 	return
 
 def playSentenceAndTrigger(self,win,soundFile,trigger1Time, trigger2Time,curTrial,trigDuration=.1):
