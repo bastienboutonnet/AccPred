@@ -1,0 +1,10 @@
+0	Nat_36_related	related	Nat	practice	36	14.9281349182	sentStart
+0	Nat_36_related	related	Nat	practice	36	17.5763869286	onsetDet	0
+0	Nat_36_related	related	Nat	practice	36	17.674492836	onsetNoun
+0	Nat_36_related	related	Nat	practice	36	18.1699750423	offsetNoun	0
+0	Nat_36_related	related	Nat	practice	36	19.404253006	endSentence
+0	Nat_53_related	related	Nat	practice	53	23.187969923	sentStart
+0	Nat_53_related	related	Nat	practice	53	25.1672110558	onsetDet	0
+0	Nat_53_related	related	Nat	practice	53	25.3413228989	onsetNoun
+0	Nat_53_related	related	Nat	practice	53	25.9894728661	offsetNoun	0
+0	Nat_53_related	related	Nat	practice	53	27.7333269119	endSentence

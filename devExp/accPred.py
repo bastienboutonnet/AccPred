@@ -85,8 +85,8 @@ class Exp:
 		self.finalText = "This is the end of experiment :) Thank you for your participation!"
 		self.takeBreakEveryXTrials=self.subjVariables['breakEvery']
 		self.takeBreak = "Please take a short break.  Press one of the response keys to continue"
-		self.afterSentenceDelay=5
-		self.afterQuestionDelay=5
+		self.afterSentenceDelay=3
+		self.afterQuestionDelay=3
 		self.responseInfoReminder = "z = No    / = Yes"
 
 		generateTrials.main(self.subjVariables['subjCode'],self.subjVariables['seed'])

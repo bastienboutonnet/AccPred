@@ -1,0 +1,30 @@
+0	Nat_36_related	related	Nat	practice	36	13.1383271217	sentStart
+0	Nat_36_related	related	Nat	practice	36	15.7872490883	onsetDet	0
+0	Nat_36_related	related	Nat	practice	36	15.8853440285	onsetNoun
+0	Nat_36_related	related	Nat	practice	36	16.3807771206	offsetNoun	0
+0	Nat_36_related	related	Nat	practice	36	17.6159260273	endSentence
+0	Nat_53_related	related	Nat	practice	53	21.3985509872	sentStart
+0	Nat_53_related	related	Nat	practice	53	23.3777000904	onsetDet	0
+0	Nat_53_related	related	Nat	practice	53	23.5517671108	onsetNoun
+0	Nat_53_related	related	Nat	practice	53	24.2006750107	offsetNoun	0
+0	Nat_53_related	related	Nat	practice	53	25.9440221786	endSentence
+0	nonNat_70_unrelated	unrelated	nonNat	practice	70	29.7312681675	sentStart
+0	nonNat_70_unrelated	unrelated	nonNat	practice	70	32.3716261387	onsetDet	0
+0	nonNat_70_unrelated	unrelated	nonNat	practice	70	32.570702076	onsetNoun
+0	nonNat_70_unrelated	unrelated	nonNat	practice	70	32.7949581146	offsetNoun	0
+0	nonNat_70_unrelated	unrelated	nonNat	practice	70	33.8158071041	endSentence
+0	nonNat_105_unrelated	unrelated	nonNat	practice	105	39.1192991734	sentStart
+0	nonNat_105_unrelated	unrelated	nonNat	practice	105	42.5365312099	onsetDet	0
+0	nonNat_105_unrelated	unrelated	nonNat	practice	105	42.6936330795	onsetNoun
+0	nonNat_105_unrelated	unrelated	nonNat	practice	105	43.1232690811	offsetNoun	0
+0	nonNat_105_unrelated	unrelated	nonNat	practice	105	44.4842209816	endSentence
+0	Nat_113_related	related	Nat	practice	113	48.2602779865	sentStart
+0	Nat_113_related	related	Nat	practice	113	52.0708110332	onsetDet	0
+0	Nat_113_related	related	Nat	practice	113	52.2319161892	onsetNoun
+0	Nat_113_related	related	Nat	practice	113	52.5669810772	offsetNoun	0
+0	Nat_113_related	related	Nat	practice	113	54.7664630413	endSentence
+0	Nat_117_related	related	Nat	practice	117	62.8459770679	sentStart
+0	Nat_117_related	related	Nat	practice	117	65.8838961124	onsetDet	0
+0	Nat_117_related	related	Nat	practice	117	66.0649981499	onsetNoun
+0	Nat_117_related	related	Nat	practice	117	66.5478429794	offsetNoun	0
+0	Nat_117_related	related	Nat	practice	117	67.2084732056	endSentence
