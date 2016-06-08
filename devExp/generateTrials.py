@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import os
 from numpy.random import RandomState
 from itertools import product
 
@@ -122,12 +123,33 @@ def main(subjCode,seed=None):
     #finalTrials['trigDet']=finalTrials.apply(lambda row: addTrig(row),axis=1)
     #finalTrials['trigOffsetNoun']=finalTrials.trigDet+"9"
 
+
+
+
+###################################### ADD FAKE TRIAL HERE
+    #testPres=pd.Series(finalTrials.filename.append(pd.Series({'filename':['fuck']})))
+
+
+    #RUN A FILE CHECK, to make sure each file is in
+    missing=pd.Series()
+    filenames=os.listdir('./stimuli/')
+    for curSent in finalTrials.filename:
+
+        if str(curSent)+".wav" not in filenames:
+            missing=missing.append(pd.Series([curSent]))
+            print curSent
+    if not missing.empty:
+        missing.to_csv('missingFiles'+subjCode+'.csv',index=False)
+        print 'Looks like there were some missing files. Check log'
+        raise SystemExit
+    #only save file if the files aren't missing -hence the break
     practSents.to_csv('trials/trialListPract_' +subjCode +'.csv',encoding='utf-8',index=False)
     finalTrials.to_csv('trials/trialList_' +subjCode +'.csv',encoding='utf-8',index=False)
-    return (finalTrials, practSents)
+
+    return (finalTrials, practSents,missing)
 
 
 if __name__ == "__main__":
     import time
     t=time.strftime("%m%d%H%M")
-    (finalTrials,practSents)=main('dummySubject'+t,seed=1)
+    (finalTrials,practSents,missing)=main('dummySubject'+t,seed=1)
