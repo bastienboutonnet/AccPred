@@ -70,6 +70,7 @@ def addTrig(df):
         return '22'
 
 def main(subjCode,seed=None):
+    ######IMPLEMENT A SHUFFLE HERE
     dbase=pd.read_csv('../database/120allAbove70.csv',encoding='utf-16')
     df=pd.DataFrame({'sentID':dbase['sentID']})
     rel=add_blocks(df,60,name='relatedness',condList=['related','unrelated'])
@@ -87,20 +88,36 @@ def main(subjCode,seed=None):
     #Merge Timings
     timings=pd.read_table('../database/timings.txt',sep='\t')
     hasTimings=pd.merge(hasQmerge,timings,how='left',on='filename')
+    hasTimings=hasTimings[hasTimings.sentID != 130]
+
+    #Add Controls
+    controls=pd.read_csv('../database/controlSentences.csv')
+    controls['trigDet']=55
+    controls['trigOffsetNoun']=155
+    subControls=controls.sample(n=60,replace=False,random_state=seed)
+
+    #Add Triggers
+    hasTimings['trigDet']=hasTimings.apply(lambda row: addTrig(row),axis=1)
+    hasTimings['trigOffsetNoun']=hasTimings.trigDet+"9"
+
+    #Join Experimental trials and controls
+    trialsAndControls=pd.concat([hasTimings,subControls]).reset_index(drop=True)
+    finalTrials=simple_shuffle(trialsAndControls,seed=seed).reset_index(drop=True)
 
     #Add Trial index
-    hasTimings['trialIndex']=xrange(1,len(hasTimings)+1)
+    finalTrials['trialIndex']=xrange(1,len(finalTrials)+1)
 
-    #Add practice trials
+    #Process practice trials
     practSents=pd.read_csv('../database/practiceSentences.csv',encoding='utf-16',sep='\t')
     practSents['trialIndex']=0
     practSents['trigDet']=0
     practSents['trigOffsetNoun']=0
     ##########
-    finalTrials=hasTimings ##I Think this step will drop since I wanna separate files.
 
-    finalTrials['trigDet']=finalTrials.apply(lambda row: addTrig(row),axis=1)
-    finalTrials['trigOffsetNoun']=finalTrials.trigDet+"9"
+    #finalTrials=hasTimings ##I Think this step will drop since I wanna separate files.
+
+    #finalTrials['trigDet']=finalTrials.apply(lambda row: addTrig(row),axis=1)
+    #finalTrials['trigOffsetNoun']=finalTrials.trigDet+"9"
 
     practSents.to_csv('trials/trialListPract_' +subjCode +'.csv',encoding='utf-8',index=False)
     finalTrials.to_csv('trials/trialList_' +subjCode +'.csv',encoding='utf-8',index=False)
