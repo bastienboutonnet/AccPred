@@ -73,6 +73,7 @@ def main(subjCode,seed=None):
     ######IMPLEMENT A SHUFFLE HERE
     dbase=pd.read_csv('../database/120allAbove70.csv',encoding='utf-16')
     df=pd.DataFrame({'sentID':dbase['sentID']})
+    df=simple_shuffle(df,seed=seed).reset_index(drop=True)
     rel=add_blocks(df,60,name='relatedness',condList=['related','unrelated'])
     speak=add_blocks(df,30,name='speaker',condList=['Nat','nonNat','Nat','nonNat'])
     speak=speak[['speaker','sentID','relatedness']]
@@ -102,6 +103,8 @@ def main(subjCode,seed=None):
 
     #Join Experimental trials and controls
     trialsAndControls=pd.concat([hasTimings,subControls]).reset_index(drop=True)
+
+    #Shuffle For Good measure!
     finalTrials=simple_shuffle(trialsAndControls,seed=seed).reset_index(drop=True)
 
     #Add Trial index
@@ -121,10 +124,10 @@ def main(subjCode,seed=None):
 
     practSents.to_csv('trials/trialListPract_' +subjCode +'.csv',encoding='utf-8',index=False)
     finalTrials.to_csv('trials/trialList_' +subjCode +'.csv',encoding='utf-8',index=False)
-    return finalTrials
+    return (finalTrials, practSents)
 
 
 if __name__ == "__main__":
     import time
     t=time.strftime("%m%d%H%M")
-    trialList=main('dummySubject'+t,seed=1)
+    (finalTrials,practSents)=main('dummySubject'+t,seed=1)
