@@ -70,6 +70,10 @@ def addTrig(df):
     if df['speaker']=='nonNat' and df['relatedness']=='unrelated':
         return '22'
 
+## Lexical Descision trials
+
+
+
 def main(subjCode,seed=None):
     ######IMPLEMENT A SHUFFLE HERE
     dbase=pd.read_csv('../database/120allAbove70.csv',encoding='utf-16')
@@ -83,7 +87,7 @@ def main(subjCode,seed=None):
     final=simple_shuffle(speak,seed=seed).reset_index(drop=True)
 
     #Merge Experiment needed info from Database
-    dBaseToMerge=dbase[['sentID','hasQuestion','Question','yesOrNo']]
+    dBaseToMerge=dbase[['sentID','hasQuestion','Question','yesOrNo','compLower','unrelOppositeGender']]
     hasQmerge=pd.merge(final,dBaseToMerge,how='left',on='sentID')
     hasQmerge['part']='experiment'
 
