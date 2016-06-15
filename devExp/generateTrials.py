@@ -97,17 +97,21 @@ def main(subjCode,seed=None):
     hasTimings=hasTimings[hasTimings.sentID != 130]
 
     #Add Controls
-    controls=pd.read_csv('../database/controlSentences.csv')
+    # controls=pd.read_csv('../database/controlSentences.csv')
+    # controls['trigDet']=55
+    # controls['trigOffsetNoun']=155
+    # subControls=controls.sample(n=60,replace=False,random_state=seed)
+    controls=pd.read_table('../database/expControls.txt',encoding='utf-16')
+    controls=controls[['speaker','sentID','relatedness','filename','hasQuestion','Question','yesOrNo','part','totalLen','onsetDet','onsetNoun','offsetNoun','waitForDetOffset','waitForNounOffset','waitForEnd']]
     controls['trigDet']=55
     controls['trigOffsetNoun']=155
-    subControls=controls.sample(n=60,replace=False,random_state=seed)
 
     #Add Triggers
     hasTimings['trigDet']=hasTimings.apply(lambda row: addTrig(row),axis=1)
     hasTimings['trigOffsetNoun']=hasTimings.trigDet+"9"
 
     #Join Experimental trials and controls
-    trialsAndControls=pd.concat([hasTimings,subControls]).reset_index(drop=True)
+    trialsAndControls=pd.concat([hasTimings,controls]).reset_index(drop=True)
 
     #Shuffle For Good measure!
     finalTrials=simple_shuffle(trialsAndControls,seed=seed).reset_index(drop=True)
@@ -121,6 +125,17 @@ def main(subjCode,seed=None):
     practSents['trigDet']=0
     practSents['trigOffsetNoun']=0
     ##########
+
+    ##Lexical Descision Lists
+    expTr=finalTrials.copy()
+    expTr['isOld']=1
+    expTr['trialIndex']=0
+
+    cntNew=pd.read_table('../database/lexOnlyControls.txt',encoding='utf-16')
+    lexTrials=pd.concat([expTr,cntNew]).reset_index(drop=True)
+    lexTrials=simple_shuffle(lexTrials,seed=seed).reset_index(drop=True)
+    lexTrials['trialIndex']=xrange(1,len(lexTrials)+1)
+
 
     #finalTrials=hasTimings ##I Think this step will drop since I wanna separate files.
 
@@ -149,11 +164,11 @@ def main(subjCode,seed=None):
     #only save file if the files aren't missing -hence the break
     practSents.to_csv('trials/trialListPract_' +subjCode +'.csv',encoding='utf-8',index=False)
     finalTrials.to_csv('trials/trialList_' +subjCode +'.csv',encoding='utf-8',index=False)
-
-    return (finalTrials, practSents,missing)
+    lexTrials.to_csv('trials/trialListLex_'+subjCode+'.csv',encoding='utf-16',index=False)
+    return (finalTrials, practSents,lexTrials,missing)
 
 
 if __name__ == "__main__":
     import time
     t=time.strftime("%m%d%H%M")
-    (finalTrials,practSents,missing)=main('dummySubject'+t,seed=1)
+    (finalTrials,practSents,lexTrials,missing)=main('dummySubject'+t,seed=1)
