@@ -1,0 +1,7 @@
+debug	1	2	15	no	Is Andre de nieuwe sterspeler van het team?	het team	nonNat_10_unrelated	1	1	None	None	2.377	1.785	1.925	experiment	unrelated	10	nonNat	3.711	1	22	229	de groep	0.14	1.334	0.452	None	None	1	11.8765947819	experiment	0	slash	1	44.9328422546
+debug	1	2	15	no	None	het platteland	nonNat_149_unrelated	0	1	None	None	6.18	5.64	5.751	experiment	unrelated	149	nonNat	7.02	2	22	229	de velden	0.111	0.84	0.429	None	None	None	16.6208798885	experiment	1	slash	1	1671.75984383
+debug	1	2	15	no	None	None	Nat_311_control	0	1	None	None	3.946	3.47	3.589	experiment	control	311	Nat	6.002	3	55	155	None	0.119	2.056	0.357	None	None	None	24.2452437878	experiment	2	slash	1	4565.2589798
+debug	1	2	15	no	None	None	Nat_352_control	0	0	Olympische Spelen	Rio de Janeiro	3.281	1.895	2.537	experiment	control	352	Nat	6.305	4	None	None	None	0.642	3.024	0.744	Argentijns	voetbalelftal	None	27.3814079762	experiment	3	slash	99	68.8080787659
+debug	1	2	15	no	None	None	Nat_341_control	0	0	jongens	giletjes	4.378	3.896	4.018	experiment	control	341	Nat	5.768	5	None	None	None	0.122	1.39	0.36	de	meeste	None	32.4055588245	experiment	4	slash	99	1974.01881218
+debug	1	2	15	no	None	de kinderwagen	Nat_134_unrelated	0	1	None	None	3.084	2.585	2.722	experiment	unrelated	134	Nat	3.866	6	12	129	het zonnetje	0.137	0.782	0.362	None	None	None	37.1499428749	experiment	5	slash	1	1690.81091881
+debug	1	2	15	no	None	de spiegel	Nat_74_related	0	1	None	None	3.165	2.697	2.798	experiment	related	74	Nat	3.793	7	11	119	het raam	0.101	0.628	0.367	None	None	None	45.4385528564	experiment	6	slash	1	5184.75794792

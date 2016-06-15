@@ -8,7 +8,7 @@ from psychopy import prefs
 psychopy.prefs.general['audioLib'] = [u'pygame']
 from psychopy import core, visual,sound,event,data,misc, logging
 from psychopy import visual
-#import generateTrials
+import generateTrials
 from baseFoo import *
 from stimPresFoo import *
 
@@ -62,8 +62,8 @@ class Exp:
 				print 'Error: That subject code already exists'
 				fileOpened=False
 			else:
-				self.eventTracker = open('data/'+self.subjVariables['subjCode']+'_eventTracker.txt','w')
-				self.practFile = open('data/practTrials'+self.expName+self.subjVariables['subjCode']+'.txt','w')
+				#self.eventTracker = open('data/'+self.subjVariables['subjCode']+'_eventTracker.txt','w')
+				#self.practFile = open('data/practTrials'+self.expName+self.subjVariables['subjCode']+'.txt','w')
 				self.testFile = open('data/'+self.expName+self.subjVariables['subjCode']+'.txt','w')
 
 				fileOpened=True
@@ -117,7 +117,7 @@ class ExpPresentation(trial):
 		self.fixSpotPlay = visual.TextStim(self.experiment.win,text="+",height = 30,color="blue")
 		#self.pictureMatrix = loadFiles('stimuli','png','image',self.experiment.win)
 		#self.soundMatrix = loadFiles('stimuli','wav',fileType="sound")
-		(self.trialList,self.fieldNames) = importTrials('trials/trialList_'+self.experiment.subjVariables["subjCode"]+'.csv',method="sequential")
+		(self.trialList,self.fieldNames) = importTrials('trials/trialListLex_'+self.experiment.subjVariables["subjCode"]+'.xlsx',method="sequential")
 		#(self.practTrialList,self.fieldNamesPract) = importTrials('trials/trialListPract_'+self.experiment.subjVariables["subjCode"]+'.csv',method="sequential")
 		self.locations = {'top':[0,275], 'bottom':[0,-275], 'left':[-275,0], 'right':[275,0], 'center':[0,0]}
 
@@ -135,18 +135,21 @@ class ExpPresentation(trial):
 			wordToPrez=visual.TextStim(self.experiment.win,text=curTrial['unrelOppositeGender'],pos=(0,0),height=30,color="black")
 
 		#### This may need to change when I know exactly how to figure out this part/
-		if curTrial['relatedness']=='control' and curTrial['isOld']==1:
-			wordToPrez=visual.TextStim(self.experiment.win,text=curTrial['oldWord'],pos=(0,0),height=30,color="black")
-		if curTrial['relatedness']=='control' and curTrial['isOld']==0:
-			wordToPrez=visual.TextStim(self.experiment.win,text=curTrial['newWord'],pos=(0,0),height=30,color="black")
+		if curTrial['relatedness']=='control':
+			wordToPrez=visual.TextStim(self.experiment.win,text=curTrial['newWord1'],pos=(0,0),height=30,color="black")
 
 		# if self.experiment.subjVariables['useParallel']=='yes':
 		# 	playSentenceNoTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'], curTrial['waitForDetOffset'], curTrial['waitForNounOffset'],curTrial['waitForEnd'], curTrial['trigDet'],curTrial['trigOffsetNoun'],self.experiment.eventTracker,curTrial,self.expTimer)
 		# else:
 		# 	playSentenceNoTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'], curTrial['waitForDetOffset'], curTrial['waitForNounOffset'],curTrial['waitForEnd'], curTrial['trigDet'],curTrial['trigOffsetNoun'],self.experiment.eventTracker,curTrial,self.expTimer)
-
+		response=99
+		isRight=99
+		rt=99
 		setAndPresentStimulus(self.experiment.win,[responseInfoReminder,wordToPrez],duration=2)
 		(response,rt) = getKeyboardResponse(self.experiment.validResponses.keys())
+
+		if self.experiment.validResponses[response]==curTrial['isOld']:
+			isRight=1
 
 		fieldVars=[]
 		for curField in self.fieldNames:
@@ -165,7 +168,7 @@ class ExpPresentation(trial):
 			print "Writing header to file..."
 			dirtyHack = {}
 			dirtyHack['trialNum']=1
-			writeHeader(dirtyHack, header,'header_test'+self.experiment.expName)
+			writeHeader(dirtyHack, header,'header_lex'+self.experiment.expName)
 
 	def cycleThroughExperimentTrials(self,whichPart): #CHECK OUT PRACTICE STUFF
 		curTrialIndex=0

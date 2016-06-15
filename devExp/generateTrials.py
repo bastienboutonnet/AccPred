@@ -164,11 +164,13 @@ def main(subjCode,seed=None):
     #only save file if the files aren't missing -hence the break
     practSents.to_csv('trials/trialListPract_' +subjCode +'.csv',encoding='utf-8',index=False)
     finalTrials.to_csv('trials/trialList_' +subjCode +'.csv',encoding='utf-8',index=False)
-    lexTrials.to_csv('trials/trialListLex_'+subjCode+'.csv',encoding='utf-16',index=False)
+    #lexTrials.to_csv('trials/trialListLex_'+subjCode+'.csv',encoding='utf-16',index=False)
+    lexTrials.to_excel('trials/trialListLex_'+subjCode+'.xlsx',encoding='utf-16',index=False)
     return (finalTrials, practSents,lexTrials,missing)
 
 
 if __name__ == "__main__":
     import time
-    t=time.strftime("%m%d%H%M")
-    (finalTrials,practSents,lexTrials,missing)=main('dummySubject'+t,seed=1)
+    #t=time.strftime("%m%d%H%M")
+    #(finalTrials,practSents,lexTrials,missing)=main('dummySubject'+t,seed=1)
+    (finalTrials,practSents,lexTrials,missing)=main('dummySubject',seed=1)
