@@ -1,0 +1,180 @@
+Question,compLower,filename,hasQuestion,newWord1,newWord2,offsetNoun,onsetDet,onsetNoun,part,relatedness,sentID,speaker,totalLen,trigDet,trigOffsetNoun,unrelOppositeGender,waitForDetOffset,waitForEnd,waitForNounOffset,yesOrNo,trialIndex
+,,nonNat_330_control,0,speelgoed,lego,7.41,6.629,6.774,experiment,control,330,nonNat,7.541,55,155,,0.145,0.131,0.636,,1
+Werkt de lift bij brand?,de lift,nonNat_145_unrelated,1,,,2.852,2.44,2.588,experiment,unrelated,145,nonNat,3.804,22,229,het dak,0.148,0.952,0.264,0.0,2
+Staan de boeken die de spreker gelezen heeft op de bovenste plank in de kast?,de kast,nonNat_29_unrelated,1,,,3.186,2.668,2.837,experiment,unrelated,29,nonNat,3.992,22,229,het bureau,0.169,0.806,0.349,1.0,3
+Werd de gladheid aangekondigd op de tv?,de wind,nonNat_100_related,1,,,6.041,5.457,5.601,experiment,related,100,nonNat,7.446,21,219,het gezicht,0.144,1.405,0.44,0.0,4
+Draait de nieuwe film van die acteur al?,de bioscoop,Nat_39_related,1,,,2.431,1.791,1.95,experiment,related,39,Nat,2.98,11,119,het theater,0.159,0.549,0.481,1.0,5
+,,nonNat_338_control,0,tv,kijken,0.792,0.33,0.445,experiment,control,338,nonNat,4.686,55,155,,0.115,3.894,0.347,,6
+Wilden ze zijn afstuderen vieren met champagne?,de champagne,Nat_126_related,1,,,5.031,4.255,4.385,experiment,related,126,Nat,6.875,11,119,het feest,0.13,1.844,0.646,0.0,7
+Gaat deze uitdrukking over koeien?,de sloot,Nat_88_unrelated,1,,,3.017,2.583,2.722,experiment,unrelated,88,Nat,3.552,12,129,het meer,0.139,0.535,0.295,0.0,8
+,,Nat_307_control,0,collega,raam,1.941,1.561,1.613,experiment,control,307,Nat,5.2,55,155,,0.052,3.259,0.328,,9
+,de lucht,nonNat_80_related,0,,,3.906,3.549,3.66,experiment,related,80,nonNat,4.779,21,219,het water,0.111,0.873,0.246,,10
+,het internet,Nat_59_related,0,,,5.853,5.245,5.364,experiment,related,59,Nat,7.181,11,119,de websites,0.119,1.328,0.489,,11
+,de meterkast,nonNat_116_related,0,,,4.963,4.202,4.315,experiment,related,116,nonNat,5.532,21,219,het kabinet,0.113,0.569,0.648,,12
+Kwam de trein op tijd aan in Utrecht?,het station,Nat_136_related,1,,,3.03,2.415,2.52,experiment,related,136,Nat,3.76,11,119,de noordzijde,0.105,0.73,0.51,0.0,13
+,het vak,Nat_142_unrelated,0,,,4.922,3.907,4.048,experiment,unrelated,142,Nat,7.731,12,129,de lesomgeving,0.141,2.809,0.874,,14
+,de hoek,nonNat_84_unrelated,0,,,7.371,6.526,6.746,experiment,unrelated,84,nonNat,8.61,22,229,het kamertje,0.22,1.239,0.625,,15
+,,nonNat_339_control,0,mensen,verstand,2.66,2.062,2.259,experiment,control,339,nonNat,5.492,55,155,,0.197,2.832,0.401,,16
+Heeft Michael een nieuwe afstandsbediening gekocht voor zijn tv?,het geluid,nonNat_69_unrelated,1,,,3.823,3.339,3.422,experiment,unrelated,69,nonNat,4.916,22,229,de muziek,0.083,1.093,0.401,1.0,17
+,de pan,Nat_108_related,0,,,4.256,3.809,4.024,experiment,related,108,Nat,5.8,11,119,het vuur,0.215,1.544,0.232,,18
+,de post,nonNat_11_related,0,,,5.193,4.754,4.932,experiment,related,11,nonNat,6.148,21,219,het postbedrijf,0.178,0.955,0.261,,19
+Maken kinderen sneeuwengelen in de winter?,de sneeuw,Nat_30_related,1,,,1.991,1.622,1.679,experiment,related,30,Nat,3.074,11,119,het ijs,0.057,1.083,0.312,1.0,20
+,,Nat_300_control,0,conferentie,Londen,1.205,0.66,0.783,experiment,control,300,Nat,2.657,55,155,,0.123,1.452,0.422,,21
+Was er genoeg licht om te lezen in de kamer?,het licht,Nat_32_related,1,,,3.303,2.916,3.056,experiment,related,32,Nat,3.87,11,119,de lamp,0.14,0.567,0.247,1.0,22
+Ging de zin over een fietstocht door de Alpen?,de berg,nonNat_104_unrelated,1,,,2.586,2.047,2.224,experiment,unrelated,104,nonNat,3.866,22,229,het pad,0.177,1.28,0.362,0.0,23
+,,nonNat_348_control,0,aanwijzingen,gelukkiger,2.715,1.777,2.02,experiment,control,348,nonNat,5.731,55,155,,0.243,3.016,0.695,,24
+,,Nat_301_control,0,werk,woensdag,1.67,1.249,1.369,experiment,control,301,Nat,4.195,55,155,,0.12,2.525,0.301,,25
+,,nonNat_336_control,0,toeristen,land,3.857,2.888,3.308,experiment,control,336,nonNat,6.872,55,155,,0.42,3.015,0.549,,26
+,,Nat_308_control,0,telefoon,bedrijf,3.52,2.694,2.824,experiment,control,308,Nat,4.603,55,155,,0.13,1.083,0.696,,27
+,,nonNat_344_control,0,lezen,saai,3.06,2.309,2.766,experiment,control,344,nonNat,3.692,55,155,,0.457,0.632,0.294,,28
+,,Nat_325_control,0,kinderen,school,0.503,0.005,0.162,experiment,control,325,Nat,5.752,55,155,,0.157,5.249,0.341,,29
+,,nonNat_358_control,0,jaren,woningnood,2.978,2.391,2.636,experiment,control,358,nonNat,5.016,55,155,,0.245,2.038,0.342,,30
+,het bestek,Nat_129_related,0,,,5.513,4.963,5.116,experiment,related,129,Nat,7.027,11,119,de lepels,0.153,1.514,0.397,,31
+,het antwoord,nonNat_23_related,0,,,3.397,2.817,3.0,experiment,related,23,nonNat,4.226,21,219,de reactie,0.183,0.829,0.397,,32
+,het slot,Nat_141_related,0,,,2.776,2.354,2.454,experiment,related,141,Nat,3.683,11,119,de deur,0.1,0.907,0.322,,33
+Was het lekker weer om te gaan picknicken?,het eten,nonNat_102_unrelated,1,,,4.054,3.647,3.787,experiment,unrelated,102,nonNat,4.693,22,229,de pasta,0.14,0.639,0.267,0.0,34
+,,Nat_329_control,0,instapkaart,print,3.979,3.353,3.487,experiment,control,329,Nat,5.104,55,155,,0.134,1.125,0.492,,35
+Werden de kaartjes gecontroleerd in de trein?,de conducteur,Nat_131_unrelated,1,,,3.331,2.815,2.962,experiment,unrelated,131,Nat,4.378,12,129,het mannetje,0.147,1.047,0.369,0.0,36
+Is Andre de nieuwe sterspeler van het team?,het team,Nat_10_unrelated,1,,,1.702,1.302,1.446,experiment,unrelated,10,Nat,2.685,12,129,de groep,0.144,0.983,0.256,1.0,37
+,de wolf,nonNat_79_related,0,,,4.931,4.508,4.617,experiment,related,79,nonNat,5.456,21,219,het dier,0.109,0.525,0.314,,38
+Werd het bestek in de onderste lade bewaard?,het bestek,Nat_151_unrelated,1,,,3.292,2.775,2.837,experiment,unrelated,151,Nat,4.222,12,129,de glazen,0.062,0.93,0.455,0.0,39
+Wilde ze graag haar telefoon opladen?,het stopcontact,nonNat_45_unrelated,1,,,5.164,4.361,4.563,experiment,unrelated,45,nonNat,6.47,22,229,de computer,0.202,1.306,0.601,1.0,40
+,de badmeester,nonNat_41_unrelated,0,,,3.441,2.635,2.807,experiment,unrelated,41,nonNat,5.176,22,229,het personeel,0.172,1.735,0.634,,41
+,,nonNat_357_control,0,jaar,wedstrijden,4.986,4.438,4.704,experiment,control,357,nonNat,5.044,55,155,,0.266,0.058,0.282,,42
+Houdt de spreker van dieren?,de dierentuin,nonNat_123_unrelated,1,,,4.395,3.53,3.634,experiment,unrelated,123,nonNat,6.022,22,229,het reservaat,0.104,1.627,0.761,0.0,43
+,het woordenboek,Nat_62_unrelated,0,,,4.243,3.189,3.323,experiment,unrelated,62,Nat,5.68,12,129,de encyclopedie,0.134,1.437,0.92,,44
+,,nonNat_337_control,0,film,personages,5.353,4.52,4.735,experiment,control,337,nonNat,8.055,55,155,,0.215,2.702,0.618,,45
+,,nonNat_335_control,0,vluchtelingenstroom,grenscontroles,3.544,2.192,2.734,experiment,control,335,nonNat,8.077,55,155,,0.542,4.533,0.81,,46
+,de politie,Nat_147_related,0,,,3.691,3.111,3.255,experiment,related,147,Nat,5.729,11,119,het bedrijf,0.144,2.038,0.436,,47
+Heeft de spreker het over een t-Shirt van haar lievelingsband?,de muur,Nat_58_unrelated,1,,,4.063,3.403,3.602,experiment,unrelated,58,Nat,5.459,12,129,het plafond,0.199,1.396,0.461,1.0,48
+,,nonNat_332_control,0,invoering,restaurants,2.113,1.234,1.421,experiment,control,332,nonNat,6.836,55,155,,0.187,4.723,0.692,,49
+Is David een echte gentleman?,de stoel,nonNat_17_unrelated,1,,,3.74,3.06,3.253,experiment,unrelated,17,nonNat,4.925,22,229,het stoeltje,0.193,1.185,0.487,1.0,50
+Had Marc genoeg tijd ingepland om te studeren voor zijn literatuurtentamen?,de samenvatting,Nat_120_unrelated,1,,,5.874,5.343,5.483,experiment,unrelated,120,Nat,9.53,12,129,het verhaal,0.14,3.656,0.391,0.0,51
+,het verkeer,Nat_63_related,0,,,2.162,1.614,1.726,experiment,related,63,Nat,3.467,11,119,de wijk,0.112,1.305,0.436,,52
+,,nonNat_354_control,0,buiten,weer,2.252,1.658,1.771,experiment,control,354,nonNat,3.677,55,155,,0.113,1.425,0.481,,53
+Had het sprookje een goed einde?,het sprookje,Nat_50_related,1,,,3.127,2.504,2.619,experiment,related,50,Nat,4.543,11,119,de trilogie,0.115,1.416,0.508,1.0,54
+Hebben ze een hoop post gekregen terwijl we op vakantie waren?,de brievenbus,nonNat_31_related,1,,,3.698,3.008,3.133,experiment,related,31,nonNat,4.135,21,219,het postvakje,0.125,0.437,0.565,1.0,55
+,,Nat_302_control,0,leraren,vakantie,4.913,4.321,4.623,experiment,control,302,Nat,5.546,55,155,,0.302,0.633,0.29,,56
+,het krijt,Nat_83_related,0,,,4.75,4.195,4.362,experiment,related,83,Nat,6.647,11,119,de schuld,0.167,1.897,0.388,,57
+,het balkon,nonNat_109_related,0,,,5.956,5.22,5.415,experiment,related,109,nonNat,9.102,21,219,de balustrade,0.195,3.146,0.541,,58
+Is de student vroeg naar bed gegaan voor zijn tentamen de volgende morgen?,het tentamen,nonNat_118_unrelated,1,,,3.072,2.337,2.496,experiment,unrelated,118,nonNat,4.33,22,229,de opdracht,0.159,1.258,0.576,0.0,59
+,,Nat_323_control,0,krant,uitbraak,1.595,1.159,1.305,experiment,control,323,Nat,4.48,55,155,,0.146,2.885,0.29,,60
+,het ontbijt,nonNat_28_unrelated,0,,,4.548,3.995,4.143,experiment,unrelated,28,nonNat,5.217,22,229,de brunch,0.148,0.669,0.405,,61
+Was Aafke al in het klaslokaal toen de bel ging?,de bel,nonNat_67_unrelated,1,,,3.905,3.393,3.497,experiment,unrelated,67,nonNat,4.488,22,229,het groepje,0.104,0.583,0.408,1.0,62
+,,Nat_327_control,0,vrouw,huis,3.834,3.0,3.529,experiment,control,327,Nat,5.216,55,155,,0.529,1.382,0.305,,63
+,de afwas,Nat_20_unrelated,0,,,2.625,2.021,2.162,experiment,unrelated,20,Nat,3.216,12,129,het huishouden,0.141,0.591,0.463,,64
+,,nonNat_359_control,0,apen,broodje,5.402,4.874,5.0,experiment,control,359,nonNat,5.456,55,155,,0.126,0.054,0.402,,65
+Heeft het team de laatste wedstrijd gewonnen?,de taart,nonNat_43_unrelated,1,,,4.249,3.623,3.721,experiment,unrelated,43,nonNat,5.312,22,229,het ijsje,0.098,1.063,0.528,1.0,66
+,de pet,nonNat_97_related,0,,,3.299,2.876,3.074,experiment,related,97,nonNat,3.649,21,219,het hoofd,0.198,0.35,0.225,,67
+Gaat de spreker wel eens op vakantie?,het vliegtuig,nonNat_51_unrelated,1,,,3.253,2.694,2.801,experiment,unrelated,51,nonNat,4.137,22,229,de auto,0.107,0.884,0.452,1.0,68
+Was het mooi weer om met de fiets te gaan?,de auto,nonNat_12_unrelated,1,,,2.635,2.227,2.366,experiment,unrelated,12,nonNat,4.934,22,229,het busje,0.139,2.299,0.269,1.0,69
+,,nonNat_347_control,0,maatstaf,tijdschriften,4.964,4.568,4.702,experiment,control,347,nonNat,5.824,55,155,,0.134,0.86,0.262,,70
+,,nonNat_353_control,0,baan,landen,2.405,1.92,2.031,experiment,control,353,nonNat,4.397,55,155,,0.111,1.992,0.374,,71
+,,nonNat_346_control,0,recht,pech,3.133,2.606,2.743,experiment,control,346,nonNat,5.536,55,155,,0.137,2.403,0.39,,72
+,het lijf,nonNat_101_unrelated,0,,,3.129,2.618,2.724,experiment,unrelated,101,nonNat,4.422,22,229,de maag,0.106,1.293,0.405,,73
+,,Nat_324_control,0,hulpverleners,mijn,3.468,2.747,2.823,experiment,control,324,Nat,6.08,55,155,,0.076,2.612,0.645,,74
+,,Nat_313_control,0,uitkijkpost,Oceaan,3.097,2.55,2.655,experiment,control,313,Nat,6.168,55,155,,0.105,3.071,0.442,,75
+,de oven,Nat_8_related,0,,,3.552,2.974,3.108,experiment,related,8,Nat,4.993,11,119,het fornuis,0.134,1.441,0.444,,76
+,,nonNat_343_control,0,introductie,literatuur,4.267,3.678,3.938,experiment,control,343,nonNat,5.262,55,155,,0.26,0.995,0.329,,77
+Had de spreker de bus gehaald?,de auto,nonNat_146_unrelated,1,,,4.413,3.372,3.606,experiment,unrelated,146,nonNat,5.276,22,229,het taxibedrijf,0.234,0.863,0.807,0.0,78
+Ging de zin over de maand januari?,het jaar,Nat_75_unrelated,1,,,2.04,1.607,1.723,experiment,unrelated,75,Nat,3.849,12,129,de winter,0.116,1.809,0.317,1.0,79
+,de fiets,nonNat_4_related,0,,,3.8,3.11,3.26,experiment,related,4,nonNat,5.783,21,219,het paard,0.15,1.983,0.54,,80
+Heeft de werknemer zijn contract getekend voor de onderhandelingen?,het contract,Nat_111_unrelated,1,,,2.739,2.253,2.471,experiment,unrelated,111,Nat,4.015,12,129,de brief,0.218,1.276,0.268,0.0,81
+,de tuinman,Nat_106_related,0,,,4.929,4.344,4.524,experiment,related,106,Nat,6.113,11,119,het hulpje,0.18,1.184,0.405,,82
+,,nonNat_351_control,0,vrijwilliger,Nederland,1.445,0.246,0.6,experiment,control,351,nonNat,5.252,55,155,,0.354,3.807,0.845,,83
+,het zeil,Nat_137_unrelated,0,,,4.3,3.884,3.991,experiment,unrelated,137,Nat,4.938,12,129,de smiezen,0.107,0.638,0.309,,84
+,,nonNat_342_control,0,autoriteiten,maatregel,7.471,7.038,7.297,experiment,control,342,nonNat,8.19,55,155,,0.259,0.719,0.174,,85
+Gaat Zwarte Piet door de schoorsteen naar binnen?,de schoorsteen,Nat_155_unrelated,1,,,4.52,3.932,4.055,experiment,unrelated,155,Nat,6.385,12,129,het gangpad,0.123,1.865,0.465,0.0,86
+,de kapstok,nonNat_57_related,0,,,3.07,2.401,2.603,experiment,related,57,nonNat,3.566,21,219,het haakje,0.202,0.496,0.467,,87
+,,nonNat_356_control,0,Nederland,psychologie,1.979,1.149,1.344,experiment,control,356,nonNat,4.958,55,155,,0.195,2.979,0.635,,88
+,,Nat_314_control,0,leerlingen,huiswerk,7.395,6.658,6.924,experiment,control,314,Nat,7.402,55,155,,0.266,0.007,0.471,,89
+,,Nat_328_control,0,documenten,kwijtraakt,3.277,2.806,2.934,experiment,control,328,Nat,5.552,55,155,,0.128,2.275,0.343,,90
+,het schoolplein,Nat_27_related,0,,,3.314,2.638,2.746,experiment,related,27,Nat,4.408,11,119,de stoep,0.108,1.094,0.568,,91
+,,Nat_321_control,0,week,lessen,1.245,0.587,0.778,experiment,control,321,Nat,4.136,55,155,,0.191,2.891,0.467,,92
+,de krant,nonNat_16_unrelated,0,,,2.982,2.451,2.598,experiment,unrelated,16,nonNat,4.806,22,229,het nieuws,0.147,1.824,0.384,,93
+Ging de zin over lastdieren in de bergen?,de kameel,nonNat_85_related,1,,,3.998,3.415,3.563,experiment,related,85,nonNat,5.028,21,219,het trekpaard,0.148,1.03,0.435,1.0,94
+,de balk,Nat_95_related,0,,,4.217,3.704,3.798,experiment,related,95,Nat,5.141,11,119,het hout,0.094,0.924,0.419,,95
+,de gordijnen,Nat_46_related,0,,,3.85,3.299,3.394,experiment,related,46,Nat,4.315,11,119,het luik,0.095,0.465,0.456,,96
+,,Nat_316_control,0,amateurs,stunt,4.114,3.541,3.686,experiment,control,316,Nat,4.12,55,155,,0.145,0.006,0.428,,97
+,de mouw,Nat_94_related,0,,,4.632,4.12,4.249,experiment,related,94,Nat,7.685,11,119,het vest,0.129,3.053,0.383,,98
+,de trein,Nat_143_related,0,,,5.853,5.385,5.568,experiment,related,143,Nat,6.707,11,119,het fietsje,0.183,0.854,0.285,,99
+,,nonNat_340_control,0,salade,pompoen,3.964,3.096,3.307,experiment,control,340,nonNat,6.734,55,155,,0.211,2.77,0.657,,100
+,,Nat_310_control,0,attractiepark,Efteling,5.395,4.402,4.654,experiment,control,310,Nat,5.408,55,155,,0.252,0.013,0.741,,101
+,de kinderwagen,nonNat_134_related,0,,,3.699,2.85,3.033,experiment,related,134,nonNat,4.633,21,219,het zonnetje,0.183,0.934,0.666,,102
+,de pot,nonNat_122_unrelated,0,,,4.607,3.858,4.055,experiment,unrelated,122,nonNat,5.832,22,229,het toilet,0.197,1.225,0.552,,103
+,,Nat_312_control,0,landen,vakantie,2.688,2.182,2.31,experiment,control,312,Nat,5.376,55,155,,0.128,2.688,0.378,,104
+,,nonNat_355_control,0,zoon,buitenland,2.699,2.227,2.444,experiment,control,355,nonNat,4.376,55,155,,0.217,1.677,0.255,,105
+,,Nat_326_control,0,koeien,gras,1.987,1.606,1.684,experiment,control,326,Nat,7.568,55,155,,0.078,5.581,0.303,,106
+,,nonNat_350_control,0,oma's,kinderen,2.93,2.267,2.367,experiment,control,350,nonNat,5.407,55,155,,0.1,2.477,0.563,,107
+,,Nat_315_control,0,ruimtemissies,jaar,2.069,1.344,1.479,experiment,control,315,Nat,6.144,55,155,,0.135,4.075,0.59,,108
+Gaat de zin over een populair liedje?,de radio,Nat_158_unrelated,1,,,2.234,1.831,1.945,experiment,unrelated,158,Nat,3.001,12,129,het nieuws,0.114,0.767,0.289,0.0,109
+Heeft de spreker een kerstboom met Kerst?,de cadeautjes,nonNat_9_related,1,,,3.179,2.509,2.671,experiment,related,9,nonNat,4.278,21,219,het pakje,0.162,1.099,0.508,1.0,110
+,,Nat_306_control,0,kast,nachtkastje,0.44,0.016,0.183,experiment,control,306,Nat,5.032,55,155,,0.167,4.592,0.257,,111
+Was de fiets van Martijn gestolen?,de politie,nonNat_42_unrelated,1,,,5.087,3.965,4.214,experiment,unrelated,42,nonNat,6.219,22,229,het politiebureau,0.249,1.132,0.873,1.0,112
+Waren de bejaarden geïnteresseerd in schilderijen van Monet?,het museum,Nat_140_unrelated,1,,,4.276,3.663,3.794,experiment,unrelated,140,Nat,5.433,12,129,de broodwinkel,0.131,1.157,0.482,0.0,113
+,,Nat_303_control,0,studenten,studie,1.034,0.179,0.311,experiment,control,303,Nat,4.896,55,155,,0.132,3.862,0.723,,114
+,het aanrecht,nonNat_77_related,0,,,3.893,3.231,3.406,experiment,related,77,nonNat,4.301,21,219,de tafel,0.175,0.408,0.487,,115
+Nemen ze een paraplu mee als het mooi weer is?,het strand,nonNat_24_unrelated,1,,,3.627,3.019,3.175,experiment,unrelated,24,nonNat,4.796,22,229,de rivier,0.156,1.169,0.452,1.0,116
+Gaat de spreker in de zomer graag zwemmen?,het zwembad,nonNat_6_unrelated,1,,,4.325,3.588,3.774,experiment,unrelated,6,nonNat,5.272,22,229,de badkuip,0.186,0.947,0.551,1.0,117
+,,Nat_305_control,0,ontbijt,boterham,3.347,2.76,2.896,experiment,control,305,Nat,4.005,55,155,,0.136,0.658,0.451,,118
+,het geld,Nat_156_unrelated,0,,,3.709,3.189,3.29,experiment,unrelated,156,Nat,4.128,12,129,de briefjes,0.101,0.419,0.419,,119
+Had Hendrik een bioscoopbon gekregen voor zijn verjaardag?,de bioscoop,nonNat_114_related,1,,,6.533,5.896,6.069,experiment,related,114,nonNat,7.206,21,219,het filmhuis,0.173,0.673,0.464,0.0,120
+Gingen de dames nog een sigaretje roken?,het cafe,Nat_68_related,1,,,3.467,2.892,3.042,experiment,related,68,Nat,4.695,11,119,de lunchroom,0.15,1.228,0.425,1.0,121
+Ging de zanger in een helicopter terug naar het hotel?,het hotel,Nat_93_related,1,,,3.433,2.91,3.041,experiment,related,93,Nat,4.192,11,119,de zaal,0.131,0.759,0.392,0.0,122
+Moeten ze vanavond vroeg naar bed?,de wekker,Nat_34_related,1,,,3.665,3.183,3.308,experiment,related,34,Nat,4.584,11,119,het alarm,0.125,0.919,0.357,1.0,123
+Zijn de meiden hout aan het verzamelen voor het kampvuur vanavond?,het kampvuur,nonNat_26_related,1,,,4.172,3.33,3.556,experiment,related,26,nonNat,4.842,21,219,de tocht,0.226,0.67,0.616,1.0,124
+Lijkt Sam erg op zijn moeder?,de boom,nonNat_125_unrelated,1,,,5.625,5.013,5.218,experiment,unrelated,125,nonNat,6.643,22,229,het plantje,0.205,1.018,0.407,0.0,125
+Was de spreker ziek?,de dokter,Nat_13_related,1,,,3.481,3.091,3.231,experiment,related,13,Nat,4.256,11,119,het ziekenhuis,0.14,0.775,0.25,1.0,126
+,de naald,Nat_107_unrelated,0,,,3.662,3.07,3.193,experiment,unrelated,107,Nat,5.535,12,129,het huis,0.123,1.873,0.469,,127
+,het platteland,Nat_149_related,0,,,6.029,5.341,5.503,experiment,related,149,Nat,6.712,11,119,de velden,0.162,0.683,0.526,,128
+,de schat,Nat_5_unrelated,0,,,3.575,3.03,3.165,experiment,unrelated,5,Nat,4.413,12,129,het pakketje,0.135,0.838,0.41,,129
+,,nonNat_352_control,0,Olympische Spelen,Rio de Janeiro,3.109,1.455,1.959,experiment,control,352,nonNat,5.796,55,155,,0.504,2.687,1.15,,130
+,het casino,nonNat_66_unrelated,0,,,2.412,1.923,2.092,experiment,unrelated,66,nonNat,4.2,22,229,de bar,0.169,1.788,0.32,,131
+Heeft de koning de nieuwe brug geopend?,het lint,nonNat_110_related,1,,,4.725,4.202,4.367,experiment,related,110,nonNat,5.687,21,219,de touwen,0.165,0.962,0.358,0.0,132
+,de wereld,Nat_132_unrelated,0,,,3.237,2.46,2.612,experiment,unrelated,132,Nat,5.454,12,129,het paradijs,0.152,2.217,0.625,,133
+,de bibliotheek,nonNat_47_related,0,,,4.259,3.502,3.712,experiment,related,47,nonNat,4.981,21,219,het uitleenpunt,0.21,0.722,0.547,,134
+,,Nat_319_control,0,kabinet,toeristen,1.984,1.188,1.291,experiment,control,319,Nat,4.486,55,155,,0.103,2.502,0.693,,135
+,het hart,Nat_87_unrelated,0,,,6.3,5.783,5.916,experiment,unrelated,87,Nat,7.736,12,129,de neus,0.133,1.436,0.384,,136
+,,Nat_322_control,0,directeur,winstmarge,2.661,1.9,2.007,experiment,control,322,Nat,4.224,55,155,,0.107,1.563,0.654,,137
+Was de prinses opgesloten in de torenkamer?,de draak,nonNat_103_unrelated,1,,,4.457,3.74,3.949,experiment,unrelated,103,nonNat,6.314,22,229,het leger,0.209,1.857,0.508,0.0,138
+Maakte het publiek na afloop van de voorstelling een buiging?,het publiek,nonNat_38_related,1,,,5.052,4.536,4.717,experiment,related,38,nonNat,5.577,21,219,de mensen,0.181,0.525,0.335,1.0,139
+Moesten de mensen wachten voor ze geholpen werden bij de dokter?,de wachtkamer,Nat_133_related,1,,,2.736,2.115,2.244,experiment,related,133,Nat,4.538,11,119,het halletje,0.129,1.802,0.492,0.0,140
+,,Nat_318_control,0,onderzoek,invloed,4.884,4.173,4.326,experiment,control,318,Nat,4.896,55,155,,0.153,0.012,0.558,,141
+,de zon,nonNat_121_related,0,,,3.414,2.952,3.084,experiment,related,121,nonNat,5.264,21,219,het zand,0.132,1.85,0.33,,142
+,,nonNat_360_control,0,onvoldoende,Engels,3.656,2.965,3.153,experiment,control,360,nonNat,4.996,55,155,,0.188,1.34,0.503,,143
+,,nonNat_334_control,0,boekenwinkels,jaren,5.39,4.902,5.122,experiment,control,334,nonNat,6.538,55,155,,0.22,1.148,0.268,,144
+,,nonNat_331_control,0,oma,sjaals,1.547,0.951,1.198,experiment,control,331,nonNat,5.778,55,155,,0.247,4.231,0.349,,145
+Leest de vader van de spreker graag de krant op zaterdag?,de krant,nonNat_161_related,1,,,2.819,2.322,2.542,experiment,related,161,nonNat,3.618,21,219,het magazine,0.22,0.799,0.277,0.0,146
+,de gevangenis,nonNat_153_related,0,,,2.977,2.29,2.413,experiment,related,153,nonNat,3.525,21,219,het boevenhok,0.123,0.548,0.564,,147
+,,nonNat_333_control,0,bevolking,parlement,2.984,2.326,2.417,experiment,control,333,nonNat,4.705,55,155,,0.091,1.721,0.567,,148
+,,Nat_320_control,0,uitvinding,mensheid,2.055,1.427,1.527,experiment,control,320,Nat,3.843,55,155,,0.1,1.788,0.528,,149
+,de apotheek,nonNat_54_related,0,,,2.925,2.215,2.357,experiment,related,54,nonNat,4.458,21,219,het kruidvat,0.142,1.533,0.568,,150
+,,Nat_309_control,0,kinderen,bed,4.494,3.941,4.075,experiment,control,309,Nat,5.998,55,155,,0.134,1.504,0.419,,151
+,de vergadering,nonNat_64_unrelated,0,,,3.449,3.071,3.179,experiment,unrelated,64,nonNat,4.1,22,229,het werk,0.108,0.651,0.27,,152
+Zetten ze altijd een zwembad op als het warm is?,de tuin,Nat_40_related,1,,,2.857,2.475,2.627,experiment,related,40,Nat,3.502,11,119,het park,0.152,0.645,0.23,1.0,153
+,,Nat_304_control,0,vakken,studie,1.051,0.428,0.515,experiment,control,304,Nat,4.264,55,155,,0.087,3.213,0.536,,154
+Is het belangrijk om goed op het verkeer te letten als je in de auto rijdt?,de weg,Nat_21_unrelated,1,,,2.817,2.353,2.445,experiment,unrelated,21,Nat,3.753,12,129,het verkeer,0.092,0.936,0.372,1.0,155
+Ging de zin over zuivelproducten?,de koelkast,Nat_150_unrelated,1,,,3.097,2.394,2.509,experiment,unrelated,150,Nat,4.674,12,129,het vriesvak,0.115,1.577,0.588,0.0,156
+,het bord,Nat_22_unrelated,0,,,2.883,2.142,2.28,experiment,unrelated,22,Nat,3.681,12,129,de antwoordvellen,0.138,0.798,0.603,,157
+,de thee,nonNat_7_related,0,,,6.083,5.601,5.833,experiment,related,7,nonNat,6.935,21,219,het drankje,0.232,0.852,0.25,,158
+Is Jim vegetarisch?,het restaurant,Nat_124_unrelated,1,,,4.007,3.465,3.628,experiment,unrelated,124,Nat,5.129,12,129,de bistro,0.163,1.122,0.379,0.0,159
+,,Nat_317_control,0,celstraf,raketwerper,0.614,0.01,0.071,experiment,control,317,Nat,5.224,55,155,,0.061,4.61,0.543,,160
+,de spiegel,nonNat_74_related,0,,,4.793,4.115,4.251,experiment,related,74,nonNat,5.58,21,219,het raam,0.136,0.787,0.542,,161
+,,Nat_311_control,0,land,skivakantie,3.946,3.47,3.589,experiment,control,311,Nat,6.002,55,155,,0.119,2.056,0.357,,162
+,de film,nonNat_157_related,0,,,4.459,4.098,4.182,experiment,related,157,nonNat,5.383,21,219,het programma,0.084,0.924,0.277,,163
+,het balkon,nonNat_159_unrelated,0,,,5.314,4.895,5.086,experiment,unrelated,159,nonNat,5.75,22,229,de bank,0.191,0.436,0.228,,164
+,de kerk,Nat_98_unrelated,0,,,2.912,2.217,2.398,experiment,unrelated,98,Nat,3.503,12,129,het kapelletje,0.181,0.591,0.514,,165
+Is er een muizenplaag in het studentenhuis?,de muizen,nonNat_49_related,1,,,3.237,2.763,2.897,experiment,related,49,nonNat,3.707,21,219,het knaagdier,0.134,0.47,0.34,1.0,166
+Betalen de meeste mensen huur per jaar?,de maand,Nat_92_related,1,,,3.024,2.549,2.686,experiment,related,92,Nat,3.748,11,119,het jaar,0.137,0.724,0.338,0.0,167
+,,nonNat_341_control,0,jongens,giletjes,6.264,5.196,5.48,experiment,control,341,nonNat,6.315,55,155,,0.284,0.051,0.784,,168
+Verspreidt de koude lucht zich vanuit Rusland?,het land,Nat_160_unrelated,1,,,4.132,3.488,3.638,experiment,unrelated,160,Nat,4.623,12,129,de provincies,0.15,0.491,0.494,0.0,169
+,de economie,nonNat_154_related,0,,,6.155,5.543,5.695,experiment,related,154,nonNat,6.826,21,219,het geluk,0.152,0.671,0.46,,170
+,de airco,Nat_90_unrelated,0,,,3.899,3.322,3.502,experiment,unrelated,90,Nat,4.302,12,129,het ventiel,0.18,0.403,0.397,,171
+Heeft deze zin iets te maken met hengelsport?,het net,Nat_89_unrelated,1,,,3.607,2.987,3.134,experiment,unrelated,89,Nat,4.8,12,129,de sloot,0.147,1.193,0.473,0.0,172
+Laat de juwelier de sieraden 's nachts in de etalage liggen?,de kluis,Nat_44_related,1,,,3.142,2.657,2.805,experiment,related,44,Nat,4.223,11,119,het doosje,0.148,1.081,0.337,1.0,173
+,het bos,nonNat_25_unrelated,0,,,4.118,3.441,3.606,experiment,unrelated,25,nonNat,5.767,22,229,de straat,0.165,1.649,0.512,,174
+,de dierenarts,nonNat_152_unrelated,0,,,2.553,2.026,2.199,experiment,unrelated,152,nonNat,3.223,22,229,het asiel,0.173,0.67,0.354,,175
+Was het druk op de weg naar Zandvoort?,het strand,nonNat_144_related,1,,,5.223,4.677,4.773,experiment,related,144,nonNat,5.935,21,219,de zee,0.096,0.712,0.45,0.0,176
+Kijken de ouders elke avond het achtuurjournaal?,het journaal,Nat_33_unrelated,1,,,4.673,3.857,3.989,experiment,unrelated,33,Nat,7.072,12,129,de nieuwsberichten,0.132,2.399,0.684,1.0,177
+Is het goed om geld op de bank te zetten?,de bank,Nat_148_unrelated,1,,,3.804,3.339,3.43,experiment,unrelated,148,Nat,4.139,12,129,het matras,0.091,0.335,0.374,0.0,178
+,,nonNat_349_control,0,horeca,leeftijdsgrens,0.77,0.065,0.152,experiment,control,349,nonNat,6.469,55,155,,0.087,5.699,0.618,,179

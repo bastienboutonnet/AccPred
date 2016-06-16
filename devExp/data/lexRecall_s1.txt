@@ -1,0 +1,6 @@
+debug	10	s1	15	no	None	None	Nat_323_control	0	1	krant	uitbraak	1.595	1.159	1.305	experiment	control	323	Nat	4.48	1	55	155	None	0.146	2.885	0.29	None	None	None	24.8143231869	experiment	0	slash	1	741.487026215
+debug	10	s1	15	no	None	de lucht	nonNat_80_related	0	1	None	None	3.906	3.549	3.66	experiment	related	80	nonNat	4.779	2	21	219	het water	0.111	0.873	0.246	None	None	None	26.134483099	experiment	1	slash	1	244.196176529
+debug	10	s1	15	no	None	None	nonNat_308_control	0	0	telefoon	bedrijf	4.138	3.177	3.361	experiment	control	308	nonNat	5.352	3	None	None	None	0.184	1.214	0.777	de	receptioniste	None	27.4465610981	experiment	2	slash	0	238.757133484
+debug	10	s1	15	no	None	None	nonNat_348_control	0	1	aanwijzingen	gelukkiger	2.715	1.777	2.02	experiment	control	348	nonNat	5.731	4	55	155	None	0.243	3.016	0.695	None	None	None	28.718667984	experiment	3	slash	1	203.637123108
+debug	10	s1	15	no	None	None	nonNat_351_control	0	1	vrijwilliger	Nederland	1.445	0.246	0.6	experiment	control	351	nonNat	5.252	5	55	155	None	0.354	3.807	0.845	None	None	None	29.9507431984	experiment	4	slash	1	151.895999908
+debug	10	s1	15	no	None	None	Nat_311_control	0	1	land	skivakantie	3.946	3.47	3.589	experiment	control	311	Nat	6.002	6	55	155	None	0.119	2.056	0.357	None	None	None	31.7586209774	experiment	5	slash	1	725.342035294

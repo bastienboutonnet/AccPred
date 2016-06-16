@@ -58,13 +58,13 @@ class Exp:
 			if not optionsReceived:
 				popupError(self.subjVariables)
 			#try:
-			if os.path.isfile('data/'+self.expName+self.subjVariables['subjCode']):
+			if os.path.isfile('data/'+self.expName+'_'+self.subjVariables['subjCode']+'.txt'):
 				print 'Error: That subject code already exists'
 				fileOpened=False
 			else:
 				#self.eventTracker = open('data/'+self.subjVariables['subjCode']+'_eventTracker.txt','w')
 				#self.practFile = open('data/practTrials'+self.expName+self.subjVariables['subjCode']+'.txt','w')
-				self.testFile = open('data/'+self.expName+self.subjVariables['subjCode']+'.txt','w')
+				self.testFile = open('data/'+self.expName+'_'+self.subjVariables['subjCode']+'.txt','w')
 
 				fileOpened=True
 			#except:
@@ -145,11 +145,13 @@ class ExpPresentation(trial):
 		response=99
 		isRight=99
 		rt=99
-		setAndPresentStimulus(self.experiment.win,[responseInfoReminder,wordToPrez],duration=2)
+		setAndPresentStimulus(self.experiment.win,[responseInfoReminder,wordToPrez])
 		(response,rt) = getKeyboardResponse(self.experiment.validResponses.keys())
 
 		if self.experiment.validResponses[response]==curTrial['isOld']:
 			isRight=1
+		else:
+			isRight=0
 
 		fieldVars=[]
 		for curField in self.fieldNames:
