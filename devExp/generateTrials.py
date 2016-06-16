@@ -102,7 +102,7 @@ def main(subjCode,seed=None):
     # controls['trigOffsetNoun']=155
     # subControls=controls.sample(n=60,replace=False,random_state=seed)
     controls=pd.read_table('../database/expControls.txt',encoding='utf-16')
-    controls=controls[['speaker','sentID','relatedness','filename','hasQuestion','Question','yesOrNo','part','totalLen','onsetDet','onsetNoun','offsetNoun','waitForDetOffset','waitForNounOffset','waitForEnd']]
+    controls=controls[['speaker','sentID','relatedness','filename','hasQuestion','Question','yesOrNo','part','totalLen','onsetDet','onsetNoun','offsetNoun','waitForDetOffset','waitForNounOffset','waitForEnd','newWord1','newWord2']]
     controls['trigDet']=55
     controls['trigOffsetNoun']=155
 
