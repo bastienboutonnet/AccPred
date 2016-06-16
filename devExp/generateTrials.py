@@ -74,7 +74,7 @@ def addTrig(df):
 
 
 
-def main(subjCode,seed=None):
+def main(subjCode,whichTask,seed=None):
     ######IMPLEMENT A SHUFFLE HERE
     dbase=pd.read_csv('../database/120allAbove70.csv',encoding='utf-16')
     df=pd.DataFrame({'sentID':dbase['sentID']})
@@ -162,10 +162,12 @@ def main(subjCode,seed=None):
         print 'Looks like there were some missing files. Check log'
         raise SystemExit
     #only save file if the files aren't missing -hence the break
-    practSents.to_csv('trials/trialListPract_' +subjCode +'.csv',encoding='utf-8',index=False)
-    finalTrials.to_csv('trials/trialList_' +subjCode +'.csv',encoding='utf-8',index=False)
+    if whichTask=='accPred':
+        practSents.to_csv('trials/trialListPract_' +subjCode +'.csv',encoding='utf-8',index=False)
+        finalTrials.to_csv('trials/trialList_' +subjCode +'.csv',encoding='utf-8',index=False)
+    if whichTask=='lexRecall':
     #lexTrials.to_csv('trials/trialListLex_'+subjCode+'.csv',encoding='utf-16',index=False)
-    lexTrials.to_excel('trials/trialListLex_'+subjCode+'.xlsx',encoding='utf-16',index=False)
+        lexTrials.to_excel('trials/trialListLex_'+subjCode+'.xlsx',encoding='utf-16',index=False)
     return (finalTrials, practSents,lexTrials,missing)
 
 

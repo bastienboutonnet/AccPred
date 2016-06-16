@@ -58,13 +58,13 @@ class Exp:
 			if not optionsReceived:
 				popupError(self.subjVariables)
 			#try:
-			if os.path.isfile('data/'+self.subjVariables['subjCode']+'_eventTracker.txt'):
+			if os.path.isfile('data/'+self.expName+'_'+self.subjVariables['subjCode']+'_eventTracker.txt'):
 				print 'Error: That subject code already exists'
 				fileOpened=False
 			else:
-				self.eventTracker = open('data/'+self.subjVariables['subjCode']+'_eventTracker.txt','w')
-				self.practFile = open('data/practTrials'+self.subjVariables['subjCode']+'.txt','w')
-				self.testFile = open('data/'+self.subjVariables['subjCode']+'.txt','w')
+				self.eventTracker = open('data/'+self.expName+'_'+self.subjVariables['subjCode']+'_eventTracker.txt','w')
+				self.practFile = open('data/practTrials'+self.expName+'_'+self.subjVariables['subjCode']+'.txt','w')
+				self.testFile = open('data/'+self.expName+'_'+self.subjVariables['subjCode']+'.txt','w')
 
 				fileOpened=True
 			#except:
@@ -89,7 +89,7 @@ class Exp:
 		self.afterQuestionDelay=3
 		self.responseInfoReminder = "z = No    / = Yes"
 
-		generateTrials.main(self.subjVariables['subjCode'],self.subjVariables['seed'])
+		generateTrials.main(self.subjVariables['subjCode'],self.expName,self.subjVariables['seed'])
 		if self.subjVariables['useParallel']=='yes':
 			parallel.setPortAddress(address=0xD010)
 
@@ -135,11 +135,11 @@ class ExpPresentation(trial):
 			playSentenceNoTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'], curTrial['waitForDetOffset'], curTrial['waitForNounOffset'],curTrial['waitForEnd'], curTrial['trigDet'],curTrial['trigOffsetNoun'],self.experiment.eventTracker,curTrial,self.expTimer)
 
 		core.wait(self.experiment.afterSentenceDelay)
-		response=99
-		isRight=99
-		rt=99
+		response=-99
+		isRight=-99
+		rt=-99
 		if curTrial['hasQuestion']==1:
-			setAndPresentStimulus(self.experiment.win,[responseInfoReminder,questionText],duration=1)
+			setAndPresentStimulus(self.experiment.win,[responseInfoReminder,questionText])
 			(response,rt) = getKeyboardResponse(self.experiment.validResponses.keys())
 
 			### Try getting 'response' locally? since it is assigned in that current loop.

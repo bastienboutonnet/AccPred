@@ -79,9 +79,9 @@ class Exp:
 
 		self.presRate = .096 ########### Might be un-necessary for this particular procedure.
 
-		self.instructions = "In this task, you will hear a series of 'beeps'.\nYour task is to try and catch the 'high' pitched beeps as fast as you can by pressing the SPACE bar.\n\nIt's that simple!\n\nWhen you are ready press any key to Start."
-		self.practiceTrials = "The next part is practice.\n\nPress the space-bar to start."
-		self.realTrials = "Now for the real trials.\n\nReady?\n\nPress the space-bar to continue."
+		self.instructions = "In this task, you see a series of words.\nYour task is to indicate as quickly as possible whether you remember hearing that word in the previous task.\n\nIt's that simple!\n\nWhen you are ready press any key to Start."
+		#self.practiceTrials = "The next part is practice.\n\nPress the space-bar to start."
+		#self.realTrials = "Now for the real trials.\n\nReady?\n\nPress the space-bar to continue."
 		self.finalText = "This is the end of experiment :) Thank you for your participation!"
 		self.takeBreakEveryXTrials=self.subjVariables['breakEvery']
 		self.takeBreak = "Please take a short break.  Press one of the response keys to continue"
@@ -89,7 +89,7 @@ class Exp:
 		self.afterQuestionDelay=3
 		self.responseInfoReminder = "z = No    / = Yes"
 
-		generateTrials.main(self.subjVariables['subjCode'],self.subjVariables['seed'])
+		generateTrials.main(self.subjVariables['subjCode'],self.expName,self.subjVariables['seed'])
 		if self.subjVariables['useParallel']=='yes':
 			parallel.setPortAddress(address=0xD010)
 
@@ -199,11 +199,11 @@ currentPresentation.initializeExperiment()
 
 #Start Instructions
 showText(currentExp.win,currentExp.instructions,color="black",inputDevice=currentExp.inputDevice)
-showText(currentExp.win,currentExp.practiceTrials,color='black',inputDevice=currentExp.inputDevice,waitForKey=True)
+#showText(currentExp.win,currentExp.practiceTrials,color='black',inputDevice=currentExp.inputDevice,waitForKey=True)
 #Start Practice Presentation
-currentPresentation.cycleThroughExperimentTrials("practice")
+#currentPresentation.cycleThroughExperimentTrials("practice")
 #Start realTrials Presentation
-showText(currentExp.win,currentExp.realTrials,color='black',inputDevice=currentExp.inputDevice,waitForKey=True)
+#showText(currentExp.win,currentExp.realTrials,color='black',inputDevice=currentExp.inputDevice,waitForKey=True)
 currentPresentation.cycleThroughExperimentTrials("experiment")
 #Goodbye Text
 showText(currentExp.win,currentExp.finalText,color='black',waitForKey=False)

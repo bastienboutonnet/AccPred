@@ -1,1 +1,0 @@
-screenMode	seed	subjCode	breakEvery	useParallel	speaker	sentID	relatedness	filename	hasQuestion	Question	yesOrNo	part	totalLen	onsetDet	onsetNoun	offsetNoun	waitForDetOffset	waitForNounOffset	waitForEnd	trialIndex	trigDet	trigOffsetNoun	expTimer	whichPart	trialIndex	response	isRight	rt
