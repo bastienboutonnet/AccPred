@@ -175,4 +175,4 @@ if __name__ == "__main__":
     import time
     #t=time.strftime("%m%d%H%M")
     #(finalTrials,practSents,lexTrials,missing)=main('dummySubject'+t,seed=1)
-    (finalTrials,practSents,lexTrials,missing)=main('dummySubject',seed=1)
+    (finalTrials,practSents,lexTrials,missing)=main('dummySubject',whichTask="accPred",seed=1)

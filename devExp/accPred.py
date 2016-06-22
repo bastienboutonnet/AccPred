@@ -22,7 +22,7 @@ from stimPresFoo import *
 class Exp:
 	def __init__(self):
 
-		self.expName = 'AccPred'
+		self.expName = 'accPred'
 		self.optionList = {	'1':  {	'name' : 'screenMode',
 									'prompt' : 'debug or fs',
 									'options': ('debug','fs'),

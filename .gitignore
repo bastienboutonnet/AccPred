@@ -1,5 +1,9 @@
 stimToProcess
 /processStim/spliced
-/experiment/stimuli
+/preDev/stimuli
 /devExp/stimuli
 audiPrezEEGLAB
+/devExp/_stimuli
+/experiment/stimuli
+/experiment/psychopy
+

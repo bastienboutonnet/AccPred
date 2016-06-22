@@ -1,0 +1,1 @@
+screenMode	seed	subjCode	breakEvery	useParallel	Question	compLower	filename	hasQuestion	newWord1	newWord2	offsetNoun	onsetDet	onsetNoun	part	relatedness	sentID	speaker	totalLen	trigDet	trigOffsetNoun	unrelOppositeGender	waitForDetOffset	waitForEnd	waitForNounOffset	yesOrNo	trialIndex	expTimer	whichPart	trialIndex	response	isRight	rt
