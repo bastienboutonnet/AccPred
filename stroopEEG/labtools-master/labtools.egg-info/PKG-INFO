@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: labtools
+Version: 0.0.2
+Summary: Resources for running behavioral experiments
+Home-page: https://github.com/pedmiston/labtools
+Author: Pierce Edmiston
+Author-email: pierce.edmiston@gmail.com
+License: GNU GPL
+Description: Resources for Behavioral Experiments in Python
+        ==============================================
+        
+        This package contains various helper functions and classes for conducting behavioral research experiments in python.
+        
+Keywords: research psychology experiments
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 2.7
