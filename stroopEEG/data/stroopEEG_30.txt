@@ -1,3 +1,0 @@
-debug	10	30	15	no	20	1	1	right	11	1	practice	16.31214118	practice	0	right	1	1273.41389656
-debug	10	30	15	no	20	1	0	left	10	2	practice	20.2232511044	practice	1	right	0	2668.3409214
-debug	10	30	15	no	20	1	1	right	11	3	practice	22.1863381863	practice	2	right	1	755.030155182

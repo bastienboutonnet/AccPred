@@ -1,0 +1,1 @@
+screenMode	seed	subjCode	breakEvery	useParallel	howMany	congruent	dirCode	direction	trigCode	trialIndex	part	expTimer	whichPart	trialIndex	response	isRight	rt

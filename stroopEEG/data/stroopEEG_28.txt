@@ -1,8 +1,0 @@
-debug	10	28	15	no	20	1	1	right	11	1	practice	13.9917712212	practice	0	right	1	4403.57398987
-debug	10	28	15	no	20	1	0	left	10	2	practice	16.007748127	practice	1	left	1	795.495033264
-debug	10	28	15	no	20	1	1	right	11	3	practice	17.9837970734	practice	2	right	1	772.119998932
-debug	10	28	15	no	20	2	1	right	21	4	practice	19.9008631706	practice	3	left	0	682.478904724
-debug	10	28	15	no	20	1	0	left	10	5	practice	22.6729850769	practice	4	left	1	1568.92895699
-debug	10	28	15	no	20	2	0	left	20	6	practice	24.8693830967	practice	5	right	0	976.011037827
-debug	10	28	15	no	20	2	1	right	21	7	practice	27.6210570335	practice	6	left	0	1522.92895317
-debug	10	28	15	no	20	2	0	left	20	9	practice	31.2140321732	practice	7	right	0	2381.01387024

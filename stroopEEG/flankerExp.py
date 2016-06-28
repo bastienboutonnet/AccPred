@@ -22,7 +22,7 @@ parallel.setPortAddress(address=0xD010)
 class Exp:
 	def __init__(self):
 
-		self.expName = 'stroopEEG'
+		self.expName = 'flankerEEG'
 		self.optionList = {	'1':  {	'name' : 'screenMode',
 									'prompt' : 'debug or fs',
 									'options': ('debug','fs'),
@@ -68,7 +68,7 @@ class Exp:
 				fileOpened=False
 			else:
 				self.eventTracker = open('data/'+self.expName+'_'+self.subjVariables['subjCode']+'_eventTracker.txt','w')
-				self.practFile = open('data/practTrials'+self.expName+'_'+self.subjVariables['subjCode']+'.txt','w')
+				#self.practFile = open('data/practTrials'+self.expName+'_'+self.subjVariables['subjCode']+'.txt','w')
 				self.testFile = open('data/'+self.expName+'_'+self.subjVariables['subjCode']+'.txt','w')
 
 				fileOpened=True
@@ -147,10 +147,10 @@ class ExpPresentation(trial):
 			flankDir='right'
 		elif curTrial['congruent']==2 and curTrial['direction']=='right':
 			flankDir='left'
-		target=visual.TextStim(self.experiment.win,text=self.arrowChars[curTrial['direction']],pos=(0,0),height=30)
+		target=visual.TextStim(self.experiment.win,text=self.arrowChars[curTrial['direction']],pos=(0,0),height=20)
 
 		for i in range(0,len(flankerPos)):
-			flankers.append(visual.TextStim(self.experiment.win,pos=[flankerPos[i],0],height=30,text=self.arrowChars[flankDir]))
+			flankers.append(visual.TextStim(self.experiment.win,pos=[flankerPos[i],0],height=20,text=self.arrowChars[flankDir]))
 
 		response=99
 		isRight=99
