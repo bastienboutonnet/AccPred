@@ -1,0 +1,14 @@
+debug	10	30\	15	no	20	1	1	right	11	1	practice	15.588283062	practice	0	right	1	2452.00109482
+debug	10	30\	15	no	20	1	0	left	10	2	practice	17.6763510704	practice	1	left	1	878.448009491
+debug	10	30\	15	no	20	1	1	right	11	3	practice	19.6044819355	practice	2	right	1	722.757101059
+debug	10	30\	15	no	20	2	1	right	21	4	practice	21.7325630188	practice	3	right	1	919.918060303
+debug	10	30\	15	no	20	1	0	left	10	5	practice	23.6844470501	practice	4	left	1	754.478931427
+debug	10	30\	15	no	20	2	0	left	20	6	practice	25.6685409546	practice	5	left	1	786.111831665
+debug	10	30\	15	no	20	2	1	right	21	7	practice	27.6447749138	practice	6	right	1	782.504081726
+debug	10	30\	15	no	20	2	0	left	20	9	practice	29.7567310333	practice	7	left	1	894.571065903
+debug	10	30\	15	no	20	2	0	left	20	1	experiment	38.9999759197	experiment	0	left	1	943.814992905
+debug	10	30\	15	no	20	1	1	right	11	2	experiment	40.7681241035	experiment	1	right	1	677.494049072
+debug	10	30\	15	no	20	2	1	right	21	3	experiment	42.8318710327	experiment	2	left	0	989.856958389
+debug	10	30\	15	no	20	2	0	left	20	4	experiment	44.8799490929	experiment	3	left	1	970.863819122
+debug	10	30\	15	no	20	1	0	left	10	5	experiment	46.9599730968	experiment	4	left	1	1006.91699982
+debug	10	30\	15	no	20	1	0	left	10	6	experiment	48.6879630089	experiment	5	left	1	650.78997612

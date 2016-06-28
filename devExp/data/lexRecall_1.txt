@@ -1,0 +1,2 @@
+debug	1	1	15	no	Is Andre de nieuwe sterspeler van het team?	het team	nonNat_10_unrelated	1	1	None	None	2.377	1.785	1.925	experiment	unrelated	10	nonNat	3.711	1	22	229	de groep	0.14	1.334	0.452	None	None	1	10.1759908199	experiment	0	slash	1	1416.9459343
+debug	1	1	15	no	None	het platteland	nonNat_149_unrelated	0	1	None	None	6.18	5.64	5.751	experiment	unrelated	149	nonNat	7.02	2	22	229	de velden	0.111	0.84	0.429	None	None	None	12.0317759514	experiment	1	slash	1	805.790185928

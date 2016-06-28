@@ -63,7 +63,11 @@ def setAndPresentStimulus(win,stimuli,duration=0):
 	"""Stimuli can be a list or a single draw-able stimulus"""
 	if type(stimuli).__name__=="list":
 		for curStim in stimuli:
-			curStim.draw()
+			if type(curStim).__name__=='list':
+				for curSub in curStim:
+					curSub.draw()
+			else:
+				curStim.draw()
 	else:
 		stimuli.draw()
 	if duration==0: #single frame
@@ -223,38 +227,10 @@ def playSentenceAndTrigger(self,win,soundFile,trigger1Time, trigger2Time,curTria
 
 def playAndWait(soundFile,soundPath='',winSound=False,waitFor=-1):
 	"""Sound (other than winSound) runs on a separate thread. Waitfor controls how long to pause before resuming. -1 for length of sound"""
-	if not winSoundLoaded:
-		winSound=False
-	if prefs.general['audioLib'] == ['pygame']:
-				#default to using winsound
-				winSound=True
-	if winSound:
-		print 'using winsound to play sound'
-		if waitFor != 0:
-			soundFile.play()
-		else: #playing asynchronously - need to load the path.
-			if soundPath:
-				winsound.PlaySound(soundPath, winsound.SND_FILENAME|winsound.SND_ASYNC)
-			else:
-				sys.exit("sound path not provided to playAndWait")
-		return
-	else:
-		if waitFor<0:
-			waitDurationInSecs = sound.getDuration()
-		elif waitFor>0:
-			waitDurationInSecs = waitFor
-		else:
-			waitDurationInSecs=0
-
-		if waitDurationInSecs>0:
-			sound.play()
-			core.wait(waitDurationInSecs)
-			sound.stop()
-			return
-		else:
-			sound.play()
-			print 'returning right away'
-			return
+	soundDur=soundFile.getDuration()
+	soundFile.play()
+	core.wait(soundDur)
+	return
 
 def waitingAnimation(win,size=20,distanceBetweenElements=3,numElements=8,delay=.5,color="#333333"):
 	totalWidth = numElements*(size+distanceBetweenElements)

@@ -55,15 +55,20 @@ def addTrig(df):
 
 def main(subjCode,howMany=20,seed=None):
     ######IMPLEMENT A SHUFFLE HERE
-    flank = pd.DataFrame({'direction':['left','right'],'dirCode':[1,2]})
+    flank = pd.DataFrame({'direction':['left','right'],'dirCode':[0,1]})
     flank = expand(flank, 'congruent', values=[1,2], ratio=0.5)
     flank['trigCode']=flank[['congruent','dirCode']].apply(lambda x: ''.join(x.values.astype(str)),axis=1)
     flankTrials=extend(flank,reps=howMany) # Change Number To get Enough Trials
 
     #Shuffle No Repeat
     shuffled=smart_shuffle(flankTrials,col='trigCode',seed=seed)
-    shuffled.to_csv('trials/trialList_Flanker' +subjCode +'.csv',encoding='utf-8',index=False)
-    return shuffled
+
+    #Add TrialIndex
+    shuffled['trialIndex']=xrange(1,len(shuffled)+1)
+    shuffled['part']='experiment'
+    shuffled.to_csv('trials/trialList_Flanker_' +subjCode +'.csv',encoding='utf-8',index=False)
+
+    return (flank,shuffled)
 
 
 if __name__ == "__main__":

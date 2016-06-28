@@ -68,7 +68,7 @@ class Exp:
 				fileOpened=False
 			else:
 				self.eventTracker = open('data/'+self.expName+'_'+self.subjVariables['subjCode']+'_eventTracker.txt','w')
-				self.practFile = #open('data/practTrials'+self.expName+'_'+self.subjVariables['subjCode']+'.txt','w')
+				self.practFile = open('data/practTrials'+self.expName+'_'+self.subjVariables['subjCode']+'.txt','w')
 				self.testFile = open('data/'+self.expName+'_'+self.subjVariables['subjCode']+'.txt','w')
 
 				fileOpened=True
@@ -94,7 +94,7 @@ class Exp:
 		self.afterQuestionDelay=3
 		self.responseInfoReminder = "z = No    / = Yes"
 
-		generateTrials.main(self.subjVariables['subjCode'],self.howMany,self.subjVariables['seed'])
+		#generateTrials.main(self.subjVariables['subjCode'],self.subjVariables["howMany"],self.subjVariables['seed'])
 
 
 ### COME BACK TO THIS ONE NOT SURE WHAT IT DOES
@@ -113,7 +113,8 @@ class ExpPresentation(trial):
 		splash = visual.ImageStim(self.experiment.win, image='splash.png',mask=None,interpolate=False)
 		splash.draw()
 		self.experiment.win.flip()
-		core.wait(2)
+		generateTrials.main(self.experiment.subjVariables['subjCode'],self.experiment.subjVariables["howMany"],self.experiment.subjVariables['seed'])
+		#core.wait(2)
 		showText(self.experiment.win, "packaging soundfiles, please wait",color='black',waitForKey=False)
 		"""This loads all the stimili and initializes the trial sequence"""
 		self.fixSpot = visual.TextStim(self.experiment.win,text="+",height = 30,color="black")
@@ -121,42 +122,50 @@ class ExpPresentation(trial):
 		self.fixSpotPlay = visual.TextStim(self.experiment.win,text="+",height = 30,color="blue")
 		self.pictureMatrix = loadFiles('stimuli','png','image',self.experiment.win)
 		self.soundMatrix = loadFiles('stimuli','wav',fileType="sound")
-		(self.trialList,self.fieldNames) = importTrials('trials/trialListFlanker_'+self.experiment.subjVariables["subjCode"]+'.csv',method="sequential")
+		#self.arrowChars = {'left':u"\u2190", 'right':u"\u2192"}
+		self.arrowChars = {'left':"<", 'right':">"}
+		(self.trialList,self.fieldNames) = importTrials('trials/trialList_Flanker_'+self.experiment.subjVariables["subjCode"]+'.csv',method="sequential")
 		(self.practTrialList,self.fieldNamesPract) = importTrials('trials/trialListFlankerPract.csv',method="sequential")
 		self.locations = {'top':[0,275], 'bottom':[0,-275], 'left':[-275,0], 'right':[275,0], 'center':[0,0]}
-		parallel.setData(0)
+		if self.experiment.subjVariables['useParallel']=='yes':
+			parallel.setData(0)
 
 
 
 	def showTestTrial(self,curTrial, trialIndex,whichPart):
 		#s=sound.Sound(self.soundMatrix[curTrial['label']])
-		print curTrial['filename']
+		print str(curTrial['congruent'])+"_"+curTrial['direction']+"_"+curTrial['part']
 		responseInfoReminder = visual.TextStim(self.experiment.win,text=self.experiment.responseInfoReminder,pos=(0,-200), height = 30,color="blue")
 
-		if curTrial['relatedness']=='related':
-			wordToPrez=visual.TextStim(self.experiment.win,text=curTrial['compLower'],pos=(0,0),height=30,color="black")
 
-		if curTrial['relatedness']=='unrelated':
-			wordToPrez=visual.TextStim(self.experiment.win,text=curTrial['unrelOppositeGender'],pos=(0,0),height=30,color="black")
+		target=visual.TextStim(self.experiment.win,text=curTrial['direction'],pos=(0,0),height=30,color="black")
+		flankers=[]
+		flankerPos = [-60,-40, -20, 20, 40, 60]
+		if curTrial['congruent']==1:
+			flankDir=curTrial['direction']
+		elif curTrial['congruent']==2 and curTrial['direction']=='left':
+			flankDir='right'
+		elif curTrial['congruent']==2 and curTrial['direction']=='right':
+			flankDir='left'
+		target=visual.TextStim(self.experiment.win,text=self.arrowChars[curTrial['direction']],pos=(0,0),height=30)
 
-		#### This may need to change when I know exactly how to figure out this part/
-		if curTrial['relatedness']=='control':
-			wordToPrez=visual.TextStim(self.experiment.win,text=curTrial['newWord1'],pos=(0,0),height=30,color="black")
+		for i in range(0,len(flankerPos)):
+			flankers.append(visual.TextStim(self.experiment.win,pos=[flankerPos[i],0],height=30,text=self.arrowChars[flankDir]))
 
-		# if self.experiment.subjVariables['useParallel']=='yes':
-		# 	playSentenceNoTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'], curTrial['waitForDetOffset'], curTrial['waitForNounOffset'],curTrial['waitForEnd'], curTrial['trigDet'],curTrial['trigOffsetNoun'],self.experiment.eventTracker,curTrial,self.expTimer)
-		# else:
-		# 	playSentenceNoTriggerNonVisual(self.experiment.win,self.soundMatrix[curTrial['filename']],curTrial['onsetDet'], curTrial['waitForDetOffset'], curTrial['waitForNounOffset'],curTrial['waitForEnd'], curTrial['trigDet'],curTrial['trigOffsetNoun'],self.experiment.eventTracker,curTrial,self.expTimer)
 		response=99
 		isRight=99
 		rt=99
-		setAndPresentStimulus(self.experiment.win,[responseInfoReminder,wordToPrez])
+		setAndPresentStimulus(self.experiment.win,[responseInfoReminder,target,flankers])
 		(response,rt) = getKeyboardResponse(self.experiment.validResponses.keys())
 
-		if self.experiment.validResponses[response]==curTrial['isOld']:
+		if self.experiment.validResponses[response]==curTrial['direction']:
 			isRight=1
+			if whichPart=='practice':
+				playAndWait(self.soundMatrix['bleep'])
 		else:
 			isRight=0
+			if whichPart=='practice':
+				playAndWait(self.soundMatrix['buzz'])
 
 		fieldVars=[]
 		for curField in self.fieldNames:
@@ -175,7 +184,7 @@ class ExpPresentation(trial):
 			print "Writing header to file..."
 			dirtyHack = {}
 			dirtyHack['trialNum']=1
-			writeHeader(dirtyHack, header,'header_lex'+self.experiment.expName)
+			writeHeader(dirtyHack, header,'header_'+self.experiment.expName)
 
 	def cycleThroughExperimentTrials(self,whichPart): #CHECK OUT PRACTICE STUFF
 		curTrialIndex=0
@@ -189,14 +198,11 @@ class ExpPresentation(trial):
 					showText(self.experiment.win,self.experiment.takeBreak,color=(-1,-1,-1),inputDevice=self.experiment.inputDevice) #take a break
 					waitingAnimation(currentExp.win,color="PowderBlue")
 				setAndPresentStimulus(self.experiment.win,[self.fixSpot])
-				core.wait(1)
-				setAndPresentStimulus(self.experiment.win,[self.fixSpotReady])
 				core.wait(.5)
-				setAndPresentStimulus(self.experiment.win,[self.fixSpotPlay])
 				self.showTestTrial(curTrial,curTrialIndex,whichPart)
 				curTrialIndex+=1
 				self.experiment.win.flip()
-				core.wait(.2)
+				core.wait(.5)
 			#self.experiment.eventTracker.close()
 			#self.experiment.testFile.close()
 
@@ -208,14 +214,11 @@ class ExpPresentation(trial):
 					showText(self.experiment.win,self.experiment.takeBreak,color=(-1,-1,-1),inputDevice=self.experiment.inputDevice) #take a break
 					waitingAnimation(currentExp.win,color="PowderBlue")
 				setAndPresentStimulus(self.experiment.win,[self.fixSpot])
-				core.wait(1)
-				setAndPresentStimulus(self.experiment.win,[self.fixSpotReady])
 				core.wait(.5)
-				setAndPresentStimulus(self.experiment.win,[self.fixSpotPlay])
 				self.showTestTrial(curTrial,curTrialIndex,whichPart)
 				curTrialIndex+=1
 				self.experiment.win.flip()
-				core.wait(.2)
+				core.wait(.5)
 			self.experiment.eventTracker.close()
 			self.experiment.testFile.close()
 
