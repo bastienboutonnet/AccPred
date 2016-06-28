@@ -87,7 +87,7 @@ class Exp:
 		self.takeBreak = "Please take a short break.  Press one of the response keys to continue"
 		self.afterSentenceDelay=3
 		self.afterQuestionDelay=3
-		self.responseInfoReminder = "z = No    / = Yes"
+		self.responseInfoReminder = "z = Nee    / = Ja"
 
 		generateTrials.main(self.subjVariables['subjCode'],self.expName,self.subjVariables['seed'])
 		if self.subjVariables['useParallel']=='yes':

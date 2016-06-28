@@ -93,6 +93,7 @@ class Exp:
 		self.afterSentenceDelay=3
 		self.afterQuestionDelay=3
 		self.responseInfoReminder = "z = No    / = Yes"
+		self.tooSlow = 'too slow!'
 
 		#generateTrials.main(self.subjVariables['subjCode'],self.subjVariables["howMany"],self.subjVariables['seed'])
 
@@ -136,6 +137,7 @@ class ExpPresentation(trial):
 		#s=sound.Sound(self.soundMatrix[curTrial['label']])
 		print str(curTrial['congruent'])+"_"+curTrial['direction']+"_"+curTrial['part']
 		responseInfoReminder = visual.TextStim(self.experiment.win,text=self.experiment.responseInfoReminder,pos=(0,-200), height = 30,color="blue")
+		tooSlowText = visual.TextStim(self.experiment.win,text=self.experiment.tooSlow,pos=(0,-200), height = 30,color="red")
 
 
 		target=visual.TextStim(self.experiment.win,text=curTrial['direction'],pos=(0,0),height=30,color="black")
@@ -158,14 +160,21 @@ class ExpPresentation(trial):
 		setAndPresentStimulus(self.experiment.win,[responseInfoReminder,target,flankers])
 		(response,rt) = getKeyboardResponse(self.experiment.validResponses.keys())
 
-		if self.experiment.validResponses[response]==curTrial['direction']:
-			isRight=1
-			if whichPart=='practice':
-				playAndWait(self.soundMatrix['bleep'])
-		else:
-			isRight=0
+		if rt>=1:
+			isRight=99
 			if whichPart=='practice':
 				playAndWait(self.soundMatrix['buzz'])
+			setAndPresentStimulus(self.experiment.win,tooSlowText)
+			core.wait(1)
+		else:
+			if self.experiment.validResponses[response]==curTrial['direction']:
+				isRight=1
+				if whichPart=='practice':
+					playAndWait(self.soundMatrix['bleep'])
+			else:
+				isRight=0
+				if whichPart=='practice':
+					playAndWait(self.soundMatrix['buzz'])
 
 		fieldVars=[]
 		for curField in self.fieldNames:
