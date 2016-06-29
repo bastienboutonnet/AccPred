@@ -1,0 +1,7 @@
+speaker,sentID,relatedness,filename,hasQuestion,Question,yesOrNo,part,totalLen,onsetDet,onsetNoun,offsetNoun,waitForDetOffset,waitForNounOffset,waitForEnd
+Nat,36,related,Nat_36_related,0,,,practice,4.475,2.648,2.746,3.241,0.098,0.495,1.234
+Nat,53,related,Nat_53_related,0,,,practice,4.543,1.978,2.152,2.8,0.174,0.648,1.743
+nonNat,70,unrelated,nonNat_70_unrelated,1,Gingen Andrea en Evelien fitnessen?,1,practice,4.082,2.64,2.839,3.062,0.199,0.223,1.02
+nonNat,105,unrelated,nonNat_105_unrelated,0,,,practice,5.362,3.416,3.573,4.002,0.157,0.429,1.36
+Nat,113,related,Nat_113_related,1,Liep Jan langs de snelweg?,0,practice,6.504,3.81,3.971,4.305,0.161,0.334,2.199
+Nat,117,related,Nat_117_related,0,,,practice,4.36,3.037,3.218,3.7,0.181,0.482,0.66

@@ -123,7 +123,8 @@ class ExpPresentation(trial):
 		self.fixSpotPlay = visual.TextStim(self.experiment.win,text="+",height = 30,color="blue")
 		self.pictureMatrix = loadFiles('stimuli','png','image',self.experiment.win)
 		self.soundMatrix = loadFiles('stimuli','wav',fileType="sound")
-		self.arrowChars = {'right':u"\u2192",'left':u"\u2190"}
+		#self.arrowChars = {'right':u"\u2192",'left':u"\u2190"}
+		self.arrowChars = {'right':u"\u21E8",'left':u"\u21E6"}
 		#u"\u2192"
 		#self.arrowChars = {'left':"<", 'right':">"}
 		(self.trialList,self.fieldNames) = importTrials('trials/trialList_Flanker_'+self.experiment.subjVariables["subjCode"]+'.csv',method="sequential")
@@ -136,7 +137,7 @@ class ExpPresentation(trial):
 
 	def showTestTrial(self,curTrial, trialIndex,whichPart):
 		#s=sound.Sound(self.soundMatrix[curTrial['label']])
-		print str(curTrial['congruent'])+"_"+curTrial['direction']+"_"+curTrial['part']
+		print "Trial: "+str(curTrial['trialIndex'])+"_"+str(curTrial['congruent'])+"_"+curTrial['direction']+"_"+curTrial['part']
 		responseInfoReminder = visual.TextStim(self.experiment.win,text=self.experiment.responseInfoReminder,pos=(0,-200), height = 30,color="blue")
 		tooSlowText = visual.TextStim(self.experiment.win,text=self.experiment.tooSlow,pos=(0,-200), height = 30,color="red")
 
@@ -151,10 +152,10 @@ class ExpPresentation(trial):
 			flankDir='right'
 		elif curTrial['congruent']==2 and curTrial['direction']=='right':
 			flankDir='left'
-		target=visual.TextStim(self.experiment.win,text=self.arrowChars[curTrial['direction']],pos=(0,0),height=20,font='Arial',color='black')
+		target=visual.TextStim(self.experiment.win,text=self.arrowChars[curTrial['direction']],pos=(0,0),height=30,font='Arial',color='black')
 
 		for i in range(0,len(flankerPos)):
-			flankers.append(visual.TextStim(self.experiment.win,pos=[flankerPos[i],0],height=20,text=self.arrowChars[flankDir],font='Arial',color='black'))
+			flankers.append(visual.TextStim(self.experiment.win,pos=[flankerPos[i],0],height=30,text=self.arrowChars[flankDir],font='Arial',color='black'))
 
 		response=99
 		isRight=99
@@ -215,11 +216,12 @@ class ExpPresentation(trial):
 			for curTrial in self.practTrialList:
 				if curTrialIndex==0:
 					waitingAnimation(currentExp.win,color="PowderBlue")
+					setAndPresentStimulus(self.experiment.win,[self.fixSpot])
 				if curTrialIndex>0 and curTrialIndex % self.experiment.takeBreakEveryXTrials == 0:
 					showText(self.experiment.win,self.experiment.takeBreak,color=(-1,-1,-1),inputDevice=self.experiment.inputDevice) #take a break
 					waitingAnimation(currentExp.win,color="PowderBlue")
-				setAndPresentStimulus(self.experiment.win,[self.fixSpot])
-				core.wait(.5)
+					setAndPresentStimulus(self.experiment.win,[self.fixSpot])
+				core.wait(random.choice([.1,.3,.7,1]))
 				self.showTestTrial(curTrial,curTrialIndex,whichPart)
 				curTrialIndex+=1
 				self.experiment.win.flip()
@@ -231,11 +233,12 @@ class ExpPresentation(trial):
 			for curTrial in self.trialList:
 				if curTrialIndex==0:
 					waitingAnimation(currentExp.win,color="PowderBlue")
+					setAndPresentStimulus(self.experiment.win,[self.fixSpot])
 				if curTrialIndex>0 and curTrialIndex % self.experiment.takeBreakEveryXTrials == 0:
 					showText(self.experiment.win,self.experiment.takeBreak,color=(-1,-1,-1),inputDevice=self.experiment.inputDevice) #take a break
 					waitingAnimation(currentExp.win,color="PowderBlue")
-				setAndPresentStimulus(self.experiment.win,[self.fixSpot])
-				core.wait(.5)
+					setAndPresentStimulus(self.experiment.win,[self.fixSpot])
+				core.wait(random.choice([.1,.3,.7,1]))
 				self.showTestTrial(curTrial,curTrialIndex,whichPart)
 				curTrialIndex+=1
 				self.experiment.win.flip()
@@ -262,5 +265,5 @@ currentPresentation.cycleThroughExperimentTrials("experiment")
 showText(currentExp.win,currentExp.finalText,color='black',waitForKey=False)
 
 core.wait(2)
-#currentExp.win.close()
+currentExp.win.close()
 #Exit Window
