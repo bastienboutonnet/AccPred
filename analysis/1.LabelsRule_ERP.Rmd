@@ -1,0 +1,580 @@
+Labels rule, an ERP study (also a closer to final report)
+========================================================
+
+```{r echo=FALSE}
+library(lme4)
+#library(lmerTest)
+library(ggplot2)
+library(psych)
+library(doBy)
+library(car)
+library(lmSupport)
+library(reshape2)
+library(AICcmodavg)
+library(plyr)
+library(dplyr)
+```
+
+
+Just loading data files & P-values function
+```{r data&functions}
+p1 <- read.table("P1MeanAmps.txt", header=TRUE)
+p2 <- read.table("P2MeanAmps.txt", header=TRUE)
+n4 <- read.table("N4MeanAmps.txt", header=TRUE)
+
+p1SingTr <- read.table("singleTrialsP1RTTrimmed.txt", header=TRUE)
+p1SingTr$Match <- as.factor(p1SingTr$Match)
+contrasts(p1SingTr$Match) <- contr.sum(2)
+
+p1SingTrROI <- read.table("singleTrialsP1RTTrimmed_sideStacked.txt",header=T) 
+p1SingTrROI$LatROICoded = p1SingTrROI$LatROI
+contrasts(p1SingTrROI$LatROICoded) = c(-1,1)
+
+p1SingTrNPreStim <- read.table("PreStimMeansSingTr.txt",header=T)
+p1SingTrNPreStim$LatROICoded = p1SingTrNPreStim$LatROI
+contrasts(p1SingTrNPreStim$LatROICoded) = c(-1,1)
+
+p1SingTrPreStim50ms <- read.table("14PreStimMeanSingTr50msWins.txt",header=T)
+p1SingTrPreStim50ms <- melt(p1SingTrPreStim50ms, measure.vars=c("meanWinLeft","meanWinRight"),variable.name="meanWinSide",value.name="meanWin")
+p1SingTrPreStim50ms$meanWinSideCoded = p1SingTrPreStim50ms$meanWinSide
+contrasts(p1SingTrPreStim50ms$meanWinSideCoded) = c(-1,1)
+p1SingTrPreStim50ms$Participant <- as.factor(p1SingTrPreStim50ms$Participant)
+
+
+p1behav <- read.table("behaNAmpsNLatsAvgP1.txt",header=T)
+p1behav$ROICoded = p1behav$ROI
+contrasts(p1behav$ROICoded) = c(-1,1) #left is -1; right is 1
+
+p1behavAGR <- summaryBy(MeanAmp+RT+MeanLatency~Ppt+binlabel, data=subset(p1behav,ROI=="POLeft"), id=c("cue","match"))
+p2behav <- read.table("behaNAmpsNLatsAvgP2.txt",header=T)
+p2behav$ROICoded = p2behav$ROI
+contrasts(p2behav$ROICoded) = c(-1,1) #left is -1; right is 1
+
+p2behavAGR <- summaryBy(MeanAmp+RT+MeanLatency~Ppt+binlabel, data=subset(p2behav,ROI=="POLeft"), id=c("cue","match"))
+n4behav <- read.table("behaNAmpsNLatsAvgN4.txt",header=T)
+n4behavAGR <- summaryBy(MeanAmp+RT+MeanLatency~Ppt+binlabel, data=n4behav, id=c("cue","match"))
+
+IndivERPs <- read.table("ERPLabelsIndivAvgforR.txt",header=T)
+
+getPz <- function(model){
+  coefs <- data.frame(coef(summary(model)))
+  # use normal distribution to approximate p-value
+  coefs$p.z <-2*(1 -pnorm(abs(coefs$t.value)))
+  coefs}
+```
+
+BEHAVIOURAL RESULTS  - GL: these look good, but the figure will look better as a bar graph (same type as in the JEP:G paper)
+-------------------------
+```{r RTmeasures}
+behavRT <- lmer(latencyBehav~cue*isMatch+(1+cue:isMatch|Participant)+(1+cue:isMatch|picCategory),p1SingTr,REML=FALSE)
+summary(behav)
+getPz(behav)
+
+behavAcc <- lmer(Accuracy~cue*isMatch+(1+cue:isMatch|Participant)+(1+cue:isMatch|categ),data=p1SingTr,REML=FALSE)
+
+by(p1SingTr$Accuracy,list(p1SingTr$isMatch),stat.desc,basic=FALSE)
+```
+
+```{r echo=FALSE }
+#GGPLOT STYLE THAT I CURRENTLY LIKE.
+PimpMyPlot <- theme(text=element_text(size=14,family="Helvetica"))+
+  theme(axis.line=element_line(colour='black'))+
+  theme(axis.text=element_text(colour="black"))+
+  theme(panel.grid.major.y=element_line(linetype='dotted',colour='grey50',size=0.3))+
+  theme(panel.background=element_blank())
+  #theme(legend.key = element_blank())
+  #theme(panel.background=element_rect(fill="grey97"))
+
+MatchColours <- scale_colour_manual(values=c("#2c7bb6","#add9e9"))
+MatchFills <- scale_fill_manual(values=c("#2c7bb6","#add9e9"))
+
+CueColours <- scale_colour_manual(values=c("#d7191c","#fdae61"))
+CueFills <- scale_fill_manual(values=c("#d7191c","#fdae61"))
+
+AllCondsFills <- scale_fill_manual(values=c("#d7191c","#fdae61","#2c7bb6","#add9e9"))
+```
+
+Main effects of **cue** and **match**, with labels faster than sounds and match faster than mismatch overall.
+```{r cueBehavGraph}
+p1SingTr$Match <- varRecode(p1SingTr$Match, c(0,1), c("Mismatch","Match"))
+p1SingTr$cueType <- varRecode(p1SingTr$cueType, c("label","sound"), c("Label","Sound"))
+
+bars<-ggplot(p1SingTr, aes(Match, latencyBehav, fill=cueType))
+bars+stat_summary(fun.y=mean, geom="bar", position=position_dodge(), aes(group=cueType))+
+  stat_summary(fun.y=mean, geom="bar", position=position_dodge(), aes(group=cueType),colour="black",width=0.1, show_guide=F)+
+  stat_summary(fun.data=mean_cl_normal, geom="errorbar",position=position_dodge(0.95),width=0.3)+
+  labs(x='Match', y="Reaction Time (ms)", fill="Cue Type")+
+  CueFills+
+  scale_y_continuous(expand = c(0,0))+
+  coord_cartesian(ylim=c(300,580))+
+  PimpMyPlot
+
+#BY PPT
+linesPpt <- ggplot(p1SingTr, aes(cueType, latencyBehav, colour=Participant))
+linesPpt+stat_summary(fun.y=mean, geom="line", aes(group=Participant))+
+  stat_summary(fun.y=mean, geom="point", aes(group=Participant))+
+  labs(x="Cue Type", y="Reaction Time (ms)")+
+  guides(colour=guide_legend(ncol=2))+
+  PimpMyPlot
+```
+
+ERP RESULTS
+-------------------------
+### P1 ERP
+#GL - ROI wasn't contrast coded. now it is. Changes the values of the main effects slightly
+p1behav$ROICoded = p1behav$ROI
+contrasts(p1behav$ROICoded) = c(-1,1) #left is -1; right is 1
+
+Effect of **CUE** & **ROI**
+```{r p1ERPModels}
+cueMatchRoiP1 <- lmer(MeanAmp~cueC*matchC*ROICoded+(1+cueC:matchC:ROI|Ppt),p1behav,REML=FALSE) 
+#FULL random slope wont converge so only added interactions
+summary(cueMatchRoiP1)
+getPz(cueMatchRoiP1)
+```
+
+
+### P2 ERP
+Effect of **CUE** & **MATCH**
+#GL - ROI wasn't contrast coded. now it is. Changes the values of the main effects slightly.  
+p2behav$ROICoded = p2behav$ROI
+contrasts(p2behav$ROICoded) = c(-1,1) #left is -1; right is 1
+#I see that at this point there's no longer a match:cue interaction. So you can now distinguish match and mismatch trials for BOTH labels and sound trials.. BUT label trials are still showing a main effect (higher P2 for label)
+```{r p2ERPModels}
+cueMatchRoiP2 <- lmer(MeanAmp~cueC*matchC*ROICoded+(1+cueC:matchC:ROICoded|Ppt),p2behav)
+summary(cueMatchRoiP2)
+getPz(cueMatchRoiP2)
+```
+
+### N4 ERP
+Effect of **MATCH** only.
+```{r n4ERPModels}
+cueMatchN4 <- lmer(MeanAmp~cueC*matchC+(1+cueC:matchC|Ppt),n4behav,REML=FALSE)
+summary(cueMatchN4)
+getPz(cueMatchN4)
+```
+
+
+P1 SIngle-Trial Analyses
+-------------------------
+### Peak Latency
+Interaction **cue:match** No interaction with ROI.Do we keep the
+GL: contrast coding the ROI
+LatCueMatchROICoded = p1SingTrROI$LatROI
+contrasts(LatCueMatchROICoded) = c(-1,1)
+GL: Right, so the cue:isMatch effect is similar in the left and right electrodes. The coefficient is -.56 for left and -.42 for right. It's even independently significant if we subset and analyze the right and left separately.
+#BB. OK So it is fine to not have it as a factor anymore? And therefore allow conversion?
+
+```{r SingTrlLatency}
+LatCueMatchROI <- lmer(PeakLat~cue*isMatch*LatROICoded+(1+cue|Participant)+(1+isMatch|Participant)+(1+LatROICoded|Participant)+(1|categ),p1SingTrROI,REML=FALSE) #a model with the slopes with interactions and main effects doesn't converge
+summary(LatCueMatchROI)
+getPz(LatCueMatchROI)
+
+#HOWEVER, because we have no effect of ROI, we can reduce it. And then it converges
+LatCueMatch <- lmer(PeakLat~cue*isMatch+(1+cue*isMatch|Participant)+(1+cue*isMatch|categ),p1SingTrROI,REML=FALSE)
+summary(LatCueMatch)
+getPz(LatCueMatch)
+```
+
+#GL: yep.. so what this interaction is telling us is that for label trials, PeakLat is significantly smaller for match than mismatch. For sound trials it doesn't matter. Helps to look at the means: 
+# summaryBy(PeakLat~cueType+isMatch,data=p1SingTrROI,na.rm=TRUE) 
+# (though these don't take into account that some subjects contribute more datapoints so more accurately:
+# temp = summaryBy(PeakLat~cueType+isMatch+Participant,data=p1SingTrROI,na.rm=TRUE,keep.names=TRUE) 
+# summaryBy(PeakLat~cueType+isMatch,data=temp,na.rm=TRUE) 
+
+
+#### ALTERNATIVE: Predict Match
+#GL: The advantage of this analysis is that it lets us say in a more direct way that only on label trials can we distinguish match and mismatch based on the PeakLatencies.
+Main effect of **cue** and **cue:Lat** interaction
+```{r predictMatchLatGLMER}
+PredictMatchLat <- glmer(Match~cue*I(PeakLat/100)+(1+cue|Participant)+(1+cue|categ),family=binomial,data=p1SingTrROI)
+summary(PredictMatchLat)
+
+PredictMatchLatLabel <- glmer(Match~I(PeakLat/100)+(1|Participant)+(1|categ),family=binomial,data=subset(p1SingTrROI, cue==1))
+summary(PredictMatchLatLabel)
+
+PredictMatchLatSound <- glmer(Match~I(PeakLat/100)+(1|Participant)+(1|categ),family=binomial,data=subset(p1SingTrROI, cue==-1))
+summary(PredictMatchLatSound)
+```
+
+***Latency*CueType*Match** 
+```{r LatencyCueMatchGraph}
+p1SingTrROI$Match <- as.factor(p1SingTrROI$Match)
+p1SingTrROI$MatchLab<-recode(p1SingTrROI$Match,"0='Mismatch';1='Match'")
+p1SingTrROI$cueType<-recode(p1SingTrROI$cueType,"'label'='Label';'sound'='Sound'")
+
+line<-ggplot(p1SingTrROI, aes(MatchLab, PeakLat, colour=cueType))
+line+stat_summary(fun.y=mean, geom="point")+
+  stat_summary(fun.y=mean, geom="line", aes(group=cueType))+
+  stat_summary(fun.data=mean_cl_normal, geom="errorbar", width=0.1)+
+  labs(x='Match', y="Peak Latency (ms)", colour="Cue Type")+
+  scale_colour_brewer(type="seq", palette="Set1")+PimpMyPlot
+```
+
+Not sure which way makes more sense yet. Probably depends on which models we focus on (ie. predict latencies vs. predict match)
+```{r}
+bar<-ggplot(p1SingTrROI, aes(cueType, PeakLat, fill=MatchLab))
+bar+stat_summary(fun.y=mean, geom="bar",position=position_dodge())+
+  stat_summary(fun.y=mean, geom="bar",position=position_dodge(),colour="black",show_guide=F)+
+  stat_summary(fun.data=mean_cl_normal, geom="errorbar", position=position_dodge(0.95), width=0.3)+
+  labs(x='Cue Type', y="Peak Latency (ms)", fill="Match")+
+  coord_cartesian(ylim=c(90,100))+
+  MatchFills+PimpMyPlot
+```
+
+#### 3. Exploration of the interaction of cue:match on latencies
+```{r SingTrlLatencyInteraction}
+LabelCue <- lmer(PeakLat~isMatch+(1+isMatch|Participant)+(1+isMatch|categ),data=subset(p1SingTrROI, cue!=-1),REML=FALSE)
+SoundCue <- lmer(PeakLat~isMatch+(1+isMatch|Participant)+(1+isMatch|categ),data=subset(p1SingTrROI, cue!=1),REML=FALSE)
+```
+
+Difference between Match & Mismatch in the **Label** condition:
+```{r SingTrlLatencyIntNormApprox1}
+getPz(LabelCue)
+```
+**No** significant difference between match and mismatch for the **Sound** condition
+```{r SingTrlLatencyIntNormApprox2}
+getPz(SoundCue)
+```
+
+### Peak Amplitude
+#### Average of both sides
+Main effect of **cue**, and **cue:match** interaction
+```{r SingTrlPeaksModelBoth}
+PeaksCueMatchROI <- lmer(Peaks~cue*isMatch+(1+cue|Participant)+(1+isMatch|Participant)+(1|categ),p1SingTrROI, REML=FALSE)
+summary(PeaksCueMatchROI)
+getPz(PeaksCueMatchROI)
+#SINCE We have an effect or ROI here I can't run a better model that will converge
+```
+#GL: this converges for me. So, as you say, we have a main effect of cue (bigger peaks on label trials) and cue:isMatch 
+#Folowing label cues, matching trials have numerically higher peak ampl. For sound trials it's the opposite.  
+
+#There is also a main effect of ROI such that the peaks are bigger on the right.. but that's not really of theoretical interest is it and it doesn't seem to interact with anything
+
+
+summary(lmer(Peaks~isMatch+(1+isMatch|Participant)+(1|categ),subset(p1SingTrROI,cueType=="label"), REML=FALSE))
+summary(lmer(Peaks~isMatch+(1+isMatch|Participant)+(1|categ),subset(p1SingTrROI,cueType=="sound"), REML=FALSE))
+
+
+####ALTERNATIVE: Predict Match by Amp
+#GL - this is giving us very very similar results to the regular lmer above. There's a sig interaction, but the comparisons aren't reliable. So we just say that the main effects weren't reliable and that's that.  
+#Alternatively, we can do something like this to motivate the subsequent simpler analyses. The logic here is that we report an "omnibus" test like this and then pick apart the individual interactions etc.
+summary(glmer(Match~cue*(I(Peaks/100)+cue*I(PeakLat/100))+(cue|Participant)+(1|categ),family=binomial,data=subset(p1SingTrROI)))
+
+#this model shows that both cue:Peaks and cue:PeaksLat are reliable (as the individual models show as well)
+#what is puzzling is that if we do this:
+summary(glmer(Match~I(Peaks/100)+I(PeakLat/100)+(1|Participant)+(1|categ),family=binomial,data=subset(p1SingTrROI, cueType=="Label")))
+#we see that for sound trials matching trials have significantly (p=.04) lower peak amplitudes (controlling for peak latencies 'cause that's in this model as well) for matching trials, but regardless the label trials differentiate match/mismatch better than the sound trials and that's all we care about for this part of the analysis.
+
+
+```{r predictMatchAmpModel}
+PredictMatchAmp <- glmer(Match~cue*I(Peaks/100)+(1+cue|Participant)+(1+cue|categ),family=binomial,data=p1SingTrROI)
+summary(PredictMatchAmp)
+
+PredictMatchAmpLabel <- glmer(Match~I(Peaks/100)+(1|Participant)+(1|categ),family=binomial,data=subset(p1SingTrROI, cue==1))
+summary(PredictMatchAmpLabel)
+
+PredictMatchAmpSound <- glmer(Match~I(Peaks/100)+(1|Participant)+(1|categ),family=binomial,data=subset(p1SingTrROI, cue==-1))
+summary(PredictMatchAmpSound)
+```
+
+```{r SingTrlAmplitudesInteraction}
+MatchAmp <- lmer(Peaks~cue+(1+cue|Participant)+(1+cue|categ),data=subset(p1SingTrROI, isMatch!=-1),REML=FALSE)
+MismatchAmp <- lmer(Peaks~cue+(1+cue|Participant)+(1+cue|categ),data=subset(p1SingTrROI, isMatch!=1),REML=FALSE)
+```
+
+**Peaks*CueType*Match**
+```{r GraphSingTrlPeaksModelsBoth}
+line<-ggplot(p1SingTrROI, aes(cueType, Peaks, colour=MatchLab))
+line+stat_summary(fun.y=mean, geom="point")+
+  stat_summary(fun.y=mean, geom="line", aes(group=MatchLab))+
+  stat_summary(fun.data=mean_cl_normal, geom="errorbar", width=0.1)+
+  labs(x='Match', y="Peak Amplitude", colour="Cue Type")+
+  scale_colour_brewer(type="seq", palette="Set1")+PimpMyPlot
+```
+
+```{r GraphSingTrlPeaksModelsBothBARS}
+bar<-ggplot(p1SingTrROI, aes(MatchLab, Peaks, fill=cueType))
+bar+stat_summary(fun.y=mean, geom="bar",position=position_dodge())+
+  stat_summary(fun.y=mean, geom="bar",position=position_dodge(),colour="black",show_guide=F)+
+  stat_summary(fun.data=mean_cl_normal, geom="errorbar", position=position_dodge(0.95), width=0.3)+
+  labs(x='Match', y="Peak Amplitude (µV)", fill="Cue Type")+
+  coord_cartesian(ylim=c(9,11.3))+
+  CueFills+PimpMyPlot
+```
+
+Peaks & Behaviour
+-------------------------
+###P1 & Behaviour
+Reliable prediction of behaviour by both **Peak Amplitude** & **Peak Latency**
+```{r RT&SingleTrialPeaks}
+RTNPeaksSingTrROI <- lmer(latencyBehav~Peaks+PeakLat+(1|Participant)+(1|categ),data=p1SingTrROI,REML=F)
+summary(RTNPeaksSingTrROI)
+getPz(RTNPeaksSingTrROI)
+
+
+#AGGREGATION OF SINGLE TRIALS FOR GRAPHINIG PURPOSES
+p1SingTrAGR <- summaryBy(latencyBehav+Peaks+PeakLat~Participant+cue, data=p1SingTrROI, na.rm=TRUE)
+```
+
+**Model Visualuation Amp to RT**
+```{r}
+PimpMyPlot <- theme(text=element_text(size=12,family="Helvetica"))+
+  theme(axis.line=element_line(colour='black',size=0.5))+
+  theme(axis.text=element_text(colour="black"))+
+  theme(axis.ticks=element_line(colour="black"))+
+  theme(panel.grid.major.y=element_blank())+
+  theme(panel.grid.major.x=element_blank())+
+  theme(panel.grid.minor=element_blank())+
+  theme(panel.background=element_blank())
+  #theme(panel.border=element_rect(colour="black",fill=NA,size=1))
+  #theme(legend.key = element_blank())
+  #theme(panel.background=element_rect(fill="grey97"))
+
+p1SingTrROI$PeaksCentered <- with(p1SingTrROI, Peaks - mean(Peaks,na.rm=TRUE))
+RTPeaksCent <- lmer(latencyBehav~PeaksCentered+(1|Participant)+(1|categ),data=p1SingTrROI,REML=F)
+
+dnew <- data.frame(PeaksCentered = unique(p1SingTrROI$PeaksCentered))
+dnew <- na.omit(dnew)
+preds <- cbind(
+    dnew,
+    predictSE(RTPeaksCent, dnew, se = TRUE)
+  ) %>% select(PeaksCentered, latencyBehav = fit, SE = se.fit)
+preds
+
+
+ggplot(p1SingTrROI, aes(x = PeaksCentered, y = latencyBehav)) +
+  geom_smooth(aes(ymin = latencyBehav - SE, ymax = latencyBehav + SE),
+    data = preds, stat = "identity")+
+  geom_abline(intercept = summary(RTPeaksCent)$coefficients[1], slope = summary(RTPeaksCent)$coefficients[2]+summary(RTPeaksCent)$coefficients[4],colour="red",linetype='dashed')+
+   geom_abline(intercept = summary(RTPeaksCent)$coefficients[1], slope = summary(RTPeaksCent)$coefficients[2]-summary(RTPeaksCent)$coefficients[4],colour="red",linetype='dashed')+
+  #geom_line(aes(y=latencyBehav+SE.p),data=preds,colour="blue")+
+  #coord_cartesian(ylim=c(400,600),xlim=c(-32,30))+
+  #scale_x_continuous("Peak Latency (ms)", breaks=seq(-28.7,30.34,by=10), labels=seq(70,129, by=10))+
+  labs(x ="Peak Amplitude (µV)",y="Reaction Time (ms)")+
+  PimpMyPlot
+
+#WOUTHOUT CENTRE DATA
+RTPeaks <- lmer(latencyBehav~Peaks+(1|Participant)+(1|categ),data=p1SingTrROI,REML=F)
+dnew2 <- data.frame(Peaks = unique(p1SingTrROI$Peaks))
+dnew2 <- na.omit(dnew2)
+preds2 <- cbind(
+    dnew2,
+    predictSE(RTPeaks, dnew2, se = TRUE)
+  ) %>% select(Peaks, latencyBehav = fit, SE = se.fit)
+preds2
+
+ggplot(p1SingTrROI, aes(x = Peaks, y = latencyBehav)) +
+  geom_smooth(aes(ymin = latencyBehav - SE, ymax = latencyBehav + SE),
+    data = preds2, stat = "identity")+
+  geom_abline(intercept = summary(RTPeaks)$coefficients[1], slope = summary(RTPeaks)$coefficients[2]+summary(RTPeaks)$coefficients[4],colour="red",linetype='dashed')+
+   geom_abline(intercept = summary(RTPeaks)$coefficients[1], slope = summary(RTPeaks)$coefficients[2]-summary(RTPeaks)$coefficients[4],colour="red",linetype='dashed')+
+  #geom_line(aes(y=latencyBehav+SE.p),data=preds,colour="blue")+
+  #coord_cartesian(ylim=c(400,600),xlim=c(-32,30))+
+  #scale_x_continuous("Peak Latency (ms)", breaks=seq(-28.7,30.34,by=10), labels=seq(70,129, by=10))+
+  labs(x ="Peak Amplitude (µV)",y="Reaction Time (ms)")+
+  PimpMyPlot
+
+
+#THIS IS JUST TO MAP OUT UNITS
+dd <- cbind(preds,preds2$Peaks)
+
+#THIS IS THE FINAL GRAPH
+ggplot(p1SingTrROI, aes(x = PeaksCentered, y = latencyBehav)) +
+  geom_smooth(aes(ymin = latencyBehav - SE, ymax = latencyBehav + SE),
+    data = preds, stat = "identity")+
+  geom_abline(intercept = summary(RTPeaksCent)$coefficients[1], slope = summary(RTPeaksCent)$coefficients[2]+summary(RTPeaksCent)$coefficients[4],colour="red",linetype='dashed')+
+   geom_abline(intercept = summary(RTPeaksCent)$coefficients[1], slope = summary(RTPeaksCent)$coefficients[2]-summary(RTPeaksCent)$coefficients[4],colour="red",linetype='dashed')+
+  coord_cartesian(ylim=c(400,600),xlim=c(-32.3,115))+
+  scale_x_continuous("Peak Amplitude (µV)", breaks=seq(-0,114,by=30), labels=seq(0,115, by=30))+
+  labs(x ="Peak Amplitude (µV)",y="Reaction Time (ms)")+
+  PimpMyPlot
+```
+
+
+**Model Visualuation Latency to Peak Lat**
+```{r}
+p1SingTrROI$PeakLatCentered <- with(p1SingTrROI, PeakLat - mean(PeakLat,na.rm=TRUE))
+centered<- lmer(latencyBehav~PeakLatCentered+(1|Participant)+(1|categ),data=p1SingTrROI,REML=F)
+
+dnew <- data.frame(PeakLatCentered = unique(p1SingTrROI$PeakLatCentered))
+dnew <- na.omit(dnew)
+preds <- cbind(
+    dnew,
+    predictSE(centered , dnew, se = TRUE)
+  ) %>% select(PeakLatCentered, latencyBehav = fit, SE = se.fit)
+preds
+
+ggplot(p1SingTrROI, aes(x = PeakLatCentered, y = latencyBehav)) +
+  geom_smooth(aes(ymin = latencyBehav - SE, ymax = latencyBehav + SE),
+    data = preds, stat = "identity")+
+  #geom_abline(intercept = 520.4864269, slope = 0.22154,colour="green")+
+  geom_abline(intercept = summary(centered)$coefficients[1], slope = summary(centered)$coefficients[2]+summary(centered)$coefficients[4],colour="red",linetype='dashed')+
+   geom_abline(intercept = summary(centered)$coefficients[1], slope = summary(centered)$coefficients[2]-summary(centered)$coefficients[4],colour="red",linetype='dashed')+
+  #geom_line(aes(y=latencyBehav+SE.p),data=preds,colour="blue")+
+  coord_cartesian(ylim=c(400,600),xlim=c(-32,30))+
+  scale_x_continuous("Peak Latency (ms)", breaks=seq(-28.7,30.34,by=10), labels=seq(70,129, by=10))+
+  labs(x ="Peak Latency (ms)",y="Reaction Time (ms)")+
+  PimpMyPlot
+
+
+nocentre<- lmer(latencyBehav~PeakLat+(1|Participant)+(1|categ),data=p1SingTrROI,REML=F)
+
+dnew2 <- data.frame(PeakLat = unique(p1SingTrROI$PeakLat))
+dnew2 <- na.omit(dnew2)
+preds2 <- cbind(
+    dnew2,
+    predictSE(nocentre , dnew2, se = TRUE)
+  ) %>% select(PeakLat, latencyBehav = fit, SE = se.fit)
+preds2
+
+#THIS IS JUST TO MAP OUT UNITS
+dd <- cbind(preds,preds2$PeakLat)
+```
+
+
+**Scatter plot Peak Latency RT***
+```{r scatter}
+ggplot(p1SingTrROI, aes(Peaks, latencyBehav))+
+ geom_point()+
+  #xlim(-10,50)+
+ # geom_point(aes(colour=MatchLab))+
+  geom_smooth(method=lm)+
+  labs(x='P1 Amplitudes (µV)', y="Reaction Times (ms)")+PimpMyPlot
+```
+
+Even for aggregated **latencies** collected from averaged ERPs (not aggregated from singletrials)
+```{r P1MeanLatency&RT}
+RTNbehavP1MeanLatency <- lmer(RT.mean~MeanLatency.mean+(1|Ppt),p1behavAGR)
+summary(RTNbehavP1MeanLatency)
+getPz(RTNbehavP1MeanLatency)
+```
+
+Aggregated P1 Amplitudes do **not** predict RTs however (a dimention which must be lost from the single-trials)
+``` {r P1MeanAmp&RT}
+RTNbehavP1MeanAmp <- lmer(RT.mean~MeanAmp.mean+(1|Ppt),p1behavAGR)
+summary(RTNbehavP1MeanAmp)
+getPz(RTNbehavP1MeanAmp)
+```
+
+###P2 & Behaviour
+**No** reliable prediction of behaviour
+#GL: are these RTs correct (trimmed; correct trials only?)— BB: yes.
+```{r P2MeanAmps&RT}
+RTNbehavP2 <- lmer(RT.mean~MeanAmp.mean+(1|Ppt),p2behavAGR)
+summary(RTNbehavP2)
+getPz(RTNbehavP2)
+```
+
+```{r P2MeanLatency&RT}
+RTNbehavP2MeanLatency <- lmer(RT.mean~MeanLatency.mean+(1|Ppt),p2behavAGR)
+summary(RTNbehavP2MeanLatency)
+getPz(RTNbehavP2MeanLatency)
+```
+
+###N4 & Behaviour
+#GL: as a sanity check, also report that the N4 tracked match/mismatch
+#BB: I don't undestand what you mean by N4 tracked?
+
+**Reliable** prediction of behaviour with amplitudes:
+The more negative the N4, the slower the participants
+#this it not actually informative given that RTs are hugely predicted by match/mismatch. Indeed if we do this:
+summary(lmer(MeanAmp.mean~match+RT.mean+(1|Ppt),data=n4behavAGR))
+#we see that the N4 is predicted by matching, not by RTs.
+#for the purposes of the paper, it's relevant to report that the N4 did not vary by cue.
+#Double check that the RTs that went into this datafile are the correct ones (trimmed; correct trials only.)
+
+#BB: Yes RTs are the correct ones. The fact that the N4 doesn't vary by cue is already discussed in the ERP results of the N4.
+#BB: So we do not report the correlations between N4 amp and RTs? Because this pattern of results is the same for the P1, so why would we report P1/behaviour stuff and not N4/behaviour stuff? The effecr if mean.amp on RTs is actuallu bigger than the match effect when predicting RTs (And not meanamp) so I'm not sure...
+
+```{r N4MeanAmps&RT}
+RTNbehavN4MeanAmp <- lmer(RT.mean~MeanAmp.mean+(1|Ppt),n4behavAGR)
+summary(RTNbehavN4MeanAmp)
+getPz(RTNbehavN4MeanAmp)
+```
+
+but not Latencies (kinda normal, one cannot really talk of a peak for the N4 it varies a lot just like P3)
+```{r N4MeanLatency&RT}
+RTNbehavN4MeanLatency <- lmer(RT.mean~MeanLatency.mean+(1|Ppt),n4behavAGR)
+summary(RTNbehavN4MeanLatency)
+getPz(RTNbehavN4MeanLatency)
+```
+
+Reliable prediction of behaviour:
+The more negative the N4, the slower the participants
+```{r N4&BehavGraph}
+ggplot(n4behavAGR, aes(MeanAmp.mean, RT.mean))+
+  geom_point()+
+  geom_smooth(method=lm)+
+  labs(x='N4 Mean Amplitudes (µV)', y="Reaction Times (ms)")+
+  scale_colour_brewer(type="seq", palette="Set1")+PimpMyPlot
+```
+
+
+Pre-Stimulus Interval
+-------------------------
+• Done on the ROIs only and using Tmax permutation statistics, there are no significant differences in the pre-stimulus interval for either factors
+
+## Pre=Stim mean on Single Trials
+```{r PreStimMeansModel}
+p1SingTrNPreStim$cue<-recode(p1SingTrNPreStim$cueType,"'label'=1;'sound'=-1")
+p1SingTrNPreStim$isMatch<-recode(p1SingTrNPreStim$Match,"0=-1;1=1")
+MeanPreStimM <- lmer(meanWin~cue*Match+(1+cueType*Match|Participant)+(1|categ),p1SingTrNPreStim)
+summary(MeanPreStimM)
+getPz(MeanPreStimM)
+```
+
+```{r PreStimMeansGraph}
+p1SingTrNPreStim$Match <- as.factor(p1SingTrNPreStim$Match)
+p1SingTrNPreStim$MatchLab<-recode(p1SingTrNPreStim$Match,"0='Mismatch';1='Match'")
+p1SingTrNPreStim$cueType<-recode(p1SingTrNPreStim$cueType,"'label'='Label';'sound'='Sound'")
+p1SingTrNPreStim$Participant <- as.factor(p1SingTrNPreStim$Participant)
+
+line<-ggplot(p1SingTrNPreStim, aes(cueType, meanWin,colour=Match))
+line+stat_summary(fun.y=mean, geom="point")+
+  stat_summary(fun.y=mean, geom="line",aes(group=Match))+
+  stat_summary(fun.data=mean_cl_normal, geom="errorbar", width=0.1)+
+  labs(x='Cue Type', y="Pre-Stimulus Mean Amplitude", colour="Match")+PimpMyPlot
+```
+
+##CUE by TIME Interaction on PEAKS
+```{r CueXTimeInteraction}
+P1PeaksNPreStimInt$Time <- recode(P1PeaksNPreStimInt$measure, "'Peaks'=1;'meanWin'=-1")
+P1PeaksNPreStimInt$Participant <- as.factor(P1PeaksNPreStimInt$Participant)
+
+cueXTime <- lmer(value~cue:Time+(1+cue:Time|Participant),data=P1PeaksNPreStimInt)
+```
+
+
+```{r}
+p1SingTrNPreStim$Match <- as.factor(p1SingTrNPreStim$Match)
+p1SingTrNPreStim$MatchLab<-recode(p1SingTrNPreStim$Match,"0='Mismatch';1='Match'")
+p1SingTrNPreStim$cueType<-recode(p1SingTrNPreStim$cueType,"'label'='Label';'sound'='Sound'")
+p1SingTrNPreStim$Participant <- as.factor(p1SingTrNPreStim$Participant)
+
+line<-ggplot(p1SingTrNPreStim, aes(cueType, meanWin, colour=Participant))
+line+stat_summary(fun.y=mean, geom="point")+
+  stat_summary(fun.y=mean, geom="line", aes(group=Participant))+
+  stat_summary(fun.data=mean_cl_normal, geom="errorbar", width=0.1)+
+  labs(x='Cue Type', y="Pre-Stimulus Mean Amplitude", colour="Match")+PimpMyPlot
+```
+
+Cue Lenghth Residuals Analysis
+-------------------------
+```{r}
+resdat <- read.table("singTrP1RTTrimmedNLenghts.txt",header=T)
+resdat$Peaks.cueLength <- resid(lmer(Peaks~Length+(1|Participant),data=resdat, REML=F,na.action=na.exclude))
+resdat$PeaksLat.cueLength <- resid(lmer(PeakLat~Length+(1|Participant),data=resdat, REML=F,na.action=na.exclude))
+
+PredictMatchPeaks <- glmer(Match~cue*I(Peaks.cueLength/100)+(1+cue|Participant)+(1+cue|categ),family=binomial,data=resdat)
+summary(PredictMatchPeaks)
+
+PredictMatchLat <- glmer(Match~cue*I(PeaksLat.cueLength/100)+(1+cue|Participant)+(1+cue|categ),family=binomial,data=resdat)
+summary(PredictMatchLat)
+
+PredictMatchLatLabel <- glmer(Match~I(PeaksLat.cueLength/100)+(1|Participant)+(1|categ),family=binomial,data=subset(resdat, cue==1))
+summary(PredictMatchLatLabel)
+
+PredictMatchLatSnd <- glmer(Match~I(PeaksLat.cueLength/100)+(1|Participant)+(1|categ),family=binomial,data=subset(resdat, cue==-1))
+summary(PredictMatchLatSnd)
+```

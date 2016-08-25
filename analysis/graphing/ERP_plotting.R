@@ -1,10 +1,8 @@
-library(reshape2)
 library(lattice)
 library(ggplot2)
-
-setwd("/Users/bastienboutonnet/Google Drive/3. Current Projects/ERP_Lupyan Exps/LabelsERP")
-
-read.table('14GavGraphExport.txt', header=TRUE) -> data
+library(dplyr)
+library(tidyr)
+read.csv('gavROIsForGraph_allDat.csv', header=TRUE) -> data
 
 #Subest data by time
 data <- subset(data, time<801)

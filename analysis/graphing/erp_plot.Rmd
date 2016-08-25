@@ -1,0 +1,275 @@
+```{r echo=FALSE}
+library(ggplot2)
+library(lmSupport)
+library(reshape2)
+library(dplyr)
+library(tidyr)
+```
+
+
+ERP Graphs
+-------------------------
+
+```{r echo=FALSE}
+data=read.csv('gavROIsForGraph_allDat.csv',header=T)
+tidyDat=data%>%
+  gather(ROI,Amplitude,-time,-cond,-tCorr)
+```
+
+```{r echo=FALSE}
+#STANDARDISED STYLE FOR GRAPHS (WHATEVER I LIKE AT THE MINUTE)
+##############################################################
+#PimpMyPlot <- theme_bw() + theme(axis.text = element_text(color = "grey35"), panel.grid.major.y = element_line(color = "grey72", size = 0.5), panel.grid.minor.y = element_line(size = 0.2, color = "grey72"), strip.background = element_rect( fill = "grey89"), panel.border = element_rect(colour="NA"), legend.key = element_rect(color = "white"), legend.background = element_rect(colour="grey72", size=0.5))
+PimpMyERPPlot <- theme(text=element_text(size=14,family="Helvetica"))+
+  theme(axis.line=element_line(colour='black'))+
+  theme(axis.line.y=element_blank())+
+  theme(axis.text=element_text(colour="black"))+
+  theme(panel.grid.minor=element_blank())+
+  theme(panel.grid.major.y=element_line(linetype='dotted',colour='grey50',size=0.3))+
+  theme(panel.grid.major.x=element_line(linetype='dotted',colour='grey20',size=0.2))+
+  theme(panel.background=element_rect(fill=NA))+
+  theme(panel.border=element_rect(colour="black",fill=NA))
+  
+
+Colours <- scale_colour_manual(values=c("#3498db","#2ecc71","#e74c3c"))
+
+```
+
+```{r GLOBAL ERPGRAPH}
+erpplot <- ggplot(filter(tidyDat,cond%in%c("Native Expected","Native Unexpected","Control")&ROI=="ROI.central_smaller"),
+                  aes(x=time,y=Amplitude,colour=cond))
+erpplot+labs(x ="Time (ms)",y="Amplitude (µV)")+
+  xlim(-100,650)+
+  geom_vline(xintercept=0,colour="black",size=0.3)+
+  geom_hline(yintercept=0,colour="black",size=0.3)+
+  geom_line(size=.7)+
+  coord_cartesian(xlim=c(-100,650))+
+  Colours+
+  PimpMyERPPlot
+
+erpplot <- ggplot(subset(IndivERPs,ROI!="Central"), aes(x=time,y=Amplitude,colour=match,fill=match))
+erpplot+labs(x ="Time (ms)",y="Amplitude (µV)")+ 
+  #ylim(-5.5,9)+
+  xlim(-100,600)+
+  geom_vline(xintercept=0,colour="black",size=0.3)+
+  geom_hline(yintercept=0,colour="black",size=0.3)+ 
+  stat_summary(fun.y=mean, geom="line")+
+  stat_summary(fun.data=mean_se, geom="ribbon",mult=0.5,linetype=2,alpha=0.2,size=0.1,show_guide=FALSE)+
+  #geom_ribbon(aes(ymin=Amplitude-1,ymax=Amplitude+1,fill=bin,colour=bin),linetype=2,alpha=0.1,size=0.1)+
+  #geom_line(aes(colour=bin), size=0.3)+
+  scale_colour_brewer(palette="Set1")+
+  scale_fill_brewer(palette="Set1")+facet_wrap(~cueType,ncol=1)+
+  coord_cartesian(xlim=c(-100,150))+
+  #guides(color=guide_legend(override.aes=list(fill=NA)))+
+  
+  PimpMyERPPlot
+```
+
+library(doBy)
+summaryBy(Amplitude~Condition,data=subset(IndivERPs, time>=80&time<=120))
+
+```{r P1GRAPH_ERP CUE TYPE}
+erpplot <- ggplot(subset(IndivERPs, Condition==c("Label","Sound")&ROI!="Central"), aes(x=time,y=Amplitude,colour=Condition,fill=Condition))
+erpplot+labs(x ="Time (ms)",y="Amplitude (µV)")+ 
+  #ylim(-1,9)+
+  xlim(-100,300)+
+  geom_vline(xintercept=0,colour="black",size=0.3)+
+  geom_hline(yintercept=0,colour="black",size=0.3)+ 
+  stat_summary(fun.y=mean, geom="line",size=0.6)+
+  #stat_summary(fun.data=mean_se, geom="ribbon",mult=0.5,linetype=2,alpha=0.2,size=0.1,show_guide=FALSE)+
+  #geom_ribbon(aes(ymin=Amplitude-1,ymax=Amplitude+1,fill=bin,colour=bin),linetype=2,alpha=0.1,size=0.1)+
+  #geom_line(aes(colour=bin), size=0.3)+
+  CueColours+CueFills+
+  facet_wrap(~ROI,ncol=1)+
+  #guides(color=guide_legend(override.aes=list(fill=NA)))+
+  coord_cartesian(xlim=c(-100,300),ylim=c(-1.5,9))+ #THIS allows zooming on the graph without messing with data (unlike by using xlim and ylim alone.)
+  theme(legend.justification=c(0,1), legend.position=c(0,1))+
+  PimpMyERPPlot
+```
+
+```{r P1GRAPH_ERP MATCH}
+erpplot <- ggplot(subset(IndivERPs, Condition==c("Match","Mismatch")&ROI!="Central"), aes(x=time,y=Amplitude,colour=Condition,fill=Condition))
+erpplot+labs(x ="Time (ms)",y="Amplitude (µV)")+ 
+  #ylim(-5.5,9)+
+  xlim(-100,300)+
+  geom_vline(xintercept=0,colour="black",size=0.3)+
+  geom_hline(yintercept=0,colour="black",size=0.3)+ 
+  stat_summary(fun.y=mean, geom="line",size=0.6)+
+  #stat_summary(fun.data=mean_se, geom="ribbon",linetype=2,alpha=0.2,size=0.1,show_guide=FALSE)+
+  #geom_ribbon(aes(ymin=Amplitude-1,ymax=Amplitude+1,fill=bin,colour=bin),linetype=2,alpha=0.1,size=0.1)+
+  #geom_line(aes(colour=bin), size=0.3)+
+  MatchFills+
+  MatchColours+facet_wrap(~ROI,ncol=1)+
+  #guides(color=guide_legend(override.aes=list(fill=NA)))+
+  PimpMyERPPlot
+```
+
+```{r P1Bars}
+IndivERPs$Condition<-factor(IndivERPs$Condition, levels=rev(levels(IndivERPs$Condition)))
+
+P1TimeSubset <- subset(IndivERPs, time>=80&time<=120)
+
+p1Bars<-ggplot(subset(P1TimeSubset, Condition==c("Label","Sound","Match","Mismatch")&ROI!="Central"), aes(Condition, Amplitude, fill=Condition))
+p1Bars+stat_summary(fun.y=mean, geom="bar",show_guide=F)+
+  stat_summary(fun.y=mean, geom="bar",colour="black",width=0.1, show_guide=F)+
+  stat_summary(fun.data=mean_cl_normal, geom="errorbar",width=0.3)+
+  labs(x="",y="Mean Amplitude (µV)")+
+  #CueFills+
+  scale_y_continuous(expand = c(0,0))+
+  coord_cartesian(ylim=c(0,7))+
+  AllCondsFills+
+  facet_wrap(~ROI)+
+  PimpMyPlot
+```
+
+```{r P2Bars}
+IndivERPs$Condition<-factor(IndivERPs$Condition, levels=rev(levels(IndivERPs$Condition)))
+
+P2TimeSubset <- subset(IndivERPs, time>=190&time<=230)
+
+p1Bars<-ggplot(subset(P2TimeSubset, Condition==c("Label","Sound","Match","Mismatch")&ROI!="Central"), aes(Condition, Amplitude, fill=Condition))
+p1Bars+stat_summary(fun.y=mean, geom="bar",show_guide=F)+
+  stat_summary(fun.y=mean, geom="bar",colour="black",width=0.1, show_guide=F)+
+  stat_summary(fun.data=mean_cl_normal, geom="errorbar",width=0.3)+
+  labs(x="",y="Mean Amplitude (µV)")+
+  #CueFills+
+  scale_y_continuous(expand = c(0,0))+
+  coord_cartesian(ylim=c(0,8.5))
+  AllCondsFills+
+  facet_wrap(~ROI)+
+  PimpMyPlot
+```
+
+```{r P1/P2GRAPH_ERP}
+erpplot <- ggplot(subset(IndivERPs, Condition==c("Sound","Label")&ROI!="Central"), aes(x=time,y=Amplitude,colour=Condition,fill=Condition))
+erpplot+labs(x ="Time (ms)",y="Amplitude (µV)")+ 
+  #ylim(-5.5,9)+
+  xlim(-5,300)+
+  geom_vline(xintercept=0,colour="black",size=0.3)+
+  geom_hline(yintercept=0,colour="black",size=0.3)+ 
+  stat_summary(fun.y=mean, geom="line")+
+  stat_summary(fun.data=mean_se, geom="ribbon",mult=0.6,linetype=2,alpha=0.1,size=0.1,show_guide=FALSE)+
+  #geom_ribbon(aes(ymin=Amplitude-1,ymax=Amplitude+1,fill=bin,colour=bin),linetype=2,alpha=0.1,size=0.1)+
+  #geom_line(aes(colour=bin), size=0.3)+
+  scale_colour_brewer(palette="Set1")+
+  scale_fill_brewer(palette="Set1")+facet_wrap(~ROI,ncol=1)+PimpMyPlot
+```
+
+```{r N4GRAPH_ERP}
+erpplot <- ggplot(subset(t, ROI=="Central"), aes(x=time,y=Amplitude,colour=match,fill=match,linetype=cue))
+erpplot+labs(x ="Time (ms)",y="Amplitude (µV)")+ 
+  #ylim(-5.5,9)+
+  xlim(-100,700)+
+  geom_vline(xintercept=0,colour="black",size=0.3)+
+  geom_hline(yintercept=0,colour="black",size=0.3)+ 
+  stat_summary(fun.y=mean, geom="line")+
+  stat_summary(fun.data=mean_se, geom="ribbon",mult=0.6,alpha=0.1,size=0.1,show_guide=FALSE)+
+  #geom_ribbon(aes(ymin=Amplitude-1,ymax=Amplitude+1,fill=bin,colour=bin),linetype=2,alpha=0.1,size=0.1)+
+  #geom_line(aes(colour=bin), size=0.3)+
+  MatchFills+
+  MatchColours+
+ # theme(legend.justification=c(1,0), legend.position=c(1,0))+
+  coord_cartesian(xlim=c(-100,600),ylim=c(-2.3,4))+
+  #theme(legend.justification=c(0,1), legend.position=c(0,1))+
+  PimpMyERPPlot
+
+
+subsetN4 <- subset(IndivERPs, Condition==c("Label Match","Label Mismatch","Sound Match","Sound Mismatch"))
+foo <- data.frame(do.call('rbind', strsplit(as.character(subsetN4$Condition),' ',fixed=TRUE)))
+t <- cbind(subsetN4,foo)
+colnames(foo) <- c("cue","match")
+
+t=dcast(subset(IndivERPs, ROI=='Central'),ppt+time~Condition, value.var="Amplitude")
+subsetForDiff=t[c("ppt","time","Label",'Sound','Match','Mismatch')]
+subsetForDiff["Cue"]=subsetForDiff["Label"]-subsetForDiff["Sound"]
+subsetForDiff["Congruence"]=subsetForDiff["Mismatch"]-subsetForDiff["Match"]
+subsetForDiff=melt(subsetForDiff, id.vars=c("ppt",'time'),measure.vars=c("Cue","Congruence"),variable.name='Condition',value.name="DiffAmp")
+
+erpplot <- ggplot(subsetForDiff, aes(x=time,y=DiffAmp,colour=Condition,fill=Condition))
+erpplot+labs(x ="Time (ms)",y="Amplitude (µV)")+ 
+  #ylim(-5.5,9)+
+  xlim(-100,600)+
+  geom_vline(xintercept=0,colour="black",size=0.3)+
+  geom_hline(yintercept=0,colour="black",size=0.3)+ 
+  stat_summary(fun.y=mean, geom="line")+
+  stat_summary(fun.data=mean_se, geom="ribbon",alpha=0.1,size=0.1,show_guide=FALSE)+
+  #geom_ribbon(aes(ymin=Amplitude-1,ymax=Amplitude+1,fill=bin,colour=bin),linetype=2,alpha=0.1,size=0.1)+
+  #geom_line(aes(colour=bin), size=0.3)+
+  scale_colour_manual(values=c("#d7191c","#2E3092"))+
+  coord_cartesian(xlim=c(-100,600),ylim=c(-2.5,4))+
+  theme(legend.justification=c(0,1), legend.position=c(0,1))+
+  PimpMyERPPlot
+
+t=dcast(subset(IndivERPs, ROI=='Central'),ppt+time~Condition, value.var="Amplitude")
+subsetForDiff=t[c("ppt","time","Sound Match",'Sound Mismatch','Label Match','Label Mismatch')]
+subsetForDiff["Label"]=subsetForDiff["Label Mismatch"]-subsetForDiff["Label Match"]
+subsetForDiff["Sound"]=subsetForDiff["Sound Mismatch"]-subsetForDiff["Sound Match"]
+subsetForDiff=melt(subsetForDiff, id.vars=c("ppt",'time'),measure.vars=c("Label","Sound"),variable.name='Condition',value.name="DiffAmp")
+
+erpplot <- ggplot(subsetForDiff, aes(x=time,y=DiffAmp,colour=Condition,fill=Condition))
+erpplot+labs(x ="Time (ms)",y="Amplitude (µV)")+ 
+  #ylim(-5.5,9)+
+  xlim(-100,600)+
+  geom_vline(xintercept=0,colour="black",size=0.3)+
+  geom_hline(yintercept=0,colour="black",size=0.3)+ 
+  stat_summary(fun.y=mean, geom="line")+
+  stat_summary(fun.data=mean_se, geom="ribbon",alpha=0.05,size=0.1,show_guide=FALSE,linetype='dashed')+
+  #geom_ribbon(aes(ymin=Amplitude-1,ymax=Amplitude+1,fill=bin,colour=bin),linetype=2,alpha=0.1,size=0.1)+
+  #geom_line(aes(colour=bin), size=0.3)+
+  CueColours+
+  CueFills+
+  #scale_colour_manual(values=c("#d7191c","#2E3092"))+
+  coord_cartesian(xlim=c(-100,600),ylim=c(-2.5,4))+
+  theme(legend.justification=c(0,1), legend.position=c(0,1))+
+  PimpMyERPPlot
+
+```
+
+```{r}
+
+N4TimeSubset <- subset(IndivERPs, )
+N4TimeSubset <- subset(IndivERPs, time>=300&time<=500)
+
+n4Bars<-ggplot(subset(N4TimeSubset, Condition==c("Label","Sound","Match","Mismatch")&ROI=="Central"), aes(Condition, Amplitude, fill=Condition))
+n4Bars+stat_summary(fun.y=mean, geom="bar",show_guide=F)+
+  stat_summary(fun.y=mean, geom="bar",colour="black",width=0.1, show_guide=F)+
+  stat_summary(fun.data=mean_cl_normal, geom="errorbar",width=0.3)+
+  labs(x="",y="Mean Amplitude (µV)")+
+  #CueFills+
+  scale_y_continuous(expand = c(0,0))+
+  coord_cartesian(ylim=c(0,3))+
+  AllCondsFills+
+  #facet_wrap(~ROI)+
+  PimpMyPlot
+```
+
+### PreStimulus Graphs
+```{r echo=FALSE}
+IndivPreStim <- read.table("ERPLabelsPreStimIndivAvgforR.txt",header=T)
+IndivPreStim <- melt(IndivPreStim, measure.vars=c("POLeft","PORight","Central"),variable.name="ROI",value.name="Amplitude")
+IndivPreStim$bin <- as.factor(IndivPreStim$bin) 
+
+IndivPreStim$Condition<-recode(IndivPreStim$bin,"1='Sound Match';2='Sound Mismatch';3='Label Match';4='Label Mismatch';5='Match';6='Mismatch';7='Label';8='Sound'")
+IndivPreStim$Condition <- factor(IndivPreStim$Condition, levels = c("Sound Match","Sound Mismatch","Label Match","Label Mismatch","Label","Sound","Match","Mismatch"))
+IndivPreStim$AmpForBars <- IndivPreStim$Amplitude*10
+```
+
+```{r PreStimGRAPH_ERP CUE TYPE}
+erpplot <- ggplot(subset(IndivPreStim, Condition==c("Label","Sound")), aes(x=time,y=Amplitude,colour=Condition,fill=Condition))
+erpplot+labs(x ="Time (ms)",y="Amplitude (µV)")+ 
+  #ylim(-1,9)+
+  xlim(-1100,199)+
+  geom_vline(xintercept=0,colour="black",size=0.3)+
+  geom_hline(yintercept=0,colour="black",size=0.3)+ 
+  geom_vline(xintercept=-1000,colour="black",size=0.3)+
+  stat_summary(fun.y=mean, geom="line",size=0.6)+
+  stat_summary(fun.data=mean_se, geom="ribbon",mult=0.7,linetype=2,alpha=0.2,size=0.1,show_guide=FALSE)+
+  #geom_ribbon(aes(ymin=Amplitude-1,ymax=Amplitude+1,fill=bin,colour=bin),linetype=2,alpha=0.1,size=0.1)+
+  #geom_line(aes(colour=bin), size=0.3)+
+  CueColours+CueFills+
+  facet_wrap(~ROI,ncol=1)+
+  #guides(color=guide_legend(override.aes=list(fill=NA)))+
+  coord_cartesian(xlim=c(-1100,199),ylim=c(-6.5,3))+ #THIS allows zooming on the graph without messing with data (unlike by using xlim and ylim alone.)
+  theme(legend.justification=c(0,0), legend.position=c(0,0))+
+  PimpMyERPPlot
+```

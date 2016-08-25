@@ -1,0 +1,925 @@
+0	Nat_36_related	related	Nat	practice	36	136.616111928	sentStart
+0	Nat_36_related	related	Nat	practice	36	139.264027488	onsetDet	0
+0	Nat_36_related	related	Nat	practice	36	139.362718203	onsetNoun
+0	Nat_36_related	related	Nat	practice	36	139.858053958	offsetNoun	0
+0	Nat_36_related	related	Nat	practice	36	141.092126718	endSentence
+0	Nat_53_related	related	Nat	practice	53	145.882919769	sentStart
+0	Nat_53_related	related	Nat	practice	53	147.860320226	onsetDet	0
+0	Nat_53_related	related	Nat	practice	53	148.034992018	onsetNoun
+0	Nat_53_related	related	Nat	practice	53	148.683381544	offsetNoun	0
+0	Nat_53_related	related	Nat	practice	53	150.426450176	endSentence
+0	nonNat_70_unrelated	unrelated	nonNat	practice	70	155.224791232	sentStart
+0	nonNat_70_unrelated	unrelated	nonNat	practice	70	157.86474671	onsetDet	0
+0	nonNat_70_unrelated	unrelated	nonNat	practice	70	158.064410579	onsetNoun
+0	nonNat_70_unrelated	unrelated	nonNat	practice	70	158.28668581	offsetNoun	0
+0	nonNat_70_unrelated	unrelated	nonNat	practice	70	159.306738251	endSentence
+0	nonNat_105_unrelated	unrelated	nonNat	practice	105	166.455257309	sentStart
+0	nonNat_105_unrelated	unrelated	nonNat	practice	105	169.870147561	onsetDet	0
+0	nonNat_105_unrelated	unrelated	nonNat	practice	105	170.027724225	onsetNoun
+0	nonNat_105_unrelated	unrelated	nonNat	practice	105	170.456148328	offsetNoun	0
+0	nonNat_105_unrelated	unrelated	nonNat	practice	105	171.816246343	endSentence
+0	Nat_113_related	related	Nat	practice	113	176.614274843	sentStart
+0	Nat_113_related	related	Nat	practice	113	180.423535471	onsetDet	0
+0	Nat_113_related	related	Nat	practice	113	180.585241301	onsetNoun
+0	Nat_113_related	related	Nat	practice	113	180.919519664	offsetNoun	0
+0	Nat_113_related	related	Nat	practice	113	183.118662918	endSentence
+0	Nat_117_related	related	Nat	practice	117	190.167022089	sentStart
+0	Nat_117_related	related	Nat	practice	117	193.203004025	onsetDet	0
+0	Nat_117_related	related	Nat	practice	117	193.384718446	onsetNoun
+0	Nat_117_related	related	Nat	practice	117	193.867001159	offsetNoun	0
+0	Nat_117_related	related	Nat	practice	117	194.527055727	endSentence
+1	nonNat_20_related	related	nonNat	experiment	20	281.624991953	sentStart
+1	nonNat_20_related	related	nonNat	experiment	20	284.805337345	onsetDet	21
+1	nonNat_20_related	related	nonNat	experiment	20	284.984058687	onsetNoun
+1	nonNat_20_related	related	nonNat	experiment	20	285.474373946	offsetNoun	219
+1	nonNat_20_related	related	nonNat	experiment	20	286.250405935	endSentence
+2	Nat_116_unrelated	unrelated	Nat	experiment	116	291.059502665	sentStart
+2	Nat_116_unrelated	unrelated	Nat	experiment	116	294.308706268	onsetDet	12
+2	Nat_116_unrelated	unrelated	Nat	experiment	116	294.485437201	onsetNoun
+2	Nat_116_unrelated	unrelated	Nat	experiment	116	294.854709448	offsetNoun	129
+2	Nat_116_unrelated	unrelated	Nat	experiment	116	295.408729935	endSentence
+3	nonNat_348_control	control	nonNat	experiment	348	300.210297321	sentStart
+3	nonNat_348_control	control	nonNat	experiment	348	301.986932652	onsetDet	55
+3	nonNat_348_control	control	nonNat	experiment	348	302.228975135	onsetNoun
+3	nonNat_348_control	control	nonNat	experiment	348	302.922981422	offsetNoun	155
+3	nonNat_348_control	control	nonNat	experiment	348	305.939119598	endSentence
+4	nonNat_337_control	control	nonNat	experiment	337	310.730320372	sentStart
+4	nonNat_337_control	control	nonNat	experiment	337	315.249442452	onsetDet	55
+4	nonNat_337_control	control	nonNat	experiment	337	315.463442245	onsetNoun
+4	nonNat_337_control	control	nonNat	experiment	337	316.08147865	offsetNoun	155
+4	nonNat_337_control	control	nonNat	experiment	337	318.783577506	endSentence
+5	Nat_311_control	control	Nat	experiment	311	323.571059635	sentStart
+5	Nat_311_control	control	Nat	experiment	311	327.04090229	onsetDet	55
+5	Nat_311_control	control	Nat	experiment	311	327.160601153	onsetNoun
+5	Nat_311_control	control	Nat	experiment	311	327.516906195	offsetNoun	155
+5	Nat_311_control	control	Nat	experiment	311	329.572999662	endSentence
+6	Nat_158_related	related	Nat	experiment	158	334.365191286	sentStart
+6	Nat_158_related	related	Nat	experiment	158	336.196190916	onsetDet	11
+6	Nat_158_related	related	Nat	experiment	158	336.292924499	onsetNoun
+6	Nat_158_related	related	Nat	experiment	158	336.720241437	offsetNoun	119
+6	Nat_158_related	related	Nat	experiment	158	337.622242078	endSentence
+7	nonNat_59_unrelated	unrelated	nonNat	experiment	59	346.081126597	sentStart
+7	nonNat_59_unrelated	unrelated	nonNat	experiment	59	351.828779391	onsetDet	22
+7	nonNat_59_unrelated	unrelated	nonNat	experiment	59	351.948402992	onsetNoun
+7	nonNat_59_unrelated	unrelated	nonNat	experiment	59	352.56181636	offsetNoun	229
+7	nonNat_59_unrelated	unrelated	nonNat	experiment	59	354.133878042	endSentence
+8	nonNat_355_control	control	nonNat	experiment	355	358.922152292	sentStart
+8	nonNat_355_control	control	nonNat	experiment	355	361.148124086	onsetDet	55
+8	nonNat_355_control	control	nonNat	experiment	355	361.364092207	onsetNoun
+8	nonNat_355_control	control	nonNat	experiment	355	361.618111357	offsetNoun	155
+8	nonNat_355_control	control	nonNat	experiment	355	363.295164332	endSentence
+9	Nat_323_control	control	Nat	experiment	323	368.092769869	sentStart
+9	Nat_323_control	control	Nat	experiment	323	369.25142011	onsetDet	55
+9	Nat_323_control	control	Nat	experiment	323	369.398084666	onsetNoun
+9	Nat_323_control	control	Nat	experiment	323	369.687437625	offsetNoun	155
+9	Nat_323_control	control	Nat	experiment	323	372.571527381	endSentence
+10	nonNat_136_related	related	nonNat	experiment	136	377.363426664	sentStart
+10	nonNat_136_related	related	nonNat	experiment	136	380.128830799	onsetDet	21
+10	nonNat_136_related	related	nonNat	experiment	136	380.239381866	onsetNoun
+10	nonNat_136_related	related	nonNat	experiment	136	380.73081984	offsetNoun	219
+10	nonNat_136_related	related	nonNat	experiment	136	381.359848592	endSentence
+11	Nat_51_unrelated	unrelated	Nat	experiment	51	387.816691075	sentStart
+11	Nat_51_unrelated	unrelated	Nat	experiment	51	390.719214821	onsetDet	12
+11	Nat_51_unrelated	unrelated	Nat	experiment	51	390.877926951	onsetNoun
+11	Nat_51_unrelated	unrelated	Nat	experiment	51	391.301254984	offsetNoun	129
+11	Nat_51_unrelated	unrelated	Nat	experiment	51	392.199256147	endSentence
+12	nonNat_146_unrelated	unrelated	nonNat	experiment	146	398.904873051	sentStart
+12	nonNat_146_unrelated	unrelated	nonNat	experiment	146	402.275654588	onsetDet	22
+12	nonNat_146_unrelated	unrelated	nonNat	experiment	146	402.509629072	onsetNoun
+12	nonNat_146_unrelated	unrelated	nonNat	experiment	146	403.316661063	offsetNoun	229
+12	nonNat_146_unrelated	unrelated	nonNat	experiment	146	404.179700064	endSentence
+13	nonNat_110_unrelated	unrelated	nonNat	experiment	110	410.744072545	sentStart
+13	nonNat_110_unrelated	unrelated	nonNat	experiment	110	414.946098471	onsetDet	22
+13	nonNat_110_unrelated	unrelated	nonNat	experiment	110	415.145712581	onsetNoun
+13	nonNat_110_unrelated	unrelated	nonNat	experiment	110	415.469067639	offsetNoun	229
+13	nonNat_110_unrelated	unrelated	nonNat	experiment	110	416.33614686	endSentence
+14	nonNat_157_unrelated	unrelated	nonNat	experiment	157	423.044155365	sentStart
+14	nonNat_157_unrelated	unrelated	nonNat	experiment	157	427.140508593	onsetDet	22
+14	nonNat_157_unrelated	unrelated	nonNat	experiment	157	427.347529513	onsetNoun
+14	nonNat_157_unrelated	unrelated	nonNat	experiment	157	427.84051783	offsetNoun	229
+14	nonNat_157_unrelated	unrelated	nonNat	experiment	157	428.687617073	endSentence
+15	nonNat_95_related	related	nonNat	experiment	95	433.481014138	sentStart
+15	nonNat_95_related	related	nonNat	experiment	95	437.569917326	onsetDet	21
+15	nonNat_95_related	related	nonNat	experiment	95	437.768497045	onsetNoun
+15	nonNat_95_related	related	nonNat	experiment	95	438.107957625	offsetNoun	219
+15	nonNat_95_related	related	nonNat	experiment	95	439.022958128	endSentence
+16	Nat_328_control	control	Nat	experiment	328	443.817548817	sentStart
+16	Nat_328_control	control	Nat	experiment	328	446.623233862	onsetDet	55
+16	Nat_328_control	control	Nat	experiment	328	446.752049733	onsetNoun
+16	Nat_328_control	control	Nat	experiment	328	447.095251039	offsetNoun	155
+16	Nat_328_control	control	Nat	experiment	328	449.369309256	endSentence
+17	nonNat_22_related	related	nonNat	experiment	22	454.170296624	sentStart
+17	nonNat_22_related	related	nonNat	experiment	22	457.26562448	onsetDet	21
+17	nonNat_22_related	related	nonNat	experiment	22	457.474651049	onsetNoun
+17	nonNat_22_related	related	nonNat	experiment	22	457.761662166	offsetNoun	219
+17	nonNat_22_related	related	nonNat	experiment	22	458.755680675	endSentence
+18	nonNat_43_related	related	nonNat	experiment	43	463.561660549	sentStart
+18	nonNat_43_related	related	nonNat	experiment	43	467.184028893	onsetDet	21
+18	nonNat_43_related	related	nonNat	experiment	43	467.401968764	onsetNoun
+18	nonNat_43_related	related	nonNat	experiment	43	467.710038412	offsetNoun	219
+18	nonNat_43_related	related	nonNat	experiment	43	468.855049684	endSentence
+19	nonNat_63_unrelated	unrelated	nonNat	experiment	63	475.461014568	sentStart
+19	nonNat_63_unrelated	unrelated	nonNat	experiment	63	477.306370336	onsetDet	22
+19	nonNat_63_unrelated	unrelated	nonNat	experiment	63	477.424033384	onsetNoun
+19	nonNat_63_unrelated	unrelated	nonNat	experiment	63	477.765355619	offsetNoun	229
+19	nonNat_63_unrelated	unrelated	nonNat	experiment	63	479.205435435	endSentence
+20	nonNat_333_control	control	nonNat	experiment	333	483.993773751	sentStart
+20	nonNat_333_control	control	nonNat	experiment	333	486.319662228	onsetDet	55
+20	nonNat_333_control	control	nonNat	experiment	333	486.411339549	onsetNoun
+20	nonNat_333_control	control	nonNat	experiment	333	486.977731674	offsetNoun	155
+20	nonNat_333_control	control	nonNat	experiment	333	488.698801307	endSentence
+21	nonNat_32_related	related	nonNat	experiment	32	493.504487596	sentStart
+21	nonNat_32_related	related	nonNat	experiment	32	496.854065053	onsetDet	21
+21	nonNat_32_related	related	nonNat	experiment	32	497.006763038	onsetNoun
+21	nonNat_32_related	related	nonNat	experiment	32	497.252048022	offsetNoun	219
+21	nonNat_32_related	related	nonNat	experiment	32	497.99013068	endSentence
+22	Nat_301_control	control	Nat	experiment	301	508.10663307	sentStart
+22	Nat_301_control	control	Nat	experiment	301	509.355539978	onsetDet	55
+22	Nat_301_control	control	Nat	experiment	301	509.476220673	onsetNoun
+22	Nat_301_control	control	Nat	experiment	301	509.77654483	offsetNoun	155
+22	Nat_301_control	control	Nat	experiment	301	512.30063267	endSentence
+23	Nat_101_related	related	Nat	experiment	101	517.090486185	sentStart
+23	Nat_101_related	related	Nat	experiment	101	519.73894382	onsetDet	11
+23	Nat_101_related	related	Nat	experiment	101	519.870609398	onsetNoun
+23	Nat_101_related	related	Nat	experiment	101	520.207923135	offsetNoun	119
+23	Nat_101_related	related	Nat	experiment	101	521.423972428	endSentence
+24	nonNat_150_unrelated	unrelated	nonNat	experiment	150	526.213577453	sentStart
+24	nonNat_150_unrelated	unrelated	nonNat	experiment	150	528.869250322	onsetDet	22
+24	nonNat_150_unrelated	unrelated	nonNat	experiment	150	529.063917642	onsetNoun
+24	nonNat_150_unrelated	unrelated	nonNat	experiment	150	529.727281577	offsetNoun	229
+24	nonNat_150_unrelated	unrelated	nonNat	experiment	150	531.608368303	endSentence
+25	nonNat_102_unrelated	unrelated	nonNat	experiment	102	538.10415159	sentStart
+25	nonNat_102_unrelated	unrelated	nonNat	experiment	102	541.749715978	onsetDet	22
+25	nonNat_102_unrelated	unrelated	nonNat	experiment	102	541.89049141	onsetNoun
+25	nonNat_102_unrelated	unrelated	nonNat	experiment	102	542.15769329	offsetNoun	229
+25	nonNat_102_unrelated	unrelated	nonNat	experiment	102	542.796734111	endSentence
+26	Nat_121_related	related	Nat	experiment	121	549.20149007	sentStart
+26	Nat_121_related	related	Nat	experiment	121	551.536071038	onsetDet	11
+26	Nat_121_related	related	Nat	experiment	121	551.667734127	onsetNoun
+26	Nat_121_related	related	Nat	experiment	121	552.006100916	offsetNoun	119
+26	Nat_121_related	related	Nat	experiment	121	553.322145885	endSentence
+27	nonNat_28_unrelated	unrelated	nonNat	experiment	28	558.118566818	sentStart
+27	nonNat_28_unrelated	unrelated	nonNat	experiment	28	562.113448356	onsetDet	22
+27	nonNat_28_unrelated	unrelated	nonNat	experiment	28	562.262154326	onsetNoun
+27	nonNat_28_unrelated	unrelated	nonNat	experiment	28	562.667494034	offsetNoun	229
+27	nonNat_28_unrelated	unrelated	nonNat	experiment	28	563.336484296	endSentence
+28	nonNat_152_unrelated	unrelated	nonNat	experiment	152	568.122190918	sentStart
+28	nonNat_152_unrelated	unrelated	nonNat	experiment	152	570.146741684	onsetDet	22
+28	nonNat_152_unrelated	unrelated	nonNat	experiment	152	570.320400856	onsetNoun
+28	nonNat_152_unrelated	unrelated	nonNat	experiment	152	570.673755116	offsetNoun	229
+28	nonNat_152_unrelated	unrelated	nonNat	experiment	152	571.343781324	endSentence
+29	Nat_134_related	related	Nat	experiment	134	576.136181008	sentStart
+29	Nat_134_related	related	Nat	experiment	134	578.721067768	onsetDet	11
+29	Nat_134_related	related	Nat	experiment	134	578.891732928	onsetNoun
+29	Nat_134_related	related	Nat	experiment	134	579.483072346	offsetNoun	119
+29	Nat_134_related	related	Nat	experiment	134	580.296122216	endSentence
+30	Nat_118_unrelated	unrelated	Nat	experiment	118	585.115469866	sentStart
+30	Nat_118_unrelated	unrelated	Nat	experiment	118	586.745351694	onsetDet	12
+30	Nat_118_unrelated	unrelated	Nat	experiment	118	586.895094232	onsetNoun
+30	Nat_118_unrelated	unrelated	Nat	experiment	118	587.237369998	offsetNoun	129
+30	Nat_118_unrelated	unrelated	Nat	experiment	118	588.486419344	endSentence
+31	nonNat_137_unrelated	unrelated	nonNat	experiment	137	663.386307974	sentStart
+31	nonNat_137_unrelated	unrelated	nonNat	experiment	137	668.299331129	onsetDet	22
+31	nonNat_137_unrelated	unrelated	nonNat	experiment	137	668.419030926	onsetNoun
+31	nonNat_137_unrelated	unrelated	nonNat	experiment	137	668.826336163	offsetNoun	229
+31	nonNat_137_unrelated	unrelated	nonNat	experiment	137	669.51138001	endSentence
+32	Nat_69_unrelated	unrelated	Nat	experiment	69	674.314201353	sentStart
+32	Nat_69_unrelated	unrelated	Nat	experiment	69	677.928679279	onsetDet	12
+32	Nat_69_unrelated	unrelated	Nat	experiment	69	678.010387138	onsetNoun
+32	Nat_69_unrelated	unrelated	Nat	experiment	69	678.361676348	offsetNoun	129
+32	Nat_69_unrelated	unrelated	Nat	experiment	69	679.659741701	endSentence
+33	Nat_5_related	related	Nat	experiment	5	686.079283913	sentStart
+33	Nat_5_related	related	Nat	experiment	5	689.108076739	onsetDet	11
+33	Nat_5_related	related	Nat	experiment	5	689.187593592	onsetNoun
+33	Nat_5_related	related	Nat	experiment	5	689.538106853	offsetNoun	119
+33	Nat_5_related	related	Nat	experiment	5	690.359121782	endSentence
+34	nonNat_145_unrelated	unrelated	nonNat	experiment	145	695.15141417	sentStart
+34	nonNat_145_unrelated	unrelated	nonNat	experiment	145	697.590382777	onsetDet	22
+34	nonNat_145_unrelated	unrelated	nonNat	experiment	145	697.739184225	onsetNoun
+34	nonNat_145_unrelated	unrelated	nonNat	experiment	145	698.003403289	offsetNoun	229
+34	nonNat_145_unrelated	unrelated	nonNat	experiment	145	698.955446864	endSentence
+35	Nat_8_related	related	Nat	experiment	8	706.050722783	sentStart
+35	Nat_8_related	related	Nat	experiment	8	709.024812318	onsetDet	11
+35	Nat_8_related	related	Nat	experiment	8	709.159572361	onsetNoun
+35	Nat_8_related	related	Nat	experiment	8	709.603831725	offsetNoun	119
+35	Nat_8_related	related	Nat	experiment	8	711.044859783	endSentence
+36	Nat_302_control	control	Nat	experiment	302	715.835700728	sentStart
+36	Nat_302_control	control	Nat	experiment	302	720.156182134	onsetDet	55
+36	Nat_302_control	control	Nat	experiment	302	720.457222216	onsetNoun
+36	Nat_302_control	control	Nat	experiment	302	720.746242092	offsetNoun	155
+36	Nat_302_control	control	Nat	experiment	302	721.37927281	endSentence
+37	Nat_156_unrelated	unrelated	Nat	experiment	156	726.17255636	sentStart
+37	Nat_156_unrelated	unrelated	Nat	experiment	156	729.361539196	onsetDet	12
+37	Nat_156_unrelated	unrelated	Nat	experiment	156	729.463185358	onsetNoun
+37	Nat_156_unrelated	unrelated	Nat	experiment	156	729.881572821	offsetNoun	129
+37	Nat_156_unrelated	unrelated	Nat	experiment	156	730.299593614	endSentence
+38	Nat_303_control	control	Nat	experiment	303	735.089466723	sentStart
+38	Nat_303_control	control	Nat	experiment	303	735.268487248	onsetDet	55
+38	Nat_303_control	control	Nat	experiment	303	735.401137457	onsetNoun
+38	Nat_303_control	control	Nat	experiment	303	736.123802528	offsetNoun	155
+38	Nat_303_control	control	Nat	experiment	303	739.985967925	endSentence
+39	Nat_120_related	related	Nat	experiment	120	744.785583465	sentStart
+39	Nat_120_related	related	Nat	experiment	120	750.12831547	onsetDet	11
+39	Nat_120_related	related	Nat	experiment	120	750.231005353	onsetNoun
+39	Nat_120_related	related	Nat	experiment	120	750.908338229	offsetNoun	119
+39	Nat_120_related	related	Nat	experiment	120	754.162431708	endSentence
+40	Nat_151_related	related	Nat	experiment	151	760.962329326	sentStart
+40	Nat_151_related	related	Nat	experiment	151	763.73580084	onsetDet	11
+40	Nat_151_related	related	Nat	experiment	151	763.886470783	onsetNoun
+40	Nat_151_related	related	Nat	experiment	151	764.252818684	offsetNoun	119
+40	Nat_151_related	related	Nat	experiment	151	765.176875549	endSentence
+41	nonNat_16_unrelated	unrelated	nonNat	experiment	16	773.846854796	sentStart
+41	nonNat_16_unrelated	unrelated	nonNat	experiment	16	776.297248352	onsetDet	22
+41	nonNat_16_unrelated	unrelated	nonNat	experiment	16	776.444990217	onsetNoun
+41	nonNat_16_unrelated	unrelated	nonNat	experiment	16	776.829256467	offsetNoun	229
+41	nonNat_16_unrelated	unrelated	nonNat	experiment	16	778.653378922	endSentence
+42	nonNat_23_unrelated	unrelated	nonNat	experiment	23	783.448679317	sentStart
+42	nonNat_23_unrelated	unrelated	nonNat	experiment	23	786.265640341	onsetDet	22
+42	nonNat_23_unrelated	unrelated	nonNat	experiment	23	786.414312723	onsetNoun
+42	nonNat_23_unrelated	unrelated	nonNat	experiment	23	786.791662611	offsetNoun	229
+42	nonNat_23_unrelated	unrelated	nonNat	experiment	23	787.648669738	endSentence
+43	nonNat_13_related	related	nonNat	experiment	13	792.687281502	sentStart
+43	nonNat_13_related	related	nonNat	experiment	13	796.635034501	onsetDet	21
+43	nonNat_13_related	related	nonNat	experiment	13	796.911014397	onsetNoun
+43	nonNat_13_related	related	nonNat	experiment	13	797.30102391	offsetNoun	219
+43	nonNat_13_related	related	nonNat	experiment	13	798.496093355	endSentence
+44	nonNat_26_unrelated	unrelated	nonNat	experiment	26	805.785399974	sentStart
+44	nonNat_26_unrelated	unrelated	nonNat	experiment	26	809.115432234	onsetDet	22
+44	nonNat_26_unrelated	unrelated	nonNat	experiment	26	809.370436015	onsetNoun
+44	nonNat_26_unrelated	unrelated	nonNat	experiment	26	809.602441548	offsetNoun	229
+44	nonNat_26_unrelated	unrelated	nonNat	experiment	26	810.127489761	endSentence
+45	Nat_142_related	related	Nat	experiment	142	817.229247572	sentStart
+45	Nat_142_related	related	Nat	experiment	142	821.135895819	onsetDet	11
+45	Nat_142_related	related	Nat	experiment	142	821.289666759	onsetNoun
+45	Nat_142_related	related	Nat	experiment	142	821.661924309	offsetNoun	119
+45	Nat_142_related	related	Nat	experiment	142	824.246015838	endSentence
+46	Nat_307_control	control	Nat	experiment	307	829.035645432	sentStart
+46	Nat_307_control	control	Nat	experiment	307	830.596235825	onsetDet	55
+46	Nat_307_control	control	Nat	experiment	307	830.648951194	onsetNoun
+46	Nat_307_control	control	Nat	experiment	307	830.977269214	offsetNoun	155
+46	Nat_307_control	control	Nat	experiment	307	834.235377722	endSentence
+47	nonNat_29_unrelated	unrelated	nonNat	experiment	29	839.032926657	sentStart
+47	nonNat_29_unrelated	unrelated	nonNat	experiment	29	841.700626264	onsetDet	22
+47	nonNat_29_unrelated	unrelated	nonNat	experiment	29	841.870295909	onsetNoun
+47	nonNat_29_unrelated	unrelated	nonNat	experiment	29	842.218651442	offsetNoun	229
+47	nonNat_29_unrelated	unrelated	nonNat	experiment	29	843.024721817	endSentence
+48	nonNat_341_control	control	nonNat	experiment	341	850.292590484	sentStart
+48	nonNat_341_control	control	nonNat	experiment	341	855.488159708	onsetDet	55
+48	nonNat_341_control	control	nonNat	experiment	341	855.771156418	onsetNoun
+48	nonNat_341_control	control	nonNat	experiment	341	856.555224063	offsetNoun	155
+48	nonNat_341_control	control	nonNat	experiment	341	856.607045614	endSentence
+49	Nat_141_unrelated	unrelated	Nat	experiment	141	861.397150729	sentStart
+49	Nat_141_unrelated	unrelated	Nat	experiment	141	863.75046207	onsetDet	12
+49	Nat_141_unrelated	unrelated	Nat	experiment	141	863.879179354	onsetNoun
+49	Nat_141_unrelated	unrelated	Nat	experiment	141	864.1364861	offsetNoun	129
+49	Nat_141_unrelated	unrelated	Nat	experiment	141	864.995463422	endSentence
+50	nonNat_39_related	related	nonNat	experiment	39	869.786341376	sentStart
+50	nonNat_39_related	related	nonNat	experiment	39	871.703781373	onsetDet	21
+50	nonNat_39_related	related	nonNat	experiment	39	871.880398169	onsetNoun
+50	nonNat_39_related	related	nonNat	experiment	39	872.354792019	offsetNoun	219
+50	nonNat_39_related	related	nonNat	experiment	39	872.905756917	endSentence
+51	Nat_109_unrelated	unrelated	Nat	experiment	109	879.96595467	sentStart
+51	Nat_109_unrelated	unrelated	Nat	experiment	109	884.395174626	onsetDet	12
+51	Nat_109_unrelated	unrelated	Nat	experiment	109	884.547983638	onsetNoun
+51	Nat_109_unrelated	unrelated	Nat	experiment	109	885.284201219	offsetNoun	129
+51	Nat_109_unrelated	unrelated	Nat	experiment	109	887.699354579	endSentence
+52	nonNat_74_related	related	nonNat	experiment	74	892.489779715	sentStart
+52	nonNat_74_related	related	nonNat	experiment	74	896.604646237	onsetDet	21
+52	nonNat_74_related	related	nonNat	experiment	74	896.741392957	onsetNoun
+52	nonNat_74_related	related	nonNat	experiment	74	897.283688378	offsetNoun	219
+52	nonNat_74_related	related	nonNat	experiment	74	898.070681302	endSentence
+53	Nat_85_related	related	Nat	experiment	85	902.867183717	sentStart
+53	Nat_85_related	related	Nat	experiment	85	905.858983852	onsetDet	11
+53	Nat_85_related	related	Nat	experiment	85	905.99774866	onsetNoun
+53	Nat_85_related	related	Nat	experiment	85	906.390975173	offsetNoun	119
+53	Nat_85_related	related	Nat	experiment	85	907.290026588	endSentence
+54	nonNat_40_related	related	nonNat	experiment	40	920.116368349	sentStart
+54	nonNat_40_related	related	nonNat	experiment	40	923.332610151	onsetDet	21
+54	nonNat_40_related	related	nonNat	experiment	40	923.565623018	onsetNoun
+54	nonNat_40_related	related	nonNat	experiment	40	923.83562982	offsetNoun	219
+54	nonNat_40_related	related	nonNat	experiment	40	924.819653986	endSentence
+55	nonNat_24_related	related	nonNat	experiment	24	932.339680458	sentStart
+55	nonNat_24_related	related	nonNat	experiment	24	935.358067798	onsetDet	21
+55	nonNat_24_related	related	nonNat	experiment	24	935.506747643	onsetNoun
+55	nonNat_24_related	related	nonNat	experiment	24	935.964114164	offsetNoun	219
+55	nonNat_24_related	related	nonNat	experiment	24	937.076117918	endSentence
+56	nonNat_123_unrelated	unrelated	nonNat	experiment	123	943.526920442	sentStart
+56	nonNat_123_unrelated	unrelated	nonNat	experiment	123	947.055503808	onsetDet	22
+56	nonNat_123_unrelated	unrelated	nonNat	experiment	123	947.160189698	onsetNoun
+56	nonNat_123_unrelated	unrelated	nonNat	experiment	123	947.921521892	offsetNoun	229
+56	nonNat_123_unrelated	unrelated	nonNat	experiment	123	949.548632076	endSentence
+57	Nat_54_unrelated	unrelated	Nat	experiment	54	956.428331113	sentStart
+57	Nat_54_unrelated	unrelated	Nat	experiment	54	958.495902711	onsetDet	12
+57	Nat_54_unrelated	unrelated	Nat	experiment	54	958.67566	onsetNoun
+57	Nat_54_unrelated	unrelated	Nat	experiment	54	959.136921191	offsetNoun	129
+57	Nat_54_unrelated	unrelated	Nat	experiment	54	960.30893983	endSentence
+58	Nat_41_unrelated	unrelated	Nat	experiment	41	965.161494972	sentStart
+58	Nat_41_unrelated	unrelated	Nat	experiment	41	967.386256037	onsetDet	12
+58	Nat_41_unrelated	unrelated	Nat	experiment	41	967.550956812	onsetNoun
+58	Nat_41_unrelated	unrelated	Nat	experiment	41	968.18425468	offsetNoun	129
+58	Nat_41_unrelated	unrelated	Nat	experiment	41	969.858323285	endSentence
+59	Nat_305_control	control	Nat	experiment	305	974.713353998	sentStart
+59	Nat_305_control	control	Nat	experiment	305	977.471606033	onsetDet	55
+59	Nat_305_control	control	Nat	experiment	305	977.608319476	onsetNoun
+59	Nat_305_control	control	Nat	experiment	305	978.059625511	offsetNoun	155
+59	Nat_305_control	control	Nat	experiment	305	978.717641153	endSentence
+60	nonNat_349_control	control	nonNat	experiment	349	983.696923791	sentStart
+60	nonNat_349_control	control	nonNat	experiment	349	983.761950153	onsetDet	55
+60	nonNat_349_control	control	nonNat	experiment	349	983.849482136	onsetNoun
+60	nonNat_349_control	control	nonNat	experiment	349	984.467813993	offsetNoun	155
+60	nonNat_349_control	control	nonNat	experiment	349	990.167064697	endSentence
+61	nonNat_104_related	related	nonNat	experiment	104	1031.77926982	sentStart
+61	nonNat_104_related	related	nonNat	experiment	104	1033.82565725	onsetDet	21
+61	nonNat_104_related	related	nonNat	experiment	104	1034.00638362	onsetNoun
+61	nonNat_104_related	related	nonNat	experiment	104	1034.40465675	offsetNoun	219
+61	nonNat_104_related	related	nonNat	experiment	104	1035.69473279	endSentence
+62	nonNat_350_control	control	nonNat	experiment	350	1043.29395733	sentStart
+62	nonNat_350_control	control	nonNat	experiment	350	1045.56011549	onsetDet	55
+62	nonNat_350_control	control	nonNat	experiment	350	1045.66068466	onsetNoun
+62	nonNat_350_control	control	nonNat	experiment	350	1046.22308788	offsetNoun	155
+62	nonNat_350_control	control	nonNat	experiment	350	1048.69920219	endSentence
+63	nonNat_154_unrelated	unrelated	nonNat	experiment	154	1053.53008457	sentStart
+63	nonNat_154_unrelated	unrelated	nonNat	experiment	154	1059.07260858	onsetDet	22
+63	nonNat_154_unrelated	unrelated	nonNat	experiment	154	1059.23303433	onsetNoun
+63	nonNat_154_unrelated	unrelated	nonNat	experiment	154	1059.60757214	offsetNoun	229
+63	nonNat_154_unrelated	unrelated	nonNat	experiment	154	1060.23761165	endSentence
+64	nonNat_94_unrelated	unrelated	nonNat	experiment	94	1065.03531577	sentStart
+64	nonNat_94_unrelated	unrelated	nonNat	experiment	94	1069.64193531	onsetDet	22
+64	nonNat_94_unrelated	unrelated	nonNat	experiment	94	1069.73655906	onsetNoun
+64	nonNat_94_unrelated	unrelated	nonNat	experiment	94	1070.23000268	offsetNoun	229
+64	nonNat_94_unrelated	unrelated	nonNat	experiment	94	1073.86711561	endSentence
+65	nonNat_42_unrelated	unrelated	nonNat	experiment	42	1078.85204199	sentStart
+65	nonNat_42_unrelated	unrelated	nonNat	experiment	42	1082.81540291	onsetDet	22
+65	nonNat_42_unrelated	unrelated	nonNat	experiment	42	1083.0634132	onsetNoun
+65	nonNat_42_unrelated	unrelated	nonNat	experiment	42	1083.93651123	offsetNoun	229
+65	nonNat_42_unrelated	unrelated	nonNat	experiment	42	1085.06752339	endSentence
+66	Nat_153_related	related	Nat	experiment	153	1091.01808847	sentStart
+66	Nat_153_related	related	Nat	experiment	153	1093.33280142	onsetDet	11
+66	Nat_153_related	related	Nat	experiment	153	1093.42648967	onsetNoun
+66	Nat_153_related	related	Nat	experiment	153	1094.03785696	offsetNoun	119
+66	Nat_153_related	related	Nat	experiment	153	1094.56185119	endSentence
+67	nonNat_124_related	related	nonNat	experiment	124	1099.39083087	sentStart
+67	nonNat_124_related	related	nonNat	experiment	124	1103.24819285	onsetDet	21
+67	nonNat_124_related	related	nonNat	experiment	124	1103.39684066	onsetNoun
+67	nonNat_124_related	related	nonNat	experiment	124	1104.00423055	offsetNoun	219
+67	nonNat_124_related	related	nonNat	experiment	124	1105.21329413	endSentence
+68	nonNat_77_unrelated	unrelated	nonNat	experiment	77	1111.67453791	sentStart
+68	nonNat_77_unrelated	unrelated	nonNat	experiment	77	1114.90457231	onsetDet	22
+68	nonNat_77_unrelated	unrelated	nonNat	experiment	77	1115.07713956	onsetNoun
+68	nonNat_77_unrelated	unrelated	nonNat	experiment	77	1115.4126697	offsetNoun	229
+68	nonNat_77_unrelated	unrelated	nonNat	experiment	77	1115.99763017	endSentence
+69	Nat_33_related	related	Nat	experiment	33	1120.79905729	sentStart
+69	Nat_33_related	related	Nat	experiment	33	1124.65597983	onsetDet	11
+69	Nat_33_related	related	Nat	experiment	33	1124.75960645	onsetNoun
+69	Nat_33_related	related	Nat	experiment	33	1125.21595257	offsetNoun	119
+69	Nat_33_related	related	Nat	experiment	33	1127.26908126	endSentence
+70	Nat_327_control	control	Nat	experiment	327	1134.23411101	sentStart
+70	Nat_327_control	control	Nat	experiment	327	1137.23341313	onsetDet	55
+70	Nat_327_control	control	Nat	experiment	327	1137.7624434	onsetNoun
+70	Nat_327_control	control	Nat	experiment	327	1138.06647159	offsetNoun	155
+70	Nat_327_control	control	Nat	experiment	327	1139.44848961	endSentence
+71	Nat_161_related	related	Nat	experiment	161	1144.26216397	sentStart
+71	Nat_161_related	related	Nat	experiment	161	1146.2737581	onsetDet	11
+71	Nat_161_related	related	Nat	experiment	161	1146.39953362	onsetNoun
+71	Nat_161_related	related	Nat	experiment	161	1146.64880222	offsetNoun	119
+71	Nat_161_related	related	Nat	experiment	161	1147.45679366	endSentence
+72	nonNat_340_control	control	nonNat	experiment	340	1154.89025567	sentStart
+72	nonNat_340_control	control	nonNat	experiment	340	1157.98618936	onsetDet	55
+72	nonNat_340_control	control	nonNat	experiment	340	1158.19615391	onsetNoun
+72	nonNat_340_control	control	nonNat	experiment	340	1158.85320016	offsetNoun	155
+72	nonNat_340_control	control	nonNat	experiment	340	1161.62330632	endSentence
+73	nonNat_66_related	related	nonNat	experiment	66	1166.41211674	sentStart
+73	nonNat_66_related	related	nonNat	experiment	66	1168.33457195	onsetDet	21
+73	nonNat_66_related	related	nonNat	experiment	66	1168.48020056	onsetNoun
+73	nonNat_66_related	related	nonNat	experiment	66	1169.06558057	offsetNoun	219
+73	nonNat_66_related	related	nonNat	experiment	66	1171.04062954	endSentence
+74	Nat_155_related	related	Nat	experiment	155	1175.83825872	sentStart
+74	Nat_155_related	related	Nat	experiment	155	1179.76901051	onsetDet	11
+74	Nat_155_related	related	Nat	experiment	155	1179.87078138	onsetNoun
+74	Nat_155_related	related	Nat	experiment	155	1180.44999796	offsetNoun	119
+74	Nat_155_related	related	Nat	experiment	155	1182.36506409	endSentence
+75	Nat_45_related	related	Nat	experiment	45	1189.21183273	sentStart
+75	Nat_45_related	related	Nat	experiment	45	1192.97746981	onsetDet	11
+75	Nat_45_related	related	Nat	experiment	45	1193.10112119	onsetNoun
+75	Nat_45_related	related	Nat	experiment	45	1193.8004652	offsetNoun	119
+75	Nat_45_related	related	Nat	experiment	45	1194.91555626	endSentence
+76	nonNat_111_related	related	nonNat	experiment	111	1201.02110829	sentStart
+76	nonNat_111_related	related	nonNat	experiment	111	1204.30587678	onsetDet	21
+76	nonNat_111_related	related	nonNat	experiment	111	1204.61489809	onsetNoun
+76	nonNat_111_related	related	nonNat	experiment	111	1205.16186848	offsetNoun	219
+76	nonNat_111_related	related	nonNat	experiment	111	1206.49196792	endSentence
+77	Nat_38_unrelated	unrelated	Nat	experiment	38	1214.06153444	sentStart
+77	Nat_38_unrelated	unrelated	Nat	experiment	38	1218.05636933	onsetDet	12
+77	Nat_38_unrelated	unrelated	Nat	experiment	38	1218.17595187	onsetNoun
+77	Nat_38_unrelated	unrelated	Nat	experiment	38	1218.50538266	offsetNoun	129
+77	Nat_38_unrelated	unrelated	Nat	experiment	38	1219.04638867	endSentence
+78	nonNat_160_related	related	nonNat	experiment	160	1226.26839177	sentStart
+78	nonNat_160_related	related	nonNat	experiment	160	1230.36983081	onsetDet	21
+78	nonNat_160_related	related	nonNat	experiment	160	1230.49040825	onsetNoun
+78	nonNat_160_related	related	nonNat	experiment	160	1230.75281511	offsetNoun	219
+78	nonNat_160_related	related	nonNat	experiment	160	1231.31484326	endSentence
+79	Nat_326_control	control	Nat	experiment	326	1238.26567331	sentStart
+79	Nat_326_control	control	Nat	experiment	326	1239.87117324	onsetDet	55
+79	Nat_326_control	control	Nat	experiment	326	1239.94988896	onsetNoun
+79	Nat_326_control	control	Nat	experiment	326	1240.25217864	offsetNoun	155
+79	Nat_326_control	control	Nat	experiment	326	1245.83340554	endSentence
+80	nonNat_108_related	related	nonNat	experiment	108	1250.62316544	sentStart
+80	nonNat_108_related	related	nonNat	experiment	108	1254.41269085	onsetDet	21
+80	nonNat_108_related	related	nonNat	experiment	108	1254.62566776	onsetNoun
+80	nonNat_108_related	related	nonNat	experiment	108	1254.8826946	offsetNoun	219
+80	nonNat_108_related	related	nonNat	experiment	108	1256.79478724	endSentence
+81	nonNat_12_related	related	nonNat	experiment	12	1261.61736744	sentStart
+81	nonNat_12_related	related	nonNat	experiment	12	1263.84303819	onsetDet	21
+81	nonNat_12_related	related	nonNat	experiment	12	1263.97063027	onsetNoun
+81	nonNat_12_related	related	nonNat	experiment	12	1264.23302997	offsetNoun	219
+81	nonNat_12_related	related	nonNat	experiment	12	1266.45414423	endSentence
+82	nonNat_342_control	control	nonNat	experiment	342	1273.51616632	sentStart
+82	nonNat_342_control	control	nonNat	experiment	342	1280.55367621	onsetDet	55
+82	nonNat_342_control	control	nonNat	experiment	342	1280.8126493	onsetNoun
+82	nonNat_342_control	control	nonNat	experiment	342	1280.98732358	offsetNoun	155
+82	nonNat_342_control	control	nonNat	experiment	342	1281.70569652	endSentence
+83	Nat_329_control	control	Nat	experiment	329	1286.49125822	sentStart
+83	Nat_329_control	control	Nat	experiment	329	1289.84395066	onsetDet	55
+83	Nat_329_control	control	Nat	experiment	329	1289.97876295	onsetNoun
+83	Nat_329_control	control	Nat	experiment	329	1290.47100611	offsetNoun	155
+83	Nat_329_control	control	Nat	experiment	329	1291.59606571	endSentence
+84	nonNat_68_related	related	nonNat	experiment	68	1296.39841091	sentStart
+84	nonNat_68_related	related	nonNat	experiment	68	1299.54735448	onsetDet	21
+84	nonNat_68_related	related	nonNat	experiment	68	1299.71490403	onsetNoun
+84	nonNat_68_related	related	nonNat	experiment	68	1300.08936814	offsetNoun	219
+84	nonNat_68_related	related	nonNat	experiment	68	1301.4344311	endSentence
+85	Nat_310_control	control	Nat	experiment	310	1307.31401382	sentStart
+85	Nat_310_control	control	Nat	experiment	310	1311.71579691	onsetDet	55
+85	Nat_310_control	control	Nat	experiment	310	1311.96678598	onsetNoun
+85	Nat_310_control	control	Nat	experiment	310	1312.70682328	offsetNoun	155
+85	Nat_310_control	control	Nat	experiment	310	1312.72055679	endSentence
+86	Nat_4_related	related	Nat	experiment	4	1317.5170421	sentStart
+86	Nat_4_related	related	Nat	experiment	4	1319.65510311	onsetDet	11
+86	Nat_4_related	related	Nat	experiment	4	1319.79081513	onsetNoun
+86	Nat_4_related	related	Nat	experiment	4	1320.14008066	offsetNoun	119
+86	Nat_4_related	related	Nat	experiment	4	1321.89911672	endSentence
+87	nonNat_126_related	related	nonNat	experiment	126	1326.69179724	sentStart
+87	nonNat_126_related	related	nonNat	experiment	126	1330.84350966	onsetDet	21
+87	nonNat_126_related	related	nonNat	experiment	126	1330.93126681	onsetNoun
+87	nonNat_126_related	related	nonNat	experiment	126	1331.5855296	offsetNoun	219
+87	nonNat_126_related	related	nonNat	experiment	126	1333.25259227	endSentence
+88	Nat_322_control	control	Nat	experiment	322	1341.99686293	sentStart
+88	Nat_322_control	control	Nat	experiment	322	1343.89696397	onsetDet	55
+88	Nat_322_control	control	Nat	experiment	322	1344.00464574	onsetNoun
+88	Nat_322_control	control	Nat	experiment	322	1344.65901085	offsetNoun	155
+88	Nat_322_control	control	Nat	experiment	322	1346.22204571	endSentence
+89	Nat_133_unrelated	unrelated	Nat	experiment	133	1351.02138975	sentStart
+89	Nat_133_unrelated	unrelated	Nat	experiment	133	1353.13628737	onsetDet	12
+89	Nat_133_unrelated	unrelated	Nat	experiment	133	1353.31481216	onsetNoun
+89	Nat_133_unrelated	unrelated	Nat	experiment	133	1353.67432954	offsetNoun	129
+89	Nat_133_unrelated	unrelated	Nat	experiment	133	1355.45240387	endSentence
+90	Nat_90_related	related	Nat	experiment	90	1363.28723628	sentStart
+90	Nat_90_related	related	Nat	experiment	90	1366.60880339	onsetDet	11
+90	Nat_90_related	related	Nat	experiment	90	1366.77652586	onsetNoun
+90	Nat_90_related	related	Nat	experiment	90	1367.16680999	offsetNoun	119
+90	Nat_90_related	related	Nat	experiment	90	1367.5868131	endSentence
+91	nonNat_336_control	control	nonNat	experiment	336	1415.38704038	sentStart
+91	nonNat_336_control	control	nonNat	experiment	336	1418.27369217	onsetDet	55
+91	nonNat_336_control	control	nonNat	experiment	336	1418.6927119	onsetNoun
+91	nonNat_336_control	control	nonNat	experiment	336	1419.24172402	offsetNoun	155
+91	nonNat_336_control	control	nonNat	experiment	336	1422.25687943	endSentence
+92	nonNat_114_related	related	nonNat	experiment	114	1428.61958395	sentStart
+92	nonNat_114_related	related	nonNat	experiment	114	1434.51527282	onsetDet	21
+92	nonNat_114_related	related	nonNat	experiment	114	1434.68883216	onsetNoun
+92	nonNat_114_related	related	nonNat	experiment	114	1435.15328142	offsetNoun	219
+92	nonNat_114_related	related	nonNat	experiment	114	1435.82628049	endSentence
+93	Nat_312_control	control	Nat	experiment	312	1441.77047906	sentStart
+93	Nat_312_control	control	Nat	experiment	312	1443.95261831	onsetDet	55
+93	Nat_312_control	control	Nat	experiment	312	1444.0813076	onsetNoun
+93	Nat_312_control	control	Nat	experiment	312	1444.45962066	offsetNoun	155
+93	Nat_312_control	control	Nat	experiment	312	1447.14774591	endSentence
+94	Nat_21_unrelated	unrelated	Nat	experiment	21	1451.9833664	sentStart
+94	Nat_21_unrelated	unrelated	Nat	experiment	21	1454.33596648	onsetDet	12
+94	Nat_21_unrelated	unrelated	Nat	experiment	21	1454.428913	onsetNoun
+94	Nat_21_unrelated	unrelated	Nat	experiment	21	1454.80099514	offsetNoun	129
+94	Nat_21_unrelated	unrelated	Nat	experiment	21	1455.73705231	endSentence
+95	nonNat_360_control	control	nonNat	experiment	360	1462.8943357	sentStart
+95	nonNat_360_control	control	nonNat	experiment	360	1465.8584256	onsetDet	55
+95	nonNat_360_control	control	nonNat	experiment	360	1466.04707629	onsetNoun
+95	nonNat_360_control	control	nonNat	experiment	360	1466.55040541	offsetNoun	155
+95	nonNat_360_control	control	nonNat	experiment	360	1467.89048364	endSentence
+96	Nat_148_unrelated	unrelated	Nat	experiment	148	1472.836203	sentStart
+96	Nat_148_unrelated	unrelated	Nat	experiment	148	1476.17480117	onsetDet	12
+96	Nat_148_unrelated	unrelated	Nat	experiment	148	1476.26655562	onsetNoun
+96	Nat_148_unrelated	unrelated	Nat	experiment	148	1476.64078647	offsetNoun	129
+96	Nat_148_unrelated	unrelated	Nat	experiment	148	1476.97579756	endSentence
+97	Nat_122_unrelated	unrelated	Nat	experiment	122	1483.83414541	sentStart
+97	Nat_122_unrelated	unrelated	Nat	experiment	122	1487.33418973	onsetDet	12
+97	Nat_122_unrelated	unrelated	Nat	experiment	122	1487.47462244	onsetNoun
+97	Nat_122_unrelated	unrelated	Nat	experiment	122	1487.92920425	offsetNoun	129
+97	Nat_122_unrelated	unrelated	Nat	experiment	122	1488.94823692	endSentence
+98	nonNat_143_related	related	nonNat	experiment	143	1493.75263939	sentStart
+98	nonNat_143_related	related	nonNat	experiment	143	1499.25462685	onsetDet	21
+98	nonNat_143_related	related	nonNat	experiment	143	1499.41017049	onsetNoun
+98	nonNat_143_related	related	nonNat	experiment	143	1499.69067857	offsetNoun	219
+98	nonNat_143_related	related	nonNat	experiment	143	1500.33068194	endSentence
+99	Nat_10_unrelated	unrelated	Nat	experiment	10	1505.41484485	sentStart
+99	Nat_10_unrelated	unrelated	Nat	experiment	10	1506.7169103	onsetDet	12
+99	Nat_10_unrelated	unrelated	Nat	experiment	10	1506.86151509	onsetNoun
+99	Nat_10_unrelated	unrelated	Nat	experiment	10	1507.11687995	offsetNoun	129
+99	Nat_10_unrelated	unrelated	Nat	experiment	10	1508.09895444	endSentence
+100	nonNat_343_control	control	nonNat	experiment	343	1514.50919989	sentStart
+100	nonNat_343_control	control	nonNat	experiment	343	1518.18632129	onsetDet	55
+100	nonNat_343_control	control	nonNat	experiment	343	1518.44630855	onsetNoun
+100	nonNat_343_control	control	nonNat	experiment	343	1518.7753142	offsetNoun	155
+100	nonNat_343_control	control	nonNat	experiment	343	1519.76939055	endSentence
+101	nonNat_354_control	control	nonNat	experiment	354	1524.6118537	sentStart
+101	nonNat_354_control	control	nonNat	experiment	354	1526.26960157	onsetDet	55
+101	nonNat_354_control	control	nonNat	experiment	354	1526.38314975	onsetNoun
+101	nonNat_354_control	control	nonNat	experiment	354	1526.8646192	offsetNoun	155
+101	nonNat_354_control	control	nonNat	experiment	354	1528.28969724	endSentence
+102	Nat_314_control	control	Nat	experiment	314	1533.07786108	sentStart
+102	Nat_314_control	control	Nat	experiment	314	1539.73608914	onsetDet	55
+102	Nat_314_control	control	Nat	experiment	314	1540.00210299	onsetNoun
+102	Nat_314_control	control	Nat	experiment	314	1540.47212354	offsetNoun	155
+102	Nat_314_control	control	Nat	experiment	314	1540.47965817	endSentence
+103	nonNat_75_unrelated	unrelated	nonNat	experiment	75	1545.40781497	sentStart
+103	nonNat_75_unrelated	unrelated	nonNat	experiment	75	1547.11539336	onsetDet	22
+103	nonNat_75_unrelated	unrelated	nonNat	experiment	75	1547.25904431	onsetNoun
+103	nonNat_75_unrelated	unrelated	nonNat	experiment	75	1547.65538581	offsetNoun	229
+103	nonNat_75_unrelated	unrelated	nonNat	experiment	75	1549.70847376	endSentence
+104	Nat_140_unrelated	unrelated	Nat	experiment	140	1556.81684347	sentStart
+104	Nat_140_unrelated	unrelated	Nat	experiment	140	1560.47885237	onsetDet	12
+104	Nat_140_unrelated	unrelated	Nat	experiment	140	1560.61044455	onsetNoun
+104	Nat_140_unrelated	unrelated	Nat	experiment	140	1561.09287748	offsetNoun	129
+104	Nat_140_unrelated	unrelated	Nat	experiment	140	1562.24993321	endSentence
+105	nonNat_49_unrelated	unrelated	nonNat	experiment	49	1569.70446806	sentStart
+105	nonNat_49_unrelated	unrelated	nonNat	experiment	49	1572.4663215	onsetDet	22
+105	nonNat_49_unrelated	unrelated	nonNat	experiment	49	1572.63897458	onsetNoun
+105	nonNat_49_unrelated	unrelated	nonNat	experiment	49	1573.10730825	offsetNoun	229
+105	nonNat_49_unrelated	unrelated	nonNat	experiment	49	1573.6093293	endSentence
+106	nonNat_359_control	control	nonNat	experiment	359	1580.23452558	sentStart
+106	nonNat_359_control	control	nonNat	experiment	359	1585.10777631	onsetDet	55
+106	nonNat_359_control	control	nonNat	experiment	359	1585.2344357	onsetNoun
+106	nonNat_359_control	control	nonNat	experiment	359	1585.63675372	offsetNoun	155
+106	nonNat_359_control	control	nonNat	experiment	359	1585.69131675	endSentence
+107	Nat_129_unrelated	unrelated	Nat	experiment	129	1590.48750194	sentStart
+107	Nat_129_unrelated	unrelated	Nat	experiment	129	1595.45014009	onsetDet	12
+107	Nat_129_unrelated	unrelated	Nat	experiment	129	1595.68510853	onsetNoun
+107	Nat_129_unrelated	unrelated	Nat	experiment	129	1596.04113554	offsetNoun	129
+107	Nat_129_unrelated	unrelated	Nat	experiment	129	1597.57123535	endSentence
+108	Nat_89_related	related	Nat	experiment	89	1602.36687287	sentStart
+108	Nat_89_related	related	Nat	experiment	89	1605.35351971	onsetDet	11
+108	Nat_89_related	related	Nat	experiment	89	1605.46220104	onsetNoun
+108	Nat_89_related	related	Nat	experiment	89	1605.78353739	offsetNoun	119
+108	Nat_89_related	related	Nat	experiment	89	1607.24054501	endSentence
+109	nonNat_330_control	control	nonNat	experiment	330	1615.45193675	sentStart
+109	nonNat_330_control	control	nonNat	experiment	330	1622.08010838	onsetDet	55
+109	nonNat_330_control	control	nonNat	experiment	330	1622.22567323	onsetNoun
+109	nonNat_330_control	control	nonNat	experiment	330	1622.86211439	offsetNoun	155
+109	nonNat_330_control	control	nonNat	experiment	330	1622.99376442	endSentence
+110	nonNat_332_control	control	nonNat	experiment	332	1627.79190115	sentStart
+110	nonNat_332_control	control	nonNat	experiment	332	1629.02538643	onsetDet	55
+110	nonNat_332_control	control	nonNat	experiment	332	1629.21297971	onsetNoun
+110	nonNat_332_control	control	nonNat	experiment	332	1629.90438602	offsetNoun	155
+110	nonNat_332_control	control	nonNat	experiment	332	1634.6275431	endSentence
+111	Nat_27_unrelated	unrelated	Nat	experiment	27	1639.41457521	sentStart
+111	Nat_27_unrelated	unrelated	Nat	experiment	27	1642.05080271	onsetDet	12
+111	Nat_27_unrelated	unrelated	Nat	experiment	27	1642.19950992	onsetNoun
+111	Nat_27_unrelated	unrelated	Nat	experiment	27	1642.55185156	offsetNoun	129
+111	Nat_27_unrelated	unrelated	Nat	experiment	27	1643.65889484	endSentence
+112	nonNat_347_control	control	nonNat	experiment	347	1648.44802808	sentStart
+112	nonNat_347_control	control	nonNat	experiment	347	1653.01522072	onsetDet	55
+112	nonNat_347_control	control	nonNat	experiment	347	1653.14984175	onsetNoun
+112	nonNat_347_control	control	nonNat	experiment	347	1653.41222995	offsetNoun	155
+112	nonNat_347_control	control	nonNat	experiment	347	1654.27127444	endSentence
+113	nonNat_353_control	control	nonNat	experiment	353	1659.06821133	sentStart
+113	nonNat_353_control	control	nonNat	experiment	353	1660.98752635	onsetDet	55
+113	nonNat_353_control	control	nonNat	experiment	353	1661.09928317	onsetNoun
+113	nonNat_353_control	control	nonNat	experiment	353	1661.47355508	offsetNoun	155
+113	nonNat_353_control	control	nonNat	experiment	353	1663.46562672	endSentence
+114	nonNat_7_related	related	nonNat	experiment	7	1668.25247285	sentStart
+114	nonNat_7_related	related	nonNat	experiment	7	1673.85302009	onsetDet	21
+114	nonNat_7_related	related	nonNat	experiment	7	1674.08496187	onsetNoun
+114	nonNat_7_related	related	nonNat	experiment	7	1674.33397451	offsetNoun	219
+114	nonNat_7_related	related	nonNat	experiment	7	1675.18505364	endSentence
+115	Nat_31_unrelated	unrelated	Nat	experiment	31	1679.98405091	sentStart
+115	Nat_31_unrelated	unrelated	Nat	experiment	31	1682.26430335	onsetDet	12
+115	Nat_31_unrelated	unrelated	Nat	experiment	31	1682.51729899	onsetNoun
+115	Nat_31_unrelated	unrelated	Nat	experiment	31	1683.00735363	offsetNoun	129
+115	Nat_31_unrelated	unrelated	Nat	experiment	31	1683.42641099	endSentence
+116	nonNat_344_control	control	nonNat	experiment	344	1690.82884906	sentStart
+116	nonNat_344_control	control	nonNat	experiment	344	1693.13770243	onsetDet	55
+116	nonNat_344_control	control	nonNat	experiment	344	1693.59469979	onsetNoun
+116	nonNat_344_control	control	nonNat	experiment	344	1693.88769489	offsetNoun	155
+116	nonNat_344_control	control	nonNat	experiment	344	1694.51973102	endSentence
+117	Nat_93_unrelated	unrelated	Nat	experiment	93	1699.32014055	sentStart
+117	Nat_93_unrelated	unrelated	Nat	experiment	93	1702.23001544	onsetDet	12
+117	Nat_93_unrelated	unrelated	Nat	experiment	93	1702.34260387	onsetNoun
+117	Nat_93_unrelated	unrelated	Nat	experiment	93	1702.67907137	offsetNoun	129
+117	Nat_93_unrelated	unrelated	Nat	experiment	93	1703.44306139	endSentence
+118	nonNat_351_control	control	nonNat	experiment	351	1711.63484044	sentStart
+118	nonNat_351_control	control	nonNat	experiment	351	1711.87938057	onsetDet	55
+118	nonNat_351_control	control	nonNat	experiment	351	1712.23241295	onsetNoun
+118	nonNat_351_control	control	nonNat	experiment	351	1713.07744963	offsetNoun	155
+118	nonNat_351_control	control	nonNat	experiment	351	1716.88356074	endSentence
+119	nonNat_58_related	related	nonNat	experiment	58	1721.68037789	sentStart
+119	nonNat_58_related	related	nonNat	experiment	58	1725.79685291	onsetDet	21
+119	nonNat_58_related	related	nonNat	experiment	58	1725.94344065	onsetNoun
+119	nonNat_58_related	related	nonNat	experiment	58	1726.30089267	offsetNoun	219
+119	nonNat_58_related	related	nonNat	experiment	58	1728.2409857	endSentence
+120	Nat_316_control	control	Nat	experiment	316	1735.46379461	sentStart
+120	Nat_316_control	control	Nat	experiment	316	1739.00335975	onsetDet	55
+120	Nat_316_control	control	Nat	experiment	316	1739.14895415	onsetNoun
+120	Nat_316_control	control	Nat	experiment	316	1739.5764014	offsetNoun	155
+120	Nat_316_control	control	Nat	experiment	316	1739.5830814	endSentence
+121	nonNat_346_control	control	nonNat	experiment	346	1843.25261933	sentStart
+121	nonNat_346_control	control	nonNat	experiment	346	1845.85725779	onsetDet	55
+121	nonNat_346_control	control	nonNat	experiment	346	1845.99490424	onsetNoun
+121	nonNat_346_control	control	nonNat	experiment	346	1846.38530188	offsetNoun	155
+121	nonNat_346_control	control	nonNat	experiment	346	1848.78838901	endSentence
+122	nonNat_88_related	related	nonNat	experiment	88	1853.59448955	sentStart
+122	nonNat_88_related	related	nonNat	experiment	88	1856.56962188	onsetDet	21
+122	nonNat_88_related	related	nonNat	experiment	88	1856.69224322	onsetNoun
+122	nonNat_88_related	related	nonNat	experiment	88	1857.04765973	offsetNoun	219
+122	nonNat_88_related	related	nonNat	experiment	88	1857.51967722	endSentence
+123	nonNat_64_unrelated	unrelated	nonNat	experiment	64	1865.11149371	sentStart
+123	nonNat_64_unrelated	unrelated	nonNat	experiment	64	1868.18208358	onsetDet	22
+123	nonNat_64_unrelated	unrelated	nonNat	experiment	64	1868.29073536	onsetNoun
+123	nonNat_64_unrelated	unrelated	nonNat	experiment	64	1868.56108489	offsetNoun	229
+123	nonNat_64_unrelated	unrelated	nonNat	experiment	64	1869.21212539	endSentence
+124	Nat_46_unrelated	unrelated	Nat	experiment	46	1874.01085488	sentStart
+124	Nat_46_unrelated	unrelated	Nat	experiment	46	1877.30840366	onsetDet	12
+124	Nat_46_unrelated	unrelated	Nat	experiment	46	1877.44910539	onsetNoun
+124	Nat_46_unrelated	unrelated	Nat	experiment	46	1877.65235231	offsetNoun	129
+124	Nat_46_unrelated	unrelated	Nat	experiment	46	1878.1854483	endSentence
+125	nonNat_44_unrelated	unrelated	nonNat	experiment	44	1882.98830355	sentStart
+125	nonNat_44_unrelated	unrelated	nonNat	experiment	44	1885.84574825	onsetDet	22
+125	nonNat_44_unrelated	unrelated	nonNat	experiment	44	1886.01939125	onsetNoun
+125	nonNat_44_unrelated	unrelated	nonNat	experiment	44	1886.33874434	offsetNoun	229
+125	nonNat_44_unrelated	unrelated	nonNat	experiment	44	1887.16376342	endSentence
+126	nonNat_356_control	control	nonNat	experiment	356	1894.6839485	sentStart
+126	nonNat_356_control	control	nonNat	experiment	356	1895.83308614	onsetDet	55
+126	nonNat_356_control	control	nonNat	experiment	356	1896.02864292	onsetNoun
+126	nonNat_356_control	control	nonNat	experiment	356	1896.66411034	offsetNoun	155
+126	nonNat_356_control	control	nonNat	experiment	356	1899.64323903	endSentence
+127	Nat_83_related	related	Nat	experiment	83	1904.43585299	sentStart
+127	Nat_83_related	related	Nat	experiment	83	1908.63055608	onsetDet	11
+127	Nat_83_related	related	Nat	experiment	83	1908.79814544	onsetNoun
+127	Nat_83_related	related	Nat	experiment	83	1909.18658968	offsetNoun	119
+127	Nat_83_related	related	Nat	experiment	83	1911.08367121	endSentence
+128	Nat_300_control	control	Nat	experiment	300	1915.87461758	sentStart
+128	Nat_300_control	control	Nat	experiment	300	1916.53384271	onsetDet	55
+128	Nat_300_control	control	Nat	experiment	300	1916.65744216	onsetNoun
+128	Nat_300_control	control	Nat	experiment	300	1917.07888832	offsetNoun	155
+128	Nat_300_control	control	Nat	experiment	300	1918.53091961	endSentence
+129	Nat_306_control	control	Nat	experiment	306	1923.32178917	sentStart
+129	Nat_306_control	control	Nat	experiment	306	1923.33780947	onsetDet	55
+129	Nat_306_control	control	Nat	experiment	306	1923.50552945	onsetNoun
+129	Nat_306_control	control	Nat	experiment	306	1923.76207331	offsetNoun	155
+129	Nat_306_control	control	Nat	experiment	306	1928.35328211	endSentence
+130	nonNat_47_related	related	nonNat	experiment	47	1933.14063455	sentStart
+130	nonNat_47_related	related	nonNat	experiment	47	1936.64167065	onsetDet	21
+130	nonNat_47_related	related	nonNat	experiment	47	1936.85054421	onsetNoun
+130	nonNat_47_related	related	nonNat	experiment	47	1937.39759142	offsetNoun	219
+130	nonNat_47_related	related	nonNat	experiment	47	1938.11963044	endSentence
+131	nonNat_334_control	control	nonNat	experiment	334	1942.90955145	sentStart
+131	nonNat_334_control	control	nonNat	experiment	334	1947.81100846	onsetDet	55
+131	nonNat_334_control	control	nonNat	experiment	334	1948.02995597	onsetNoun
+131	nonNat_334_control	control	nonNat	experiment	334	1948.29799444	offsetNoun	155
+131	nonNat_334_control	control	nonNat	experiment	334	1949.44604016	endSentence
+132	Nat_25_unrelated	unrelated	Nat	experiment	25	1954.39807223	sentStart
+132	Nat_25_unrelated	unrelated	Nat	experiment	25	1957.61735873	onsetDet	12
+132	Nat_25_unrelated	unrelated	Nat	experiment	25	1957.73203772	onsetNoun
+132	Nat_25_unrelated	unrelated	Nat	experiment	25	1958.21835972	offsetNoun	129
+132	Nat_25_unrelated	unrelated	Nat	experiment	25	1959.58237822	endSentence
+133	Nat_318_control	control	Nat	experiment	318	1964.36738198	sentStart
+133	Nat_318_control	control	Nat	experiment	318	1968.53972624	onsetDet	55
+133	Nat_318_control	control	Nat	experiment	318	1968.69338584	onsetNoun
+133	Nat_318_control	control	Nat	experiment	318	1969.25177061	offsetNoun	155
+133	Nat_318_control	control	Nat	experiment	318	1969.26444921	endSentence
+134	Nat_125_related	related	Nat	experiment	125	1974.05709738	sentStart
+134	Nat_125_related	related	Nat	experiment	125	1978.03708848	onsetDet	11
+134	Nat_125_related	related	Nat	experiment	125	1978.21767428	onsetNoun
+134	Nat_125_related	related	Nat	experiment	125	1978.51412087	offsetNoun	119
+134	Nat_125_related	related	Nat	experiment	125	1979.29215757	endSentence
+135	nonNat_335_control	control	nonNat	experiment	335	1987.22734642	sentStart
+135	nonNat_335_control	control	nonNat	experiment	335	1989.41948374	onsetDet	55
+135	nonNat_335_control	control	nonNat	experiment	335	1989.96150642	onsetNoun
+135	nonNat_335_control	control	nonNat	experiment	335	1990.77156259	offsetNoun	155
+135	nonNat_335_control	control	nonNat	experiment	335	1995.30471021	endSentence
+136	Nat_106_related	related	Nat	experiment	106	2000.10152363	sentStart
+136	Nat_106_related	related	Nat	experiment	106	2004.44506859	onsetDet	11
+136	Nat_106_related	related	Nat	experiment	106	2004.62570041	onsetNoun
+136	Nat_106_related	related	Nat	experiment	106	2005.03104323	offsetNoun	119
+136	Nat_106_related	related	Nat	experiment	106	2006.21511411	endSentence
+137	Nat_98_unrelated	unrelated	Nat	experiment	98	2011.03964429	sentStart
+137	Nat_98_unrelated	unrelated	Nat	experiment	98	2013.25633456	onsetDet	12
+137	Nat_98_unrelated	unrelated	Nat	experiment	98	2013.43795412	onsetNoun
+137	Nat_98_unrelated	unrelated	Nat	experiment	98	2013.9524202	offsetNoun	129
+137	Nat_98_unrelated	unrelated	Nat	experiment	98	2014.54241329	endSentence
+138	nonNat_87_unrelated	unrelated	nonNat	experiment	87	2019.33865104	sentStart
+138	nonNat_87_unrelated	unrelated	nonNat	experiment	87	2026.36485261	onsetDet	22
+138	nonNat_87_unrelated	unrelated	nonNat	experiment	87	2026.53461057	onsetNoun
+138	nonNat_87_unrelated	unrelated	nonNat	experiment	87	2026.99285194	offsetNoun	229
+138	nonNat_87_unrelated	unrelated	nonNat	experiment	87	2028.72492263	endSentence
+139	nonNat_338_control	control	nonNat	experiment	338	2033.51549207	sentStart
+139	nonNat_338_control	control	nonNat	experiment	338	2033.8451219	onsetDet	55
+139	nonNat_338_control	control	nonNat	experiment	338	2033.96078427	onsetNoun
+139	nonNat_338_control	control	nonNat	experiment	338	2034.30709435	offsetNoun	155
+139	nonNat_338_control	control	nonNat	experiment	338	2038.20127237	endSentence
+140	Nat_100_related	related	Nat	experiment	100	2043.0073925	sentStart
+140	Nat_100_related	related	Nat	experiment	100	2047.87859312	onsetDet	11
+140	Nat_100_related	related	Nat	experiment	100	2048.00224574	onsetNoun
+140	Nat_100_related	related	Nat	experiment	100	2048.30863287	offsetNoun	119
+140	Nat_100_related	related	Nat	experiment	100	2049.59770655	endSentence
+141	Nat_67_related	related	Nat	experiment	67	2056.43336965	sentStart
+141	Nat_67_related	related	Nat	experiment	67	2059.28801192	onsetDet	11
+141	Nat_67_related	related	Nat	experiment	67	2059.42467747	onsetNoun
+141	Nat_67_related	related	Nat	experiment	67	2059.69606138	offsetNoun	119
+141	Nat_67_related	related	Nat	experiment	67	2060.24309958	endSentence
+142	Nat_313_control	control	Nat	experiment	313	2066.89587796	sentStart
+142	Nat_313_control	control	Nat	experiment	313	2069.44438687	onsetDet	55
+142	Nat_313_control	control	Nat	experiment	313	2069.55019455	onsetNoun
+142	Nat_313_control	control	Nat	experiment	313	2069.99244826	offsetNoun	155
+142	Nat_313_control	control	Nat	experiment	313	2073.06356963	endSentence
+143	nonNat_57_unrelated	unrelated	nonNat	experiment	57	2077.85010632	sentStart
+143	nonNat_57_unrelated	unrelated	nonNat	experiment	57	2080.24983805	onsetDet	22
+143	nonNat_57_unrelated	unrelated	nonNat	experiment	57	2080.37452506	onsetNoun
+143	nonNat_57_unrelated	unrelated	nonNat	experiment	57	2080.84277508	offsetNoun	229
+143	nonNat_57_unrelated	unrelated	nonNat	experiment	57	2081.34084391	endSentence
+144	Nat_34_related	related	Nat	experiment	34	2086.13810331	sentStart
+144	Nat_34_related	related	Nat	experiment	34	2089.32013837	onsetDet	11
+144	Nat_34_related	related	Nat	experiment	34	2089.44571205	onsetNoun
+144	Nat_34_related	related	Nat	experiment	34	2089.80216389	offsetNoun	119
+144	Nat_34_related	related	Nat	experiment	34	2090.7211903	endSentence
+145	Nat_159_unrelated	unrelated	Nat	experiment	159	2097.25382695	sentStart
+145	Nat_159_unrelated	unrelated	Nat	experiment	159	2101.42159638	onsetDet	12
+145	Nat_159_unrelated	unrelated	Nat	experiment	159	2101.58326675	onsetNoun
+145	Nat_159_unrelated	unrelated	Nat	experiment	159	2101.77508872	offsetNoun	129
+145	Nat_159_unrelated	unrelated	Nat	experiment	159	2102.14555615	endSentence
+146	nonNat_144_related	related	nonNat	experiment	144	2106.94554053	sentStart
+146	nonNat_144_related	related	nonNat	experiment	144	2111.62097972	onsetDet	21
+146	nonNat_144_related	related	nonNat	experiment	144	2111.71756371	onsetNoun
+146	nonNat_144_related	related	nonNat	experiment	144	2112.16795478	offsetNoun	219
+146	nonNat_144_related	related	nonNat	experiment	144	2112.88000724	endSentence
+147	nonNat_103_related	related	nonNat	experiment	103	2120.01985682	sentStart
+147	nonNat_103_related	related	nonNat	experiment	103	2123.75938346	onsetDet	21
+147	nonNat_103_related	related	nonNat	experiment	103	2123.94605991	onsetNoun
+147	nonNat_103_related	related	nonNat	experiment	103	2124.37341385	offsetNoun	219
+147	nonNat_103_related	related	nonNat	experiment	103	2126.5115069	endSentence
+148	nonNat_84_related	related	nonNat	experiment	84	2133.08887271	sentStart
+148	nonNat_84_related	related	nonNat	experiment	84	2139.61497833	onsetDet	21
+148	nonNat_84_related	related	nonNat	experiment	84	2139.76550179	onsetNoun
+148	nonNat_84_related	related	nonNat	experiment	84	2140.05596907	offsetNoun	219
+148	nonNat_84_related	related	nonNat	experiment	84	2141.32602252	endSentence
+149	Nat_132_related	related	Nat	experiment	132	2146.14669939	sentStart
+149	Nat_132_related	related	Nat	experiment	132	2148.60633155	onsetDet	11
+149	Nat_132_related	related	Nat	experiment	132	2148.73991757	onsetNoun
+149	Nat_132_related	related	Nat	experiment	132	2149.27833169	offsetNoun	119
+149	Nat_132_related	related	Nat	experiment	132	2151.64338769	endSentence
+150	Nat_30_related	related	Nat	experiment	30	2156.47348604	sentStart
+150	Nat_30_related	related	Nat	experiment	30	2158.0946648	onsetDet	11
+150	Nat_30_related	related	Nat	experiment	30	2158.15229151	onsetNoun
+150	Nat_30_related	related	Nat	experiment	30	2158.46365404	offsetNoun	119
+150	Nat_30_related	related	Nat	experiment	30	2159.54671289	endSentence
+151	Nat_320_control	control	Nat	experiment	320	2212.17284062	sentStart
+151	Nat_320_control	control	Nat	experiment	320	2213.59964938	onsetDet	55
+151	Nat_320_control	control	Nat	experiment	320	2213.70033361	onsetNoun
+151	Nat_320_control	control	Nat	experiment	320	2214.22868279	offsetNoun	155
+151	Nat_320_control	control	Nat	experiment	320	2216.01674587	endSentence
+152	Nat_97_unrelated	unrelated	Nat	experiment	97	2220.8060231	sentStart
+152	Nat_97_unrelated	unrelated	Nat	experiment	97	2223.69300735	onsetDet	12
+152	Nat_97_unrelated	unrelated	Nat	experiment	97	2223.82379497	onsetNoun
+152	Nat_97_unrelated	unrelated	Nat	experiment	97	2224.12404697	offsetNoun	129
+152	Nat_97_unrelated	unrelated	Nat	experiment	97	2224.39806756	endSentence
+153	Nat_309_control	control	Nat	experiment	309	2229.18857573	sentStart
+153	Nat_309_control	control	Nat	experiment	309	2233.12837083	onsetDet	55
+153	Nat_309_control	control	Nat	experiment	309	2233.26310537	onsetNoun
+153	Nat_309_control	control	Nat	experiment	309	2233.68141881	offsetNoun	155
+153	Nat_309_control	control	Nat	experiment	309	2235.18542125	endSentence
+154	Nat_321_control	control	Nat	experiment	321	2239.97616143	sentStart
+154	Nat_321_control	control	Nat	experiment	321	2240.56164904	onsetDet	55
+154	Nat_321_control	control	Nat	experiment	321	2240.75332142	onsetNoun
+154	Nat_321_control	control	Nat	experiment	321	2241.2206829	offsetNoun	155
+154	Nat_321_control	control	Nat	experiment	321	2244.11179974	endSentence
+155	Nat_11_unrelated	unrelated	Nat	experiment	11	2248.909567	sentStart
+155	Nat_11_unrelated	unrelated	Nat	experiment	11	2252.98410192	onsetDet	12
+155	Nat_11_unrelated	unrelated	Nat	experiment	11	2253.16792804	onsetNoun
+155	Nat_11_unrelated	unrelated	Nat	experiment	11	2253.87214077	offsetNoun	129
+155	Nat_11_unrelated	unrelated	Nat	experiment	11	2254.7621635	endSentence
+156	Nat_79_related	related	Nat	experiment	79	2259.62996984	sentStart
+156	Nat_79_related	related	Nat	experiment	79	2263.26149251	onsetDet	11
+156	Nat_79_related	related	Nat	experiment	79	2263.34507571	onsetNoun
+156	Nat_79_related	related	Nat	experiment	79	2263.66752202	offsetNoun	119
+156	Nat_79_related	related	Nat	experiment	79	2264.08552882	endSentence
+157	Nat_62_related	related	Nat	experiment	62	2268.89764475	sentStart
+157	Nat_62_related	related	Nat	experiment	62	2272.08681544	onsetDet	11
+157	Nat_62_related	related	Nat	experiment	62	2272.22653564	onsetNoun
+157	Nat_62_related	related	Nat	experiment	62	2272.77483681	offsetNoun	119
+157	Nat_62_related	related	Nat	experiment	62	2274.18988287	endSentence
+158	Nat_325_control	control	Nat	experiment	325	2279.05018537	sentStart
+158	Nat_325_control	control	Nat	experiment	325	2279.05520773	onsetDet	55
+158	Nat_325_control	control	Nat	experiment	325	2279.21295421	onsetNoun
+158	Nat_325_control	control	Nat	experiment	325	2279.55408642	offsetNoun	155
+158	Nat_325_control	control	Nat	experiment	325	2284.80228922	endSentence
+159	nonNat_80_related	related	nonNat	experiment	80	2289.58739872	sentStart
+159	nonNat_80_related	related	nonNat	experiment	80	2293.13560068	onsetDet	21
+159	nonNat_80_related	related	nonNat	experiment	80	2293.24722346	onsetNoun
+159	nonNat_80_related	related	nonNat	experiment	80	2293.49254918	offsetNoun	219
+159	nonNat_80_related	related	nonNat	experiment	80	2294.3656469	endSentence
+160	Nat_149_related	related	Nat	experiment	149	2299.15558066	sentStart
+160	Nat_149_related	related	Nat	experiment	149	2304.49595465	onsetDet	11
+160	Nat_149_related	related	Nat	experiment	149	2304.65863298	onsetNoun
+160	Nat_149_related	related	Nat	experiment	149	2305.18500171	offsetNoun	119
+160	Nat_149_related	related	Nat	experiment	149	2305.86806043	endSentence
+161	nonNat_339_control	control	nonNat	experiment	339	2310.66057145	sentStart
+161	nonNat_339_control	control	nonNat	experiment	339	2312.72128671	onsetDet	55
+161	nonNat_339_control	control	nonNat	experiment	339	2312.91894618	onsetNoun
+161	nonNat_339_control	control	nonNat	experiment	339	2313.32032093	offsetNoun	155
+161	nonNat_339_control	control	nonNat	experiment	339	2316.15142692	endSentence
+162	nonNat_17_unrelated	unrelated	nonNat	experiment	17	2320.9520669	sentStart
+162	nonNat_17_unrelated	unrelated	nonNat	experiment	17	2324.01166442	onsetDet	22
+162	nonNat_17_unrelated	unrelated	nonNat	experiment	17	2324.20521462	onsetNoun
+162	nonNat_17_unrelated	unrelated	nonNat	experiment	17	2324.6927346	offsetNoun	229
+162	nonNat_17_unrelated	unrelated	nonNat	experiment	17	2325.87777176	endSentence
+163	Nat_315_control	control	Nat	experiment	315	2332.58574357	sentStart
+163	Nat_315_control	control	Nat	experiment	315	2333.92907301	onsetDet	55
+163	Nat_315_control	control	Nat	experiment	315	2334.06472593	onsetNoun
+163	Nat_315_control	control	Nat	experiment	315	2334.65409765	offsetNoun	155
+163	Nat_315_control	control	Nat	experiment	315	2338.72924026	endSentence
+164	Nat_317_control	control	Nat	experiment	317	2343.55696971	sentStart
+164	Nat_317_control	control	Nat	experiment	317	2343.566988	onsetDet	55
+164	Nat_317_control	control	Nat	experiment	317	2343.6285949	onsetNoun
+164	Nat_317_control	control	Nat	experiment	317	2344.17142245	offsetNoun	155
+164	Nat_317_control	control	Nat	experiment	317	2348.78162348	endSentence
+165	Nat_131_unrelated	unrelated	Nat	experiment	131	2359.39394057	sentStart
+165	Nat_131_unrelated	unrelated	Nat	experiment	131	2362.20811907	onsetDet	12
+165	Nat_131_unrelated	unrelated	Nat	experiment	131	2362.35578691	onsetNoun
+165	Nat_131_unrelated	unrelated	Nat	experiment	131	2362.7241047	offsetNoun	129
+165	Nat_131_unrelated	unrelated	Nat	experiment	131	2363.77115424	endSentence
+166	nonNat_50_unrelated	unrelated	nonNat	experiment	50	2371.26489954	sentStart
+166	nonNat_50_unrelated	unrelated	nonNat	experiment	50	2374.30455751	onsetDet	22
+166	nonNat_50_unrelated	unrelated	nonNat	experiment	50	2374.46028403	onsetNoun
+166	nonNat_50_unrelated	unrelated	nonNat	experiment	50	2375.06151609	offsetNoun	229
+166	nonNat_50_unrelated	unrelated	nonNat	experiment	50	2376.66660395	endSentence
+167	Nat_9_related	related	Nat	experiment	9	2383.67316732	sentStart
+167	Nat_9_related	related	Nat	experiment	9	2386.34695323	onsetDet	11
+167	Nat_9_related	related	Nat	experiment	9	2386.50353469	onsetNoun
+167	Nat_9_related	related	Nat	experiment	9	2387.08002938	offsetNoun	119
+167	Nat_9_related	related	Nat	experiment	9	2388.33102373	endSentence
+168	Nat_324_control	control	Nat	experiment	324	2396.19043552	sentStart
+168	Nat_324_control	control	Nat	experiment	324	2398.93642477	onsetDet	55
+168	Nat_324_control	control	Nat	experiment	324	2399.0130462	onsetNoun
+168	Nat_324_control	control	Nat	experiment	324	2399.65849738	offsetNoun	155
+168	Nat_324_control	control	Nat	experiment	324	2402.27056598	endSentence
+169	nonNat_358_control	control	nonNat	experiment	358	2407.06122779	sentStart
+169	nonNat_358_control	control	nonNat	experiment	358	2409.45178404	onsetDet	55
+169	nonNat_358_control	control	nonNat	experiment	358	2409.69578304	onsetNoun
+169	nonNat_358_control	control	nonNat	experiment	358	2410.03783146	offsetNoun	155
+169	nonNat_358_control	control	nonNat	experiment	358	2412.07488977	endSentence
+170	nonNat_352_control	control	nonNat	experiment	352	2416.86324768	sentStart
+170	nonNat_352_control	control	nonNat	experiment	352	2418.31814889	onsetDet	55
+170	nonNat_352_control	control	nonNat	experiment	352	2418.8221619	onsetNoun
+170	nonNat_352_control	control	nonNat	experiment	352	2419.97218963	offsetNoun	155
+170	nonNat_352_control	control	nonNat	experiment	352	2422.65832291	endSentence
+171	Nat_107_unrelated	unrelated	Nat	experiment	107	2427.45005052	sentStart
+171	Nat_107_unrelated	unrelated	Nat	experiment	107	2430.51860831	onsetDet	12
+171	Nat_107_unrelated	unrelated	Nat	experiment	107	2430.64225471	onsetNoun
+171	Nat_107_unrelated	unrelated	Nat	experiment	107	2431.11060611	offsetNoun	129
+171	Nat_107_unrelated	unrelated	Nat	experiment	107	2432.98366465	endSentence
+172	Nat_92_unrelated	unrelated	Nat	experiment	92	2437.77682629	sentStart
+172	Nat_92_unrelated	unrelated	Nat	experiment	92	2440.32495019	onsetDet	12
+172	Nat_92_unrelated	unrelated	Nat	experiment	92	2440.47663586	onsetNoun
+172	Nat_92_unrelated	unrelated	Nat	experiment	92	2440.72692268	offsetNoun	129
+172	Nat_92_unrelated	unrelated	Nat	experiment	92	2441.571983	endSentence
+173	nonNat_331_control	control	nonNat	experiment	331	2448.29018769	sentStart
+173	nonNat_331_control	control	nonNat	experiment	331	2449.24029279	onsetDet	55
+173	nonNat_331_control	control	nonNat	experiment	331	2449.48624363	onsetNoun
+173	nonNat_331_control	control	nonNat	experiment	331	2449.83432766	offsetNoun	155
+173	nonNat_331_control	control	nonNat	experiment	331	2454.06447154	endSentence
+174	Nat_319_control	control	Nat	experiment	319	2458.85993054	sentStart
+174	Nat_319_control	control	Nat	experiment	319	2460.04767093	onsetDet	55
+174	Nat_319_control	control	Nat	experiment	319	2460.15141573	onsetNoun
+174	Nat_319_control	control	Nat	experiment	319	2460.84369969	offsetNoun	155
+174	Nat_319_control	control	Nat	experiment	319	2463.34479332	endSentence
+175	nonNat_357_control	control	nonNat	experiment	357	2468.1445485	sentStart
+175	nonNat_357_control	control	nonNat	experiment	357	2472.58210952	onsetDet	55
+175	nonNat_357_control	control	nonNat	experiment	357	2472.84810875	onsetNoun
+175	nonNat_357_control	control	nonNat	experiment	357	2473.12911816	offsetNoun	155
+175	nonNat_357_control	control	nonNat	experiment	357	2473.18777086	endSentence
+176	nonNat_147_unrelated	unrelated	nonNat	experiment	147	2478.0464434	sentStart
+176	nonNat_147_unrelated	unrelated	nonNat	experiment	147	2481.18744089	onsetDet	22
+176	nonNat_147_unrelated	unrelated	nonNat	experiment	147	2481.40439458	onsetNoun
+176	nonNat_147_unrelated	unrelated	nonNat	experiment	147	2481.95347449	offsetNoun	229
+176	nonNat_147_unrelated	unrelated	nonNat	experiment	147	2484.3315571	endSentence
+177	Nat_308_control	control	Nat	experiment	308	2489.13473361	sentStart
+177	Nat_308_control	control	Nat	experiment	308	2491.82882915	onsetDet	55
+177	Nat_308_control	control	Nat	experiment	308	2491.95945598	onsetNoun
+177	Nat_308_control	control	Nat	experiment	308	2492.65487266	offsetNoun	155
+177	Nat_308_control	control	Nat	experiment	308	2493.73789606	endSentence
+178	nonNat_6_unrelated	unrelated	nonNat	experiment	6	2498.5418622	sentStart
+178	nonNat_6_unrelated	unrelated	nonNat	experiment	6	2502.1292152	onsetDet	22
+178	nonNat_6_unrelated	unrelated	nonNat	experiment	6	2502.3158394	onsetNoun
+178	nonNat_6_unrelated	unrelated	nonNat	experiment	6	2502.86722259	offsetNoun	229
+178	nonNat_6_unrelated	unrelated	nonNat	experiment	6	2503.81325948	endSentence
+179	Nat_304_control	control	Nat	experiment	304	2510.34164972	sentStart
+179	Nat_304_control	control	Nat	experiment	304	2510.76849456	onsetDet	55
+179	Nat_304_control	control	Nat	experiment	304	2510.85607381	onsetNoun
+179	Nat_304_control	control	Nat	experiment	304	2511.39252552	offsetNoun	155
+179	Nat_304_control	control	Nat	experiment	304	2514.60560381	endSentence
